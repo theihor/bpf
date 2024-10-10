@@ -19,7 +19,7 @@ static void burn_cpu(void)
 	ASSERT_OK(err, "set_thread_affinity");
 
 	/* spin the loop for a while (random high number) */
-	for (i = 0; i < 1000000; ++i)
+	for (i = 0; i < 1999999; ++i)
 		++j;
 }
 
