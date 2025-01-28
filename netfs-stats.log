@@ -1,0 +1,4161 @@
+
+Reads  : DR=0 RA=289 RF=0 RS=0 WB=0 WBZ=0
+Writes : BW=1 WT=0 DW=0 WP=1 2C=0
+ZeroOps: ZR=157 sh=0 sk=0
+DownOps: DL=289 ds=289 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=1 us=1 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=4 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=451 RF=0 RS=0 WB=0 WBZ=0
+Writes : BW=4 WT=0 DW=0 WP=4 2C=0
+ZeroOps: ZR=197 sh=0 sk=0
+DownOps: DL=451 ds=451 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=4 us=4 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=457 RF=0 RS=0 WB=0 WBZ=0
+Writes : BW=6 WT=0 DW=0 WP=6 2C=0
+ZeroOps: ZR=201 sh=0 sk=0
+DownOps: DL=457 ds=457 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=6 us=6 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=3 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=463 RF=0 RS=0 WB=0 WBZ=0
+Writes : BW=8 WT=0 DW=0 WP=8 2C=0
+ZeroOps: ZR=205 sh=0 sk=0
+DownOps: DL=463 ds=463 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=8 us=8 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=470 RF=0 RS=0 WB=0 WBZ=0
+Writes : BW=10 WT=0 DW=0 WP=10 2C=0
+ZeroOps: ZR=209 sh=0 sk=0
+DownOps: DL=470 ds=470 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=10 us=10 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=507 RF=1 RS=0 WB=0 WBZ=0
+Writes : BW=12 WT=0 DW=0 WP=12 2C=0
+ZeroOps: ZR=226 sh=0 sk=0
+DownOps: DL=508 ds=508 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=12 us=12 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=3 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=737 RF=1 RS=0 WB=0 WBZ=0
+Writes : BW=14 WT=0 DW=0 WP=14 2C=0
+ZeroOps: ZR=333 sh=0 sk=0
+DownOps: DL=738 ds=738 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=14 us=14 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=807 RF=1 RS=0 WB=0 WBZ=0
+Writes : BW=16 WT=0 DW=0 WP=16 2C=0
+ZeroOps: ZR=368 sh=0 sk=0
+DownOps: DL=808 ds=808 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=16 us=16 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=4 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=1172 RF=1 RS=0 WB=0 WBZ=0
+Writes : BW=18 WT=0 DW=0 WP=18 2C=0
+ZeroOps: ZR=611 sh=0 sk=0
+DownOps: DL=1173 ds=1173 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=18 us=18 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=4 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=1532 RF=1 RS=0 WB=0 WBZ=0
+Writes : BW=20 WT=0 DW=0 WP=20 2C=0
+ZeroOps: ZR=851 sh=0 sk=0
+DownOps: DL=1533 ds=1533 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=20 us=20 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=4 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=1547 RF=1 RS=0 WB=0 WBZ=0
+Writes : BW=22 WT=0 DW=0 WP=22 2C=0
+ZeroOps: ZR=859 sh=0 sk=0
+DownOps: DL=1548 ds=1548 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=22 us=22 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=1566 RF=1 RS=0 WB=0 WBZ=0
+Writes : BW=24 WT=0 DW=0 WP=24 2C=0
+ZeroOps: ZR=869 sh=0 sk=0
+DownOps: DL=1567 ds=1567 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=24 us=24 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=1574 RF=1 RS=0 WB=0 WBZ=0
+Writes : BW=26 WT=0 DW=0 WP=26 2C=0
+ZeroOps: ZR=874 sh=0 sk=0
+DownOps: DL=1575 ds=1575 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=26 us=26 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=1584 RF=1 RS=0 WB=0 WBZ=0
+Writes : BW=28 WT=0 DW=0 WP=28 2C=0
+ZeroOps: ZR=880 sh=0 sk=0
+DownOps: DL=1585 ds=1585 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=28 us=28 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=1651 RF=1 RS=0 WB=0 WBZ=0
+Writes : BW=30 WT=0 DW=0 WP=30 2C=0
+ZeroOps: ZR=919 sh=0 sk=0
+DownOps: DL=1652 ds=1652 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=30 us=30 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=1854 RF=1 RS=0 WB=0 WBZ=0
+Writes : BW=39 WT=0 DW=0 WP=39 2C=0
+ZeroOps: ZR=1027 sh=0 sk=0
+DownOps: DL=1855 ds=1855 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=39 us=39 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2162 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=41 WT=0 DW=0 WP=41 2C=0
+ZeroOps: ZR=1139 sh=0 sk=0
+DownOps: DL=2167 ds=2167 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=41 us=41 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2168 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=43 WT=0 DW=0 WP=43 2C=0
+ZeroOps: ZR=1143 sh=0 sk=0
+DownOps: DL=2173 ds=2173 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=43 us=43 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2225 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=45 WT=0 DW=0 WP=45 2C=0
+ZeroOps: ZR=1171 sh=0 sk=0
+DownOps: DL=2230 ds=2230 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=45 us=45 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2303 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=47 WT=0 DW=0 WP=47 2C=0
+ZeroOps: ZR=1211 sh=0 sk=0
+DownOps: DL=2308 ds=2308 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=47 us=47 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2321 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=49 WT=0 DW=0 WP=49 2C=0
+ZeroOps: ZR=1221 sh=0 sk=0
+DownOps: DL=2326 ds=2326 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=49 us=49 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2351 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=51 WT=0 DW=0 WP=51 2C=0
+ZeroOps: ZR=1237 sh=0 sk=0
+DownOps: DL=2356 ds=2356 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=51 us=51 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2369 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=53 WT=0 DW=0 WP=53 2C=0
+ZeroOps: ZR=1247 sh=0 sk=0
+DownOps: DL=2374 ds=2374 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=53 us=53 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2508 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=55 WT=0 DW=0 WP=55 2C=0
+ZeroOps: ZR=1317 sh=0 sk=0
+DownOps: DL=2513 ds=2513 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=55 us=55 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2575 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=57 WT=0 DW=0 WP=57 2C=0
+ZeroOps: ZR=1356 sh=0 sk=0
+DownOps: DL=2580 ds=2580 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=57 us=57 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2601 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=59 WT=0 DW=0 WP=59 2C=0
+ZeroOps: ZR=1373 sh=0 sk=0
+DownOps: DL=2606 ds=2606 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=59 us=59 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2639 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=61 WT=0 DW=0 WP=61 2C=0
+ZeroOps: ZR=1398 sh=0 sk=0
+DownOps: DL=2644 ds=2644 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=61 us=61 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2676 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=63 WT=0 DW=0 WP=63 2C=0
+ZeroOps: ZR=1420 sh=0 sk=0
+DownOps: DL=2681 ds=2681 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=63 us=63 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2683 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=65 WT=0 DW=0 WP=65 2C=0
+ZeroOps: ZR=1424 sh=0 sk=0
+DownOps: DL=2688 ds=2688 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=65 us=65 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=2734 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=68 WT=0 DW=0 WP=68 2C=0
+ZeroOps: ZR=1452 sh=0 sk=0
+DownOps: DL=2739 ds=2739 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=68 us=68 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=3330 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=91 WT=0 DW=0 WP=91 2C=0
+ZeroOps: ZR=1924 sh=0 sk=0
+DownOps: DL=3335 ds=3335 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=91 us=91 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=4 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=3885 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=126 WT=0 DW=0 WP=126 2C=0
+ZeroOps: ZR=2299 sh=0 sk=0
+DownOps: DL=3890 ds=3890 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=126 us=126 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=5 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4027 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=137 WT=0 DW=0 WP=137 2C=0
+ZeroOps: ZR=2398 sh=0 sk=0
+DownOps: DL=4032 ds=4032 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=137 us=137 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4169 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=139 WT=0 DW=0 WP=139 2C=0
+ZeroOps: ZR=2478 sh=0 sk=0
+DownOps: DL=4174 ds=4174 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=139 us=139 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4229 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=141 WT=0 DW=0 WP=141 2C=0
+ZeroOps: ZR=2507 sh=0 sk=0
+DownOps: DL=4234 ds=4234 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=141 us=141 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4324 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=143 WT=0 DW=0 WP=143 2C=0
+ZeroOps: ZR=2552 sh=0 sk=0
+DownOps: DL=4329 ds=4329 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=143 us=143 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4374 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=145 WT=0 DW=0 WP=145 2C=0
+ZeroOps: ZR=2574 sh=0 sk=0
+DownOps: DL=4379 ds=4379 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=145 us=145 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4380 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=147 WT=0 DW=0 WP=147 2C=0
+ZeroOps: ZR=2578 sh=0 sk=0
+DownOps: DL=4385 ds=4385 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=147 us=147 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4386 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=149 WT=0 DW=0 WP=149 2C=0
+ZeroOps: ZR=2582 sh=0 sk=0
+DownOps: DL=4391 ds=4391 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=149 us=149 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4392 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=151 WT=0 DW=0 WP=151 2C=0
+ZeroOps: ZR=2586 sh=0 sk=0
+DownOps: DL=4397 ds=4397 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=151 us=151 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4442 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=153 WT=0 DW=0 WP=153 2C=0
+ZeroOps: ZR=2614 sh=0 sk=0
+DownOps: DL=4447 ds=4447 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=153 us=153 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4448 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=155 WT=0 DW=0 WP=155 2C=0
+ZeroOps: ZR=2618 sh=0 sk=0
+DownOps: DL=4453 ds=4453 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=155 us=155 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=3 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4528 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=157 WT=0 DW=0 WP=157 2C=0
+ZeroOps: ZR=2656 sh=0 sk=0
+DownOps: DL=4533 ds=4533 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=157 us=157 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=4 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4867 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=159 WT=0 DW=0 WP=159 2C=0
+ZeroOps: ZR=2816 sh=0 sk=0
+DownOps: DL=4872 ds=4872 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=159 us=159 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4873 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=161 WT=0 DW=0 WP=161 2C=0
+ZeroOps: ZR=2820 sh=0 sk=0
+DownOps: DL=4878 ds=4878 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=161 us=161 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4879 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=163 WT=0 DW=0 WP=163 2C=0
+ZeroOps: ZR=2824 sh=0 sk=0
+DownOps: DL=4884 ds=4884 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=163 us=163 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4885 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=165 WT=0 DW=0 WP=165 2C=0
+ZeroOps: ZR=2828 sh=0 sk=0
+DownOps: DL=4890 ds=4890 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=165 us=165 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4891 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=167 WT=0 DW=0 WP=167 2C=0
+ZeroOps: ZR=2832 sh=0 sk=0
+DownOps: DL=4896 ds=4896 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=167 us=167 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=4951 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=169 WT=0 DW=0 WP=169 2C=0
+ZeroOps: ZR=2862 sh=0 sk=0
+DownOps: DL=4956 ds=4956 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=169 us=169 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5268 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=171 WT=0 DW=0 WP=171 2C=0
+ZeroOps: ZR=3016 sh=0 sk=0
+DownOps: DL=5273 ds=5273 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=171 us=171 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5533 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=173 WT=0 DW=0 WP=173 2C=0
+ZeroOps: ZR=3145 sh=0 sk=0
+DownOps: DL=5538 ds=5538 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=173 us=173 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=3 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5589 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=176 WT=0 DW=0 WP=176 2C=0
+ZeroOps: ZR=3172 sh=0 sk=0
+DownOps: DL=5594 ds=5594 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=176 us=176 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5595 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=178 WT=0 DW=0 WP=178 2C=0
+ZeroOps: ZR=3176 sh=0 sk=0
+DownOps: DL=5600 ds=5600 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=178 us=178 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5609 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=180 WT=0 DW=0 WP=180 2C=0
+ZeroOps: ZR=3185 sh=0 sk=0
+DownOps: DL=5614 ds=5614 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=180 us=180 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5617 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=182 WT=0 DW=0 WP=182 2C=0
+ZeroOps: ZR=3189 sh=0 sk=0
+DownOps: DL=5622 ds=5622 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=182 us=182 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5627 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=184 WT=0 DW=0 WP=184 2C=0
+ZeroOps: ZR=3196 sh=0 sk=0
+DownOps: DL=5632 ds=5632 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=184 us=184 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5633 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=186 WT=0 DW=0 WP=186 2C=0
+ZeroOps: ZR=3200 sh=0 sk=0
+DownOps: DL=5638 ds=5638 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=186 us=186 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5639 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=188 WT=0 DW=0 WP=188 2C=0
+ZeroOps: ZR=3204 sh=0 sk=0
+DownOps: DL=5644 ds=5644 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=188 us=188 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5645 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=190 WT=0 DW=0 WP=190 2C=0
+ZeroOps: ZR=3208 sh=0 sk=0
+DownOps: DL=5650 ds=5650 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=190 us=190 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5667 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=192 WT=0 DW=0 WP=192 2C=0
+ZeroOps: ZR=3215 sh=0 sk=0
+DownOps: DL=5672 ds=5672 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=192 us=192 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5674 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=194 WT=0 DW=0 WP=194 2C=0
+ZeroOps: ZR=3219 sh=0 sk=0
+DownOps: DL=5679 ds=5679 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=194 us=194 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5680 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=196 WT=0 DW=0 WP=196 2C=0
+ZeroOps: ZR=3223 sh=0 sk=0
+DownOps: DL=5685 ds=5685 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=196 us=196 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5686 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=198 WT=0 DW=0 WP=198 2C=0
+ZeroOps: ZR=3227 sh=0 sk=0
+DownOps: DL=5691 ds=5691 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=198 us=198 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5693 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=200 WT=0 DW=0 WP=200 2C=0
+ZeroOps: ZR=3232 sh=0 sk=0
+DownOps: DL=5698 ds=5698 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=200 us=200 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5840 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=202 WT=0 DW=0 WP=202 2C=0
+ZeroOps: ZR=3306 sh=0 sk=0
+DownOps: DL=5845 ds=5845 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=202 us=202 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5858 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=204 WT=0 DW=0 WP=204 2C=0
+ZeroOps: ZR=3316 sh=0 sk=0
+DownOps: DL=5863 ds=5863 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=204 us=204 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=5920 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=206 WT=0 DW=0 WP=206 2C=0
+ZeroOps: ZR=3347 sh=0 sk=0
+DownOps: DL=5925 ds=5925 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=206 us=206 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6010 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=208 WT=0 DW=0 WP=208 2C=0
+ZeroOps: ZR=3393 sh=0 sk=0
+DownOps: DL=6015 ds=6015 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=208 us=208 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6028 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=210 WT=0 DW=0 WP=210 2C=0
+ZeroOps: ZR=3403 sh=0 sk=0
+DownOps: DL=6033 ds=6033 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=210 us=210 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6188 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=212 WT=0 DW=0 WP=212 2C=0
+ZeroOps: ZR=3483 sh=0 sk=0
+DownOps: DL=6193 ds=6193 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=212 us=212 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6206 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=214 WT=0 DW=0 WP=214 2C=0
+ZeroOps: ZR=3493 sh=0 sk=0
+DownOps: DL=6211 ds=6211 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=214 us=214 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6366 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=216 WT=0 DW=0 WP=216 2C=0
+ZeroOps: ZR=3573 sh=0 sk=0
+DownOps: DL=6371 ds=6371 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=216 us=216 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6384 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=218 WT=0 DW=0 WP=218 2C=0
+ZeroOps: ZR=3583 sh=0 sk=0
+DownOps: DL=6389 ds=6389 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=218 us=218 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6396 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=220 WT=0 DW=0 WP=220 2C=0
+ZeroOps: ZR=3590 sh=0 sk=0
+DownOps: DL=6401 ds=6401 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=220 us=220 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=3 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6575 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=222 WT=0 DW=0 WP=222 2C=0
+ZeroOps: ZR=3678 sh=0 sk=0
+DownOps: DL=6580 ds=6580 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=222 us=222 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6593 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=224 WT=0 DW=0 WP=224 2C=0
+ZeroOps: ZR=3688 sh=0 sk=0
+DownOps: DL=6598 ds=6598 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=224 us=224 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6759 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=226 WT=0 DW=0 WP=226 2C=0
+ZeroOps: ZR=3769 sh=0 sk=0
+DownOps: DL=6764 ds=6764 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=226 us=226 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6836 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=228 WT=0 DW=0 WP=228 2C=0
+ZeroOps: ZR=3806 sh=0 sk=0
+DownOps: DL=6841 ds=6841 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=228 us=228 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6932 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=230 WT=0 DW=0 WP=230 2C=0
+ZeroOps: ZR=3854 sh=0 sk=0
+DownOps: DL=6937 ds=6937 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=230 us=230 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6938 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=232 WT=0 DW=0 WP=232 2C=0
+ZeroOps: ZR=3858 sh=0 sk=0
+DownOps: DL=6943 ds=6943 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=232 us=232 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6945 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=234 WT=0 DW=0 WP=234 2C=0
+ZeroOps: ZR=3863 sh=0 sk=0
+DownOps: DL=6950 ds=6950 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=234 us=234 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6951 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=236 WT=0 DW=0 WP=236 2C=0
+ZeroOps: ZR=3867 sh=0 sk=0
+DownOps: DL=6956 ds=6956 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=236 us=236 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6957 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=238 WT=0 DW=0 WP=238 2C=0
+ZeroOps: ZR=3871 sh=0 sk=0
+DownOps: DL=6962 ds=6962 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=238 us=238 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6963 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=240 WT=0 DW=0 WP=240 2C=0
+ZeroOps: ZR=3875 sh=0 sk=0
+DownOps: DL=6968 ds=6968 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=240 us=240 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6969 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=242 WT=0 DW=0 WP=242 2C=0
+ZeroOps: ZR=3879 sh=0 sk=0
+DownOps: DL=6974 ds=6974 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=242 us=242 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6975 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=244 WT=0 DW=0 WP=244 2C=0
+ZeroOps: ZR=3883 sh=0 sk=0
+DownOps: DL=6980 ds=6980 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=244 us=244 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6981 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=246 WT=0 DW=0 WP=246 2C=0
+ZeroOps: ZR=3887 sh=0 sk=0
+DownOps: DL=6986 ds=6986 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=246 us=246 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6987 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=248 WT=0 DW=0 WP=248 2C=0
+ZeroOps: ZR=3891 sh=0 sk=0
+DownOps: DL=6992 ds=6992 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=248 us=248 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6993 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=250 WT=0 DW=0 WP=250 2C=0
+ZeroOps: ZR=3895 sh=0 sk=0
+DownOps: DL=6998 ds=6998 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=250 us=250 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=6999 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=252 WT=0 DW=0 WP=252 2C=0
+ZeroOps: ZR=3899 sh=0 sk=0
+DownOps: DL=7004 ds=7004 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=252 us=252 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7005 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=254 WT=0 DW=0 WP=254 2C=0
+ZeroOps: ZR=3903 sh=0 sk=0
+DownOps: DL=7010 ds=7010 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=254 us=254 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7011 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=256 WT=0 DW=0 WP=256 2C=0
+ZeroOps: ZR=3907 sh=0 sk=0
+DownOps: DL=7016 ds=7016 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=256 us=256 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7093 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=258 WT=0 DW=0 WP=258 2C=0
+ZeroOps: ZR=3946 sh=0 sk=0
+DownOps: DL=7098 ds=7098 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=258 us=258 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7237 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=260 WT=0 DW=0 WP=260 2C=0
+ZeroOps: ZR=4016 sh=0 sk=0
+DownOps: DL=7242 ds=7242 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=260 us=260 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7319 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=262 WT=0 DW=0 WP=262 2C=0
+ZeroOps: ZR=4055 sh=0 sk=0
+DownOps: DL=7324 ds=7324 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=262 us=262 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7334 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=264 WT=0 DW=0 WP=264 2C=0
+ZeroOps: ZR=4067 sh=0 sk=0
+DownOps: DL=7339 ds=7339 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=264 us=264 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7343 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=266 WT=0 DW=0 WP=266 2C=0
+ZeroOps: ZR=4074 sh=0 sk=0
+DownOps: DL=7348 ds=7348 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=266 us=266 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7350 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=268 WT=0 DW=0 WP=268 2C=0
+ZeroOps: ZR=4079 sh=0 sk=0
+DownOps: DL=7355 ds=7355 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=268 us=268 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7376 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=270 WT=0 DW=0 WP=270 2C=0
+ZeroOps: ZR=4093 sh=0 sk=0
+DownOps: DL=7381 ds=7381 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=270 us=270 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7382 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=272 WT=0 DW=0 WP=272 2C=0
+ZeroOps: ZR=4097 sh=0 sk=0
+DownOps: DL=7387 ds=7387 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=272 us=272 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7388 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=274 WT=0 DW=0 WP=274 2C=0
+ZeroOps: ZR=4101 sh=0 sk=0
+DownOps: DL=7393 ds=7393 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=274 us=274 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7394 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=276 WT=0 DW=0 WP=276 2C=0
+ZeroOps: ZR=4105 sh=0 sk=0
+DownOps: DL=7399 ds=7399 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=276 us=276 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7400 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=278 WT=0 DW=0 WP=278 2C=0
+ZeroOps: ZR=4109 sh=0 sk=0
+DownOps: DL=7405 ds=7405 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=278 us=278 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7406 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=280 WT=0 DW=0 WP=280 2C=0
+ZeroOps: ZR=4113 sh=0 sk=0
+DownOps: DL=7411 ds=7411 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=280 us=280 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7412 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=282 WT=0 DW=0 WP=282 2C=0
+ZeroOps: ZR=4117 sh=0 sk=0
+DownOps: DL=7417 ds=7417 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=282 us=282 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7418 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=284 WT=0 DW=0 WP=284 2C=0
+ZeroOps: ZR=4121 sh=0 sk=0
+DownOps: DL=7423 ds=7423 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=284 us=284 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7424 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=286 WT=0 DW=0 WP=286 2C=0
+ZeroOps: ZR=4125 sh=0 sk=0
+DownOps: DL=7429 ds=7429 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=286 us=286 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=0 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7430 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=288 WT=0 DW=0 WP=288 2C=0
+ZeroOps: ZR=4129 sh=0 sk=0
+DownOps: DL=7435 ds=7435 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=288 us=288 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7436 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=290 WT=0 DW=0 WP=290 2C=0
+ZeroOps: ZR=4133 sh=0 sk=0
+DownOps: DL=7441 ds=7441 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=290 us=290 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7442 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=292 WT=0 DW=0 WP=292 2C=0
+ZeroOps: ZR=4137 sh=0 sk=0
+DownOps: DL=7447 ds=7447 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=292 us=292 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7448 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=294 WT=0 DW=0 WP=294 2C=0
+ZeroOps: ZR=4141 sh=0 sk=0
+DownOps: DL=7453 ds=7453 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=294 us=294 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7455 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=296 WT=0 DW=0 WP=296 2C=0
+ZeroOps: ZR=4146 sh=0 sk=0
+DownOps: DL=7460 ds=7460 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=296 us=296 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=7688 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=298 WT=0 DW=0 WP=298 2C=0
+ZeroOps: ZR=4255 sh=0 sk=0
+DownOps: DL=7693 ds=7693 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=298 us=298 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=8082 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=300 WT=0 DW=0 WP=300 2C=0
+ZeroOps: ZR=4437 sh=0 sk=0
+DownOps: DL=8087 ds=8087 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=300 us=300 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=3 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=8452 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=302 WT=0 DW=0 WP=302 2C=0
+ZeroOps: ZR=4609 sh=0 sk=0
+DownOps: DL=8457 ds=8457 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=302 us=302 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=8846 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=304 WT=0 DW=0 WP=304 2C=0
+ZeroOps: ZR=4791 sh=0 sk=0
+DownOps: DL=8851 ds=8851 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=304 us=304 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=3 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=9230 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=306 WT=0 DW=0 WP=306 2C=0
+ZeroOps: ZR=4969 sh=0 sk=0
+DownOps: DL=9235 ds=9235 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=306 us=306 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=9615 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=308 WT=0 DW=0 WP=308 2C=0
+ZeroOps: ZR=5148 sh=0 sk=0
+DownOps: DL=9620 ds=9620 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=308 us=308 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=3 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=10007 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=310 WT=0 DW=0 WP=310 2C=0
+ZeroOps: ZR=5330 sh=0 sk=0
+DownOps: DL=10012 ds=10012 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=310 us=310 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=3 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=10387 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=312 WT=0 DW=0 WP=312 2C=0
+ZeroOps: ZR=5506 sh=0 sk=0
+DownOps: DL=10392 ds=10392 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=312 us=312 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=4 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=10777 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=314 WT=0 DW=0 WP=314 2C=0
+ZeroOps: ZR=5686 sh=0 sk=0
+DownOps: DL=10782 ds=10782 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=314 us=314 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=3 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=11162 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=316 WT=0 DW=0 WP=316 2C=0
+ZeroOps: ZR=5865 sh=0 sk=0
+DownOps: DL=11167 ds=11167 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=316 us=316 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=11546 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=318 WT=0 DW=0 WP=318 2C=0
+ZeroOps: ZR=6043 sh=0 sk=0
+DownOps: DL=11551 ds=11551 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=318 us=318 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=11920 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=320 WT=0 DW=0 WP=320 2C=0
+ZeroOps: ZR=6216 sh=0 sk=0
+DownOps: DL=11925 ds=11925 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=320 us=320 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=5 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=12214 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=322 WT=0 DW=0 WP=322 2C=0
+ZeroOps: ZR=6352 sh=0 sk=0
+DownOps: DL=12219 ds=12219 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=322 us=322 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=12220 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=324 WT=0 DW=0 WP=324 2C=0
+ZeroOps: ZR=6356 sh=0 sk=0
+DownOps: DL=12225 ds=12225 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=324 us=324 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=12289 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=326 WT=0 DW=0 WP=326 2C=0
+ZeroOps: ZR=6392 sh=0 sk=0
+DownOps: DL=12294 ds=12294 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=326 us=326 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=12480 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=328 WT=0 DW=0 WP=328 2C=0
+ZeroOps: ZR=6493 sh=0 sk=0
+DownOps: DL=12485 ds=12485 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=328 us=328 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=12608 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=330 WT=0 DW=0 WP=330 2C=0
+ZeroOps: ZR=6553 sh=0 sk=0
+DownOps: DL=12613 ds=12613 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=330 us=330 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=12812 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=332 WT=0 DW=0 WP=332 2C=0
+ZeroOps: ZR=6655 sh=0 sk=0
+DownOps: DL=12817 ds=12817 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=332 us=332 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=12857 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=334 WT=0 DW=0 WP=334 2C=0
+ZeroOps: ZR=6677 sh=0 sk=0
+DownOps: DL=12862 ds=12862 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=334 us=334 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=12941 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=336 WT=0 DW=0 WP=336 2C=0
+ZeroOps: ZR=6717 sh=0 sk=0
+DownOps: DL=12946 ds=12946 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=336 us=336 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=12999 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=338 WT=0 DW=0 WP=338 2C=0
+ZeroOps: ZR=6749 sh=0 sk=0
+DownOps: DL=13004 ds=13004 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=338 us=338 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13022 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=340 WT=0 DW=0 WP=340 2C=0
+ZeroOps: ZR=6766 sh=0 sk=0
+DownOps: DL=13027 ds=13027 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=340 us=340 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13029 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=342 WT=0 DW=0 WP=342 2C=0
+ZeroOps: ZR=6771 sh=0 sk=0
+DownOps: DL=13034 ds=13034 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=342 us=342 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13035 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=344 WT=0 DW=0 WP=344 2C=0
+ZeroOps: ZR=6775 sh=0 sk=0
+DownOps: DL=13040 ds=13040 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=344 us=344 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13044 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=346 WT=0 DW=0 WP=346 2C=0
+ZeroOps: ZR=6780 sh=0 sk=0
+DownOps: DL=13049 ds=13049 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=346 us=346 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13113 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=348 WT=0 DW=0 WP=348 2C=0
+ZeroOps: ZR=6817 sh=0 sk=0
+DownOps: DL=13118 ds=13118 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=348 us=348 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13119 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=350 WT=0 DW=0 WP=350 2C=0
+ZeroOps: ZR=6821 sh=0 sk=0
+DownOps: DL=13124 ds=13124 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=350 us=350 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=4 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13133 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=352 WT=0 DW=0 WP=352 2C=0
+ZeroOps: ZR=6830 sh=0 sk=0
+DownOps: DL=13138 ds=13138 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=352 us=352 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=4 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13139 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=354 WT=0 DW=0 WP=354 2C=0
+ZeroOps: ZR=6834 sh=0 sk=0
+DownOps: DL=13144 ds=13144 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=354 us=354 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13210 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=356 WT=0 DW=0 WP=356 2C=0
+ZeroOps: ZR=6871 sh=0 sk=0
+DownOps: DL=13215 ds=13215 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=356 us=356 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13390 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=358 WT=0 DW=0 WP=358 2C=0
+ZeroOps: ZR=6961 sh=0 sk=0
+DownOps: DL=13395 ds=13395 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=358 us=358 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13519 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=360 WT=0 DW=0 WP=360 2C=0
+ZeroOps: ZR=7026 sh=0 sk=0
+DownOps: DL=13524 ds=13524 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=360 us=360 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13525 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=362 WT=0 DW=0 WP=362 2C=0
+ZeroOps: ZR=7030 sh=0 sk=0
+DownOps: DL=13530 ds=13530 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=362 us=362 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13531 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=364 WT=0 DW=0 WP=364 2C=0
+ZeroOps: ZR=7034 sh=0 sk=0
+DownOps: DL=13536 ds=13536 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=364 us=364 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13537 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=366 WT=0 DW=0 WP=366 2C=0
+ZeroOps: ZR=7038 sh=0 sk=0
+DownOps: DL=13542 ds=13542 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=366 us=366 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13543 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=368 WT=0 DW=0 WP=368 2C=0
+ZeroOps: ZR=7042 sh=0 sk=0
+DownOps: DL=13548 ds=13548 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=368 us=368 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=13791 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=370 WT=0 DW=0 WP=370 2C=0
+ZeroOps: ZR=7184 sh=0 sk=0
+DownOps: DL=13796 ds=13795 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=370 us=370 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=3 sr=1 foq=3 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14182 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=372 WT=0 DW=0 WP=372 2C=0
+ZeroOps: ZR=7408 sh=0 sk=0
+DownOps: DL=14187 ds=14187 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=372 us=372 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=0 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14418 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=374 WT=0 DW=0 WP=374 2C=0
+ZeroOps: ZR=7526 sh=0 sk=0
+DownOps: DL=14423 ds=14423 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=374 us=374 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14672 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=376 WT=0 DW=0 WP=376 2C=0
+ZeroOps: ZR=7650 sh=0 sk=0
+DownOps: DL=14677 ds=14677 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=376 us=376 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=1 sr=0 foq=0 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14854 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=378 WT=0 DW=0 WP=378 2C=0
+ZeroOps: ZR=7744 sh=0 sk=0
+DownOps: DL=14859 ds=14859 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=378 us=378 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14860 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=380 WT=0 DW=0 WP=380 2C=0
+ZeroOps: ZR=7748 sh=0 sk=0
+DownOps: DL=14865 ds=14865 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=380 us=380 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14866 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=382 WT=0 DW=0 WP=382 2C=0
+ZeroOps: ZR=7752 sh=0 sk=0
+DownOps: DL=14871 ds=14871 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=382 us=382 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14872 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=384 WT=0 DW=0 WP=384 2C=0
+ZeroOps: ZR=7756 sh=0 sk=0
+DownOps: DL=14877 ds=14877 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=384 us=384 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14878 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=386 WT=0 DW=0 WP=386 2C=0
+ZeroOps: ZR=7760 sh=0 sk=0
+DownOps: DL=14883 ds=14883 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=386 us=386 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14884 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=388 WT=0 DW=0 WP=388 2C=0
+ZeroOps: ZR=7764 sh=0 sk=0
+DownOps: DL=14889 ds=14889 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=388 us=388 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14890 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=390 WT=0 DW=0 WP=390 2C=0
+ZeroOps: ZR=7768 sh=0 sk=0
+DownOps: DL=14895 ds=14895 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=390 us=390 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14896 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=392 WT=0 DW=0 WP=392 2C=0
+ZeroOps: ZR=7772 sh=0 sk=0
+DownOps: DL=14901 ds=14901 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=392 us=392 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14902 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=394 WT=0 DW=0 WP=394 2C=0
+ZeroOps: ZR=7776 sh=0 sk=0
+DownOps: DL=14907 ds=14907 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=394 us=394 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14908 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=396 WT=0 DW=0 WP=396 2C=0
+ZeroOps: ZR=7780 sh=0 sk=0
+DownOps: DL=14913 ds=14913 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=396 us=396 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14914 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=398 WT=0 DW=0 WP=398 2C=0
+ZeroOps: ZR=7784 sh=0 sk=0
+DownOps: DL=14919 ds=14919 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=398 us=398 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14920 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=400 WT=0 DW=0 WP=400 2C=0
+ZeroOps: ZR=7788 sh=0 sk=0
+DownOps: DL=14925 ds=14925 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=400 us=400 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14926 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=402 WT=0 DW=0 WP=402 2C=0
+ZeroOps: ZR=7792 sh=0 sk=0
+DownOps: DL=14931 ds=14931 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=402 us=402 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14932 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=404 WT=0 DW=0 WP=404 2C=0
+ZeroOps: ZR=7796 sh=0 sk=0
+DownOps: DL=14937 ds=14937 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=404 us=404 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14938 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=406 WT=0 DW=0 WP=406 2C=0
+ZeroOps: ZR=7800 sh=0 sk=0
+DownOps: DL=14943 ds=14943 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=406 us=406 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14944 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=408 WT=0 DW=0 WP=408 2C=0
+ZeroOps: ZR=7804 sh=0 sk=0
+DownOps: DL=14949 ds=14949 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=408 us=408 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14950 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=410 WT=0 DW=0 WP=410 2C=0
+ZeroOps: ZR=7808 sh=0 sk=0
+DownOps: DL=14955 ds=14955 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=410 us=410 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14956 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=412 WT=0 DW=0 WP=412 2C=0
+ZeroOps: ZR=7812 sh=0 sk=0
+DownOps: DL=14961 ds=14961 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=412 us=412 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14962 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=414 WT=0 DW=0 WP=414 2C=0
+ZeroOps: ZR=7816 sh=0 sk=0
+DownOps: DL=14967 ds=14967 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=414 us=414 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14968 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=416 WT=0 DW=0 WP=416 2C=0
+ZeroOps: ZR=7820 sh=0 sk=0
+DownOps: DL=14973 ds=14973 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=416 us=416 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14974 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=418 WT=0 DW=0 WP=418 2C=0
+ZeroOps: ZR=7824 sh=0 sk=0
+DownOps: DL=14979 ds=14979 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=418 us=418 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14980 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=420 WT=0 DW=0 WP=420 2C=0
+ZeroOps: ZR=7828 sh=0 sk=0
+DownOps: DL=14985 ds=14985 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=420 us=420 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14986 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=422 WT=0 DW=0 WP=422 2C=0
+ZeroOps: ZR=7832 sh=0 sk=0
+DownOps: DL=14991 ds=14991 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=422 us=422 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14992 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=424 WT=0 DW=0 WP=424 2C=0
+ZeroOps: ZR=7836 sh=0 sk=0
+DownOps: DL=14997 ds=14997 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=424 us=424 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=14998 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=426 WT=0 DW=0 WP=426 2C=0
+ZeroOps: ZR=7840 sh=0 sk=0
+DownOps: DL=15003 ds=15003 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=426 us=426 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15004 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=428 WT=0 DW=0 WP=428 2C=0
+ZeroOps: ZR=7844 sh=0 sk=0
+DownOps: DL=15009 ds=15009 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=428 us=428 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15010 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=430 WT=0 DW=0 WP=430 2C=0
+ZeroOps: ZR=7848 sh=0 sk=0
+DownOps: DL=15015 ds=15015 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=430 us=430 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15016 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=432 WT=0 DW=0 WP=432 2C=0
+ZeroOps: ZR=7852 sh=0 sk=0
+DownOps: DL=15021 ds=15021 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=432 us=432 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15022 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=434 WT=0 DW=0 WP=434 2C=0
+ZeroOps: ZR=7856 sh=0 sk=0
+DownOps: DL=15027 ds=15027 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=434 us=434 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15028 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=436 WT=0 DW=0 WP=436 2C=0
+ZeroOps: ZR=7860 sh=0 sk=0
+DownOps: DL=15033 ds=15033 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=436 us=436 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15034 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=438 WT=0 DW=0 WP=438 2C=0
+ZeroOps: ZR=7864 sh=0 sk=0
+DownOps: DL=15039 ds=15039 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=438 us=438 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15040 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=440 WT=0 DW=0 WP=440 2C=0
+ZeroOps: ZR=7868 sh=0 sk=0
+DownOps: DL=15045 ds=15045 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=440 us=440 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15046 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=442 WT=0 DW=0 WP=442 2C=0
+ZeroOps: ZR=7872 sh=0 sk=0
+DownOps: DL=15051 ds=15051 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=442 us=442 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15052 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=444 WT=0 DW=0 WP=444 2C=0
+ZeroOps: ZR=7876 sh=0 sk=0
+DownOps: DL=15057 ds=15057 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=444 us=444 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15058 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=446 WT=0 DW=0 WP=446 2C=0
+ZeroOps: ZR=7880 sh=0 sk=0
+DownOps: DL=15063 ds=15063 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=446 us=446 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15064 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=448 WT=0 DW=0 WP=448 2C=0
+ZeroOps: ZR=7884 sh=0 sk=0
+DownOps: DL=15069 ds=15069 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=448 us=448 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=3 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15070 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=450 WT=0 DW=0 WP=450 2C=0
+ZeroOps: ZR=7888 sh=0 sk=0
+DownOps: DL=15075 ds=15075 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=450 us=450 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15076 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=452 WT=0 DW=0 WP=452 2C=0
+ZeroOps: ZR=7892 sh=0 sk=0
+DownOps: DL=15081 ds=15081 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=452 us=452 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15082 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=454 WT=0 DW=0 WP=454 2C=0
+ZeroOps: ZR=7896 sh=0 sk=0
+DownOps: DL=15087 ds=15087 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=454 us=454 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15088 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=456 WT=0 DW=0 WP=456 2C=0
+ZeroOps: ZR=7900 sh=0 sk=0
+DownOps: DL=15093 ds=15093 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=456 us=456 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15094 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=458 WT=0 DW=0 WP=458 2C=0
+ZeroOps: ZR=7904 sh=0 sk=0
+DownOps: DL=15099 ds=15099 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=458 us=458 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15100 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=460 WT=0 DW=0 WP=460 2C=0
+ZeroOps: ZR=7908 sh=0 sk=0
+DownOps: DL=15105 ds=15105 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=460 us=460 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15106 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=462 WT=0 DW=0 WP=462 2C=0
+ZeroOps: ZR=7912 sh=0 sk=0
+DownOps: DL=15111 ds=15111 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=462 us=462 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15112 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=464 WT=0 DW=0 WP=464 2C=0
+ZeroOps: ZR=7916 sh=0 sk=0
+DownOps: DL=15117 ds=15117 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=464 us=464 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15118 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=466 WT=0 DW=0 WP=466 2C=0
+ZeroOps: ZR=7920 sh=0 sk=0
+DownOps: DL=15123 ds=15123 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=466 us=466 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15124 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=468 WT=0 DW=0 WP=468 2C=0
+ZeroOps: ZR=7924 sh=0 sk=0
+DownOps: DL=15129 ds=15129 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=468 us=468 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15130 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=470 WT=0 DW=0 WP=470 2C=0
+ZeroOps: ZR=7928 sh=0 sk=0
+DownOps: DL=15135 ds=15135 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=470 us=470 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15136 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=472 WT=0 DW=0 WP=472 2C=0
+ZeroOps: ZR=7932 sh=0 sk=0
+DownOps: DL=15141 ds=15141 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=472 us=472 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15142 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=474 WT=0 DW=0 WP=474 2C=0
+ZeroOps: ZR=7936 sh=0 sk=0
+DownOps: DL=15147 ds=15147 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=474 us=474 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15148 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=476 WT=0 DW=0 WP=476 2C=0
+ZeroOps: ZR=7940 sh=0 sk=0
+DownOps: DL=15153 ds=15153 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=476 us=476 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15154 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=478 WT=0 DW=0 WP=478 2C=0
+ZeroOps: ZR=7944 sh=0 sk=0
+DownOps: DL=15159 ds=15159 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=478 us=478 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15160 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=480 WT=0 DW=0 WP=480 2C=0
+ZeroOps: ZR=7948 sh=0 sk=0
+DownOps: DL=15165 ds=15165 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=480 us=480 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15166 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=482 WT=0 DW=0 WP=482 2C=0
+ZeroOps: ZR=7952 sh=0 sk=0
+DownOps: DL=15171 ds=15171 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=482 us=482 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15172 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=484 WT=0 DW=0 WP=484 2C=0
+ZeroOps: ZR=7956 sh=0 sk=0
+DownOps: DL=15177 ds=15177 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=484 us=484 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15178 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=486 WT=0 DW=0 WP=486 2C=0
+ZeroOps: ZR=7960 sh=0 sk=0
+DownOps: DL=15183 ds=15183 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=486 us=486 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
+Reads  : DR=0 RA=15184 RF=5 RS=0 WB=0 WBZ=0
+Writes : BW=488 WT=0 DW=0 WP=488 2C=0
+ZeroOps: ZR=7964 sh=0 sk=0
+DownOps: DL=15189 ds=15189 df=0 di=0
+CaRdOps: RD=0 rs=0 rf=0
+UpldOps: UL=488 us=488 uf=0
+CaWrOps: WR=0 ws=0 wf=0
+Retries: rq=0 rs=0 wq=0 ws=0
+Objs   : rr=2 sr=1 foq=1 wsc=0
+WbLock : skip=0 wait=0
+-- FS-Cache statistics --
+Cookies: n=0 v=0 vcol=0 voom=0
+Acquire: n=0 ok=0 oom=0
+LRU    : n=0 exp=0 rmv=0 drp=0 at=0
+Invals : n=0
+Updates: n=0 rsz=0 rsn=0
+Relinqs: n=0 rtr=0 drop=0
+NoSpace: nwr=0 ncr=0 cull=0
+IO     : rd=0 wr=0 mis=0
+
