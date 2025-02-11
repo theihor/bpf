@@ -13,6 +13,10 @@ echo 1 >/sys/kernel/debug/tracing/events/netfs/netfs_sreq/enable
 echo 1 >/sys/kernel/debug/tracing/events/netfs/netfs_sreq_ref/enable
 echo 1 >/sys/kernel/debug/tracing/events/netfs/netfs_failure/enable
 
+echo 1 >/sys/kernel/debug/tracing/events/netfs/netfs_collect/enable
+echo 1 >/sys/kernel/debug/tracing/events/netfs/netfs_collect_sreq/enable
+echo 1 >/sys/kernel/debug/tracing/events/netfs/netfs_collect_state/enable
+
 function tail_proc {
     src=$1
     dst=$2
@@ -30,5 +34,5 @@ nohup bash -c 'tail_proc /proc/fs/netfs/requests netfs-requests.log' & disown
 nohup bash -c 'trace-cmd show -p > trace-cmd.log' & disown
 
 cd tools/testing/selftests/bpf
-./test_progs-no_alu32
+./test_progs-no_alu32 -j
 
