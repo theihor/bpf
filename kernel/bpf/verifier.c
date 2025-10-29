@@ -12145,10 +12145,15 @@ static bool is_kfunc_arg_irq_flag(const struct btf *btf, const struct btf_param 
 
 static bool is_kfunc_arg_prog_aux(const struct btf *btf, const struct btf_param *arg);
 
+static bool is_kfunc_arg_magic(const struct btf *btf, const struct btf_param *arg)
+{
+	return btf_param_match_suffix(btf, arg, "__magic");
+}
+
 static bool is_kfunc_arg_prog(const struct btf *btf, const struct btf_param *arg)
 {
 	return btf_param_match_suffix(btf, arg, "__prog") ||
-	       (btf_param_match_suffix(btf, arg, "__magic") && is_kfunc_arg_prog_aux(btf, arg));
+	       (is_kfunc_arg_magic(btf, arg) && is_kfunc_arg_prog_aux(btf, arg));
 }
 
 static bool is_kfunc_arg_scalar_with_name(const struct btf *btf,
@@ -14321,8 +14326,12 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 	args = (const struct btf_param *)(meta.func_proto + 1);
 	for (i = 0; i < nargs; i++) {
 		u32 regno = i + 1;
-
 		u32 t_id;
+
+		if (is_kfunc_arg_magic(desc_btf, &args[i])) {
+			mark_reg_known_zero(env, regs, regno);
+		}
+
 		t = btf_type_skip_modifiers(desc_btf, args[i].type, &t_id);
 
 		verbose_insn(env, insn);
