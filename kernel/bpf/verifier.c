@@ -14330,6 +14330,7 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 
 		if (is_kfunc_arg_magic(desc_btf, &args[i])) {
 			mark_reg_known_zero(env, regs, regno);
+			regs[regno].subreg_def = DEF_NOT_SUBREG;
 		}
 
 		t = btf_type_skip_modifiers(desc_btf, args[i].type, &t_id);
