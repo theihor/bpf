@@ -161,7 +161,7 @@ int task_work_non_sleepable_prog(void *ctx)
 }
 
 SEC("lsm.s/file_open")
-__success
+__success __flag(BPF_F_TEST_RND_HI32)
 int task_work_sleepable_prog(void *ctx)
 {
 	struct task_work_elem *val;

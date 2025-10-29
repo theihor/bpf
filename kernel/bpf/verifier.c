@@ -3819,9 +3819,12 @@ static bool insn_has_def32(struct bpf_insn *insn)
 }
 
 static void mark_insn_zext(struct bpf_verifier_env *env,
-			   struct bpf_reg_state *reg)
+			   struct bpf_reg_state *reg,
+			const char* where)
 {
 	s32 def_idx = reg->subreg_def;
+
+
 
 	if (def_idx == DEF_NOT_SUBREG)
 		return;
@@ -3829,6 +3832,8 @@ static void mark_insn_zext(struct bpf_verifier_env *env,
 	env->insn_aux_data[def_idx - 1].zext_dst = true;
 	/* The dst will be zero extended, so won't be sub-register anymore. */
 	reg->subreg_def = DEF_NOT_SUBREG;
+
+	verbose(env, "%s marked insn %d at %d as zext\n", where, def_idx - 1, env->insn_idx);
 }
 
 static int __check_reg_arg(struct bpf_verifier_env *env, struct bpf_reg_state *regs, u32 regno,
@@ -3858,7 +3863,7 @@ static int __check_reg_arg(struct bpf_verifier_env *env, struct bpf_reg_state *r
 			return 0;
 
 		if (rw64)
-			mark_insn_zext(env, reg);
+			mark_insn_zext(env, reg, "__check_reg_arg");
 
 		return 0;
 	} else {
@@ -12017,7 +12022,7 @@ static void __mark_btf_func_reg_size(struct bpf_verifier_env *env, struct bpf_re
 			DEF_NOT_SUBREG : env->insn_idx + 1;
 	} else if (reg_size == sizeof(u64)) {
 		/* Function argument */
-		mark_insn_zext(env, reg);
+		mark_insn_zext(env, reg, "__mark_btf_func_reg_size");
 	}
 }
 
@@ -14005,6 +14010,7 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 			verbose(env, "failed to mark s32 range for retval in forked state for lock\n");
 			return err;
 		}
+		verbose(env, ">> check_kfunc_call/spin_lock\n");
 		__mark_btf_func_reg_size(env, regs, BPF_REG_0, sizeof(u32));
 	} else if (!insn->off && insn->imm == special_kfunc_list[KF___bpf_trap]) {
 		verbose(env, "unexpected __bpf_trap() due to uninitialized variable?\n");
@@ -14209,6 +14215,7 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 		if (meta.btf == btf_vmlinux && (meta.func_id == special_kfunc_list[KF_bpf_res_spin_lock] ||
 		    meta.func_id == special_kfunc_list[KF_bpf_res_spin_lock_irqsave]))
 			__mark_reg_const_zero(env, &regs[BPF_REG_0]);
+		verbose(env, ">> check_kfunc_call/btf_type_is_scalar(t)\n");
 		mark_btf_func_reg_size(env, BPF_REG_0, t->size);
 	} else if (btf_type_is_ptr(t)) {
 		ptr_type = btf_type_skip_modifiers(desc_btf, t->type, &ptr_type_id);
@@ -14280,6 +14287,7 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 			/* For mark_ptr_or_null_reg, see 93c230e3f5bd6 */
 			regs[BPF_REG_0].id = ++env->id_gen;
 		}
+		verbose(env, ">> check_kfunc_call/btf_type_is_ptr(t)\n");
 		mark_btf_func_reg_size(env, BPF_REG_0, sizeof(void *));
 		if (is_kfunc_acquire(&meta)) {
 			int id = acquire_reference(env, insn_idx);
@@ -14314,12 +14322,20 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 	for (i = 0; i < nargs; i++) {
 		u32 regno = i + 1;
 
-		t = btf_type_skip_modifiers(desc_btf, args[i].type, NULL);
-		if (btf_type_is_ptr(t))
+		u32 t_id;
+		t = btf_type_skip_modifiers(desc_btf, args[i].type, &t_id);
+
+		verbose_insn(env, insn);
+		verbose(env, "arg[%d] type %d is_ptr %d t->size %d\n", i, t_id, btf_type_is_ptr(t), t->size);
+
+		if (btf_type_is_ptr(t)) {
+			verbose(env, ">> check_kfunc_call/btf_type_is_ptr(arg[%d])\n", i);
 			mark_btf_func_reg_size(env, regno, sizeof(void *));
-		else
+		} else {
+			verbose(env, ">> check_kfunc_call/!btf_type_is_ptr(arg[%d])\n", i);
 			/* scalar. ensured by btf_check_kfunc_arg_match() */
 			mark_btf_func_reg_size(env, regno, t->size);
+		}
 	}
 
 	if (is_iter_next_kfunc(&meta)) {
@@ -21271,6 +21287,17 @@ static int opt_remove_nops(struct bpf_verifier_env *env)
 	return 0;
 }
 
+static void print_prog(struct bpf_verifier_env *env) {
+	int i;
+	for (i = 0; i < env->prog->len; i++) {
+		struct bpf_insn *insn = env->prog->insnsi + i;
+		verbose(env, "(zdst = %d, kfunc = %d) %02d: ", env->insn_aux_data[i].zext_dst, bpf_pseudo_kfunc_call(insn), i);
+		verbose_insn(env, env->prog->insnsi + i);
+		if (bpf_is_ldimm64(env->prog->insnsi + i))
+			i++;
+	}
+}
+
 static int opt_subreg_zext_lo32_rnd_hi32(struct bpf_verifier_env *env,
 					 const union bpf_attr *attr)
 {
@@ -24892,8 +24919,12 @@ skip_full_check:
 		/* program is valid, convert *(u32*)(ctx + off) accesses */
 		ret = convert_ctx_accesses(env);
 
+	// print_prog(env);
+
 	if (ret == 0)
 		ret = do_misc_fixups(env);
+
+	// print_prog(env);
 
 	/* do 32-bit optimization after insn patching has done so those patched
 	 * insns could be handled correctly.
