@@ -8661,10 +8661,10 @@ static u32 *btf_kfunc_id_set_contains(const struct btf *btf,
 	return id + 1;
 }
 
-static bool btf_kfunc_is_allowed(const struct btf *btf,
-				 enum btf_kfunc_hook hook,
-				 u32 kfunc_btf_id,
-				 const struct bpf_prog *prog)
+static bool __btf_kfunc_is_allowed(const struct btf *btf,
+				   enum btf_kfunc_hook hook,
+				   u32 kfunc_btf_id,
+				   const struct bpf_prog *prog)
 {
 	struct btf_kfunc_hook_filter *hook_filter;
 	int i;
@@ -8729,6 +8729,26 @@ static int bpf_prog_type_to_kfunc_hook(enum bpf_prog_type prog_type)
 	}
 }
 
+bool btf_kfunc_is_allowed(const struct btf *btf,
+			  u32 kfunc_btf_id,
+			  const struct bpf_prog *prog)
+{
+	enum bpf_prog_type prog_type = resolve_prog_type(prog);
+	enum btf_kfunc_hook hook;
+	u32 *kfunc_flags;
+
+	kfunc_flags = btf_kfunc_id_set_contains(btf, BTF_KFUNC_HOOK_COMMON, kfunc_btf_id);
+	if (kfunc_flags && __btf_kfunc_is_allowed(btf, BTF_KFUNC_HOOK_COMMON, kfunc_btf_id, prog))
+		return true;
+
+	hook = bpf_prog_type_to_kfunc_hook(prog_type);
+	kfunc_flags = btf_kfunc_id_set_contains(btf, hook, kfunc_btf_id);
+	if (kfunc_flags && __btf_kfunc_is_allowed(btf, hook, kfunc_btf_id, prog))
+		return true;
+
+	return false;
+}
+
 /* Caution:
  * Reference to the module (obtained using btf_try_get_module) corresponding to
  * the struct btf *MUST* be held when calling this function from verifier
@@ -8750,30 +8770,10 @@ u32 *btf_kfunc_flags(const struct btf *btf, u32 kfunc_btf_id, const struct bpf_p
 	return btf_kfunc_id_set_contains(btf, hook, kfunc_btf_id);
 }
 
-u32 *btf_kfunc_flags_if_allowed(const struct btf *btf,
-				u32 kfunc_btf_id,
-				const struct bpf_prog *prog)
-{
-	enum bpf_prog_type prog_type = resolve_prog_type(prog);
-	enum btf_kfunc_hook hook;
-	u32 *kfunc_flags;
-
-	kfunc_flags = btf_kfunc_id_set_contains(btf, BTF_KFUNC_HOOK_COMMON, kfunc_btf_id);
-	if (kfunc_flags && btf_kfunc_is_allowed(btf, BTF_KFUNC_HOOK_COMMON, kfunc_btf_id, prog))
-		return kfunc_flags;
-
-	hook = bpf_prog_type_to_kfunc_hook(prog_type);
-	kfunc_flags = btf_kfunc_id_set_contains(btf, hook, kfunc_btf_id);
-	if (kfunc_flags && btf_kfunc_is_allowed(btf, hook, kfunc_btf_id, prog))
-		return kfunc_flags;
-
-	return NULL;
-}
-
 u32 *btf_kfunc_is_modify_return(const struct btf *btf, u32 kfunc_btf_id,
 				const struct bpf_prog *prog)
 {
-	if (!btf_kfunc_is_allowed(btf, BTF_KFUNC_HOOK_FMODRET, kfunc_btf_id, prog))
+	if (!__btf_kfunc_is_allowed(btf, BTF_KFUNC_HOOK_FMODRET, kfunc_btf_id, prog))
 		return NULL;
 
 	return btf_kfunc_id_set_contains(btf, BTF_KFUNC_HOOK_FMODRET, kfunc_btf_id);
