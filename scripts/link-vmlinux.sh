@@ -288,6 +288,8 @@ if is_enabled CONFIG_DEBUG_INFO_BTF; then
 	if is_enabled CONFIG_WERROR; then
 		RESOLVE_BTFIDS_ARGS=" --fatal_warnings "
 	fi
+	cp "${VMLINUX}" /tmp/vmlinux_for_resolve_btfids
+	info ${RESOLVE_BTFIDS} ${RESOLVE_BTFIDS_ARGS} "${VMLINUX}"
 	${RESOLVE_BTFIDS} ${RESOLVE_BTFIDS_ARGS} "${VMLINUX}"
 fi
 

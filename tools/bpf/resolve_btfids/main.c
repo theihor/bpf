@@ -805,6 +805,49 @@ static int symbols_patch(struct object *obj)
 	return err < 0 ? -1 : 0;
 }
 
+#define KF_IMPLICIT_ARGS (1 << 16)
+#define MAX_KFUNCS 256
+
+static int add_kfunc_impl_protos(struct object *obj)
+{
+	Elf_Data *data = obj->efile.idlist;
+	int kfunc_ids[MAX_KFUNCS];
+	struct rb_node *next;
+	int nr_kfuncs = 0;
+	int i;
+
+	next = rb_first(&obj->sets);
+	while (next) {
+		struct btf_id_set8 *set8 = NULL;
+		unsigned long addr, off;
+		struct btf_id *id;
+
+		id = rb_entry(next, struct btf_id, rb_node);
+
+		if (id->kind != BTF_ID_KIND_SET8)
+			goto skip;
+
+		addr = id->addr[0];
+		off = addr - obj->efile.idlist_addr;
+		set8 = data->d_buf + off;
+
+		for (i = 0; i < set8->cnt; i++) {
+			if (set8->pairs[i].flags & KF_IMPLICIT_ARGS) {
+				pr_debug("%s: %d %08x\n", id->name, set8->pairs[i].id, set8->pairs[i].flags);
+				kfunc_ids[nr_kfuncs++] = set8->pairs[i].id;
+			}
+		}
+skip:
+		next = rb_next(next);
+	}
+	return 0;
+}
+
+static int finalize_btf(struct object *obj) {
+
+	return add_kfunc_impl_protos(obj);
+}
+
 static const char * const resolve_btfids_usage[] = {
 	"resolve_btfids [<options>] <ELF object>",
 	NULL
@@ -868,6 +911,9 @@ int main(int argc, const char **argv)
 		goto out;
 
 	if (symbols_patch(&obj))
+		goto out;
+
+	if (finalize_btf(&obj))
 		goto out;
 
 	if (!(fatal_warnings && warnings))
