@@ -3122,18 +3122,33 @@ __bpf_kfunc int bpf_wq_start(struct bpf_wq *wq, unsigned int flags)
 	return 0;
 }
 
-__bpf_kfunc int bpf_wq_set_callback_impl(struct bpf_wq *wq,
-					 int (callback_fn)(void *map, int *key, void *value),
-					 unsigned int flags,
-					 void *aux__prog)
+__bpf_kfunc int bpf_kfunc_with_implicit_arg(struct bpf_prog_aux *aux__implicit)
 {
-	struct bpf_prog_aux *aux = (struct bpf_prog_aux *)aux__prog;
+	if (aux__implicit)
+		return 0;
+	else
+		return -EINVAL;
+}
+
+__bpf_kfunc int bpf_wq_set_callback(struct bpf_wq *wq,
+				    int (callback_fn)(void *map, int *key, void *value),
+				    unsigned int flags,
+				    struct bpf_prog_aux *aux__implicit)
+{
 	struct bpf_async_kern *async = (struct bpf_async_kern *)wq;
 
 	if (flags)
 		return -EINVAL;
 
-	return __bpf_async_set_callback(async, callback_fn, aux, flags, BPF_ASYNC_TYPE_WQ);
+	return __bpf_async_set_callback(async, callback_fn, aux__implicit, flags, BPF_ASYNC_TYPE_WQ);
+}
+
+__bpf_kfunc int bpf_wq_set_callback_impl(struct bpf_wq *wq,
+					 int (callback_fn)(void *map, int *key, void *value),
+					 unsigned int flags,
+					 void *aux__prog)
+{
+	return bpf_wq_set_callback(wq, callback_fn, flags, aux__prog);
 }
 
 __bpf_kfunc void bpf_preempt_disable(void)
@@ -4543,6 +4558,8 @@ BTF_ID_FLAGS(func, bpf_task_work_schedule_signal_impl, KF_TRUSTED_ARGS)
 BTF_ID_FLAGS(func, bpf_task_work_schedule_resume_impl, KF_TRUSTED_ARGS)
 BTF_ID_FLAGS(func, bpf_dynptr_from_file, KF_TRUSTED_ARGS)
 BTF_ID_FLAGS(func, bpf_dynptr_file_discard)
+BTF_ID_FLAGS(func, bpf_wq_set_callback, KF_IMPLICIT_ARGS)
+BTF_ID_FLAGS(func, bpf_kfunc_with_implicit_arg, KF_IMPLICIT_ARGS)
 BTF_KFUNCS_END(common_btf_ids)
 
 static const struct btf_kfunc_id_set common_kfunc_set = {
