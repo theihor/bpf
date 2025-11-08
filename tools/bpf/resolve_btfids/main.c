@@ -808,13 +808,71 @@ static int symbols_patch(struct object *obj)
 #define KF_IMPLICIT_ARGS (1 << 16)
 #define MAX_KFUNCS 256
 
-static int add_kfunc_impl_protos(struct object *obj)
+
+static inline bool str_ends_with(const char *str, const char *suffix)
+{
+	int suffix_len = strlen(suffix);
+	int str_len = strlen(str);
+
+	if (str_len < suffix_len)
+		return false;
+
+	return strcmp(str + str_len - suffix_len, suffix) == 0;
+}
+
+#define BPF_KF_IMPL_SUFFIX "_impl"
+#define BPF_KF_ARG_MAGIC_SUFFIX "__magic"
+
+// static inline bool btf__is_kf_magic_arg(const struct btf *btf, const struct btf_encoder_func_parm *p)
+// {
+// 	const char *name;
+
+// 	name = btf__name_by_offset(btf, p->name_off);
+// 	if (!name)
+// 		return false;
+
+// 	return str_ends_with(name, BPF_KF_ARG_MAGIC_SUFFIX);
+// }
+
+/*
+ * A kfunc with KF_MAGIC_ARGS flag has some number of arguments set implicitly by the BPF
+ * verifier. Such arguments are identified by __magic suffix in the argument name.
+ * process_kfunc_magic_args() checks the arguments from last to first, and returns the number of
+ * magic arguments. Note that *all* magic arguments must come after *all* normal arguments in the
+ * function signature. If this assumption is violated, or if no __magic arguments are found,
+ * process_kfunc_magic_args() returns an error.
+ */
+// static int process_kfunc_magic_args(struct btf_encoder_func_state *state)
+// {
+// 	const struct btf *btf = state->encoder->btf;
+// 	const struct btf_encoder_func_parm *p;
+// 	int cnt = 0, i;
+
+// 	for (i = state->nr_parms - 1; i >= 0; i--) {
+// 		p = &state->parms[i];
+// 		if (btf__is_kf_magic_arg(btf, p)) {
+// 			cnt++;
+// 			if (cnt != state->nr_parms - i)
+// 				goto out_err;
+// 		} else if (cnt == 0) {
+// 			goto out_err;
+// 		}
+// 	}
+
+// 	return cnt;
+
+// out_err:
+// 	btf__log_err(btf, BTF_KIND_FUNC_PROTO, state->elf->name, true, 0,
+// 		     "return=%u Error emitting BTF func proto for KF_MAGIC_ARGS kfunc: unexpected kfunc signature",
+// 		     p->type_id);
+// 	return -1;
+// }
+
+static void collect_kfunc_ids_by_flags(struct object *obj, u32 flags, s32 kfunc_ids[], int *nr_kfuncs)
 {
 	Elf_Data *data = obj->efile.idlist;
-	int kfunc_ids[MAX_KFUNCS];
 	struct rb_node *next;
-	int nr_kfuncs = 0;
-	int i;
+	int i, n = 0;
 
 	next = rb_first(&obj->sets);
 	while (next) {
@@ -832,20 +890,146 @@ static int add_kfunc_impl_protos(struct object *obj)
 		set8 = data->d_buf + off;
 
 		for (i = 0; i < set8->cnt; i++) {
-			if (set8->pairs[i].flags & KF_IMPLICIT_ARGS) {
-				pr_debug("%s: %d %08x\n", id->name, set8->pairs[i].id, set8->pairs[i].flags);
-				kfunc_ids[nr_kfuncs++] = set8->pairs[i].id;
-			}
+			if (set8->pairs[i].flags & flags)
+				kfunc_ids[n++] = set8->pairs[i].id;
 		}
 skip:
 		next = rb_next(next);
 	}
-	return 0;
+
+	*nr_kfuncs = n;
 }
 
-static int finalize_btf(struct object *obj) {
+/*
+ * For a kfunc with KF_IMPLICIT_ARGS we emit and additional BTF func and func prototype.
+ * This additional function:
+ *   - has a name with an "_impl" suffix: "<kfunc_name>_impl"
+ *   - has number
+ *   - bpf_foo(<bpf args w/o magic args>)
+ * We achieve this by creating a temporary btf_encoder_func_state-s
+ */
+static void btf__fixup_kfunc_with_implicit_args(struct btf *btf, s32 kfunc_id)
+{
+	int off = btf__add_str(btf, "0ZAom1EgOYqE7bHiaqFI1w==");
+	struct btf_type *t = (struct btf_type *)btf__type_by_id(btf, kfunc_id);
+	if (!t || !btf_is_func(t)) {
+		pr_err("WARN: resolve_btfids: btf id %d is not a function\n", kfunc_id);
+		warnings++;
+		return;
+	}
 
-	return add_kfunc_impl_protos(obj);
+	t->name_off = off;
+
+	// struct btf_encoder_func_annot tmp_annots[state->nr_annots];
+	// struct btf_encoder_func_state tmp_state = *state;
+	// struct elf_function tmp_elf = *state->elf;
+	// char tmp_name[KSYM_NAME_LEN];
+	// int err, i, j, nr_magic_args;
+
+	// /* First, add kfunc_impl(), modifying only the name */
+	// strcpy(tmp_name, state->elf->name);
+	// strcat(tmp_name, BPF_KF_IMPL_SUFFIX);
+	// tmp_elf.name = tmp_name;
+	// tmp_state.elf = &tmp_elf;
+	// err = btf_encoder__add_bpf_kfunc_instance(encoder, &tmp_state);
+	// if (err < 0)
+	// 	return -1;
+
+	// /* Then add kfunc() with omitted magic arguments */
+	// nr_magic_args = process_kfunc_magic_args(state);
+	// if (nr_magic_args <= 0)
+	// 	return -1;
+
+	// tmp_state.elf = state->elf;
+	// tmp_state.nr_parms -= nr_magic_args;
+	// j = 0;
+	// for (i = 0; i < state->nr_annots; i++) {
+	// 	if (state->annots[i].component_idx < tmp_state.nr_parms)
+	// 		tmp_annots[j++] = state->annots[i];
+	// }
+	// tmp_state.nr_annots = j;
+	// tmp_state.annots = tmp_annots;
+	// err = btf_encoder__add_bpf_kfunc_instance(encoder, &tmp_state);
+	// if (err < 0)
+	// 	return -1;
+}
+
+static int finalize_btf(struct object *obj)
+{
+	s32 kfunc_ids[MAX_KFUNCS];
+	int nr_kfuncs;
+	int i, err = 0;
+
+	collect_kfunc_ids_by_flags(obj, KF_IMPLICIT_ARGS, kfunc_ids, &nr_kfuncs);
+	for (i = 0; i < nr_kfuncs; i++) {
+		btf__fixup_kfunc_with_implicit_args(obj->btf, kfunc_ids[i]);
+	}
+
+	GElf_Shdr shdr_mem, *shdr;
+	Elf_Data *btf_data = NULL;
+	Elf_Scn *scn = NULL;
+	Elf *elf = obj->efile.elf;
+	const void *raw_btf_data;
+	uint32_t raw_btf_size;
+	int fd;
+	size_t strndx;
+
+
+	// elf_flagelf(elf, ELF_C_SET, ELF_F_DIRTY);
+
+	/*
+	 * First we look if there was already a .BTF section to overwrite.
+	 */
+
+	elf_getshdrstrndx(elf, &strndx);
+	while ((scn = elf_nextscn(elf, scn)) != NULL) {
+		shdr = gelf_getshdr(scn, &shdr_mem);
+		if (shdr == NULL)
+			continue;
+		char *secname = elf_strptr(elf, strndx, shdr->sh_name);
+		if (strcmp(secname, BTF_ELF_SEC) == 0) {
+			btf_data = elf_getdata(scn, btf_data);
+			break;
+		}
+	}
+
+	raw_btf_data = btf__raw_data(obj->btf, &raw_btf_size);
+
+	if (btf_data) {
+		/* Existing .BTF section found */
+		btf_data->d_buf = (void *)raw_btf_data;
+		btf_data->d_size = raw_btf_size;
+
+		shdr->sh_size = raw_btf_size;
+		if (gelf_update_shdr(scn, shdr) == 0) {
+			pr_err("FAILED to update .BTF section header: %s\n",
+			elf_errmsg(-1));
+			return -1;
+		}
+
+		elf_flagdata(btf_data, ELF_C_SET, ELF_F_DIRTY);
+
+		err = elf_update(elf, ELF_C_NULL);
+		if (err < 0) {
+			pr_err("FAILED elf_update(WRITE): %s\n",
+				elf_errmsg(-1));
+		}
+
+		err = elf_update(elf, ELF_C_WRITE);
+
+		if (err >= 0)
+			err = 0;
+		else {
+			pr_err("elf_update failed");
+			return -EINVAL;
+		}
+	} else {
+		pr_err("elf_update failed");
+		return -EINVAL;
+	}
+
+out:
+	return err;
 }
 
 static const char * const resolve_btfids_usage[] = {
