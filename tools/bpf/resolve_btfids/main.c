@@ -74,6 +74,7 @@
 #include <linux/rbtree.h>
 #include <linux/zalloc.h>
 #include <linux/err.h>
+#include <linux/kallsyms.h>
 #include <bpf/btf.h>
 #include <bpf/libbpf.h>
 #include <subcmd/parse-options.h>
@@ -900,25 +901,78 @@ skip:
 	*nr_kfuncs = n;
 }
 
+static s32 btf__emit_func_proto(struct btf *btf, u32 type_id, u16 nr_params)
+{
+	const struct btf_type *t;
+	u32 proto_id;
+
+	proto_id = btf__add_func_proto(btf, type_id);
+	if (proto_id > 0) {
+		t = btf__type_by_id(btf, proto_id);
+	} else {
+		return -EINVAL;
+	}
+
+	return proto_id;
+}
+
 /*
  * For a kfunc with KF_IMPLICIT_ARGS we emit and additional BTF func and func prototype.
  * This additional function:
- *   - has a name with an "_impl" suffix: "<kfunc_name>_impl"
- *   - has number
- *   - bpf_foo(<bpf args w/o magic args>)
- * We achieve this by creating a temporary btf_encoder_func_state-s
+ *   - add an _impl suffix to the function name, so that full prototype is associated with the _impl name
+ *   - add a new function prototype with modified list of arguments (omitting __implicit args)
+ *   - add a new function with the new prototype and a name of the original kfunc
+ *   - modify bpf_kfunc decl tag to point to the new function instead of the renamed one
+ * This way we transform the BTF associated with the kfunc from:
+ * 	__bpf_kfunc bpf_kfunc(int arg1, void *arg__implicit);
+ *   to
+ * 	bpf_kfunc_impl(int arg1, void *arg__implicit);
+ * 	__bpf_kfunc bpf_kfunc(int arg1);
+
  */
-static void btf__fixup_kfunc_with_implicit_args(struct btf *btf, s32 kfunc_id)
+static int btf__fixup_kfunc_with_implicit_args(struct btf *btf, s32 kfunc_id)
 {
-	int off = btf__add_str(btf, "0ZAom1EgOYqE7bHiaqFI1w==");
-	struct btf_type *t = (struct btf_type *)btf__type_by_id(btf, kfunc_id);
+	char tmp_name[KSYM_NAME_LEN];
+	const char* kfunc_name;
+	int off, name_len;
+	struct btf_type *t;
+	s32 proto_id, new_proto_id;
+	const struct btf_param *p;
+
+	t = (struct btf_type *)btf__type_by_id(btf, kfunc_id);
 	if (!t || !btf_is_func(t)) {
 		pr_err("WARN: resolve_btfids: btf id %d is not a function\n", kfunc_id);
-		warnings++;
-		return;
+		return -EINVAL;
 	}
 
+	kfunc_name = btf__name_by_offset(btf, t->name_off);
+	name_len = strlen(kfunc_name);
+
+	/* add <kfunc>_impl string to BTF */
+	strcpy(tmp_name, kfunc_name);
+	strcat(tmp_name, BPF_KF_IMPL_SUFFIX);
+	off = btf__add_str(btf, tmp_name);
+
+	/* update name_off of existing BTF kfunc */
+	t = (struct btf_type *)btf__type_by_id(btf, kfunc_id);
 	t->name_off = off;
+
+	/* find the new offset of original name */
+	tmp_name[name_len] = '\0';
+	off = btf__add_str(btf, tmp_name);
+
+	proto_id = t->type;
+	t = (struct btf_type *)btf__type_by_id(btf, proto_id);
+	if (!t || !btf_is_func_proto(t)) {
+		pr_err("WARN: resolve_btfids: btf id %d is not a function prototype\n", proto_id);
+		return -EINVAL;
+	}
+
+	/* Add a new function prototype, without implict args */
+	new_proto_id = btf__add_func_proto(btf, t->type);
+	for (int i = 0; i < btf_vlen(t); i++) {
+
+	}
 
 	// struct btf_encoder_func_annot tmp_annots[state->nr_annots];
 	// struct btf_encoder_func_state tmp_state = *state;
@@ -962,7 +1016,9 @@ static int finalize_btf(struct object *obj)
 
 	collect_kfunc_ids_by_flags(obj, KF_IMPLICIT_ARGS, kfunc_ids, &nr_kfuncs);
 	for (i = 0; i < nr_kfuncs; i++) {
-		btf__fixup_kfunc_with_implicit_args(obj->btf, kfunc_ids[i]);
+		err = btf__fixup_kfunc_with_implicit_args(obj->btf, kfunc_ids[i]);
+		if (err)
+			return err;
 	}
 
 	GElf_Shdr shdr_mem, *shdr;
@@ -976,10 +1032,6 @@ static int finalize_btf(struct object *obj)
 
 
 	// elf_flagelf(elf, ELF_C_SET, ELF_F_DIRTY);
-
-	/*
-	 * First we look if there was already a .BTF section to overwrite.
-	 */
 
 	elf_getshdrstrndx(elf, &strndx);
 	while ((scn = elf_nextscn(elf, scn)) != NULL) {
