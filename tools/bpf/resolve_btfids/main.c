@@ -155,13 +155,11 @@ struct object {
 #define KF_IMPLICIT_ARGS (1 << 16)
 #define KF_IMPL_SUFFIX "_impl"
 #define MAX_BPF_FUNC_REG_ARGS 5
-#define MAX_KFUNCS 256
-#define MAX_DECL_TAGS (MAX_KFUNCS * 4)
 
 struct btf2btf_context {
 	struct btf *btf;
+	s32 *decl_tags;
 	u32 nr_decl_tags;
-	s32 decl_tags[MAX_DECL_TAGS];
 };
 
 static int verbose;
@@ -1254,34 +1252,50 @@ add_new_proto:
 	return 0;
 }
 
-static s64 btf__collect_decl_tags(const struct btf *btf, s32 *decl_tags, u32 decl_tags_sz)
+static s64 collect_decl_tags(const struct btf *btf, s32 **decl_tags)
 {
 	const u32 type_cnt = btf__type_cnt(btf);
 	const struct btf_type *t;
-	s64 nr_decl_tags = 0;
+	s32 *tags, *tmp;
+	s64 nr_tags = 0;
+
+	tags = malloc(type_cnt * sizeof(s32));
+	if (!tags)
+		return -ENOMEM;
 
 	for (u32 id = 1; id < type_cnt; id++) {
 		t = btf__type_by_id(btf, id);
 		if (!btf_is_decl_tag(t))
 			continue;
-		if (nr_decl_tags >= decl_tags_sz) {
-			pr_err("ERROR: resolve_btfids: too many decl tags in BTF - limit %s\n",
-				decl_tags_sz);
-			return -E2BIG;
-		}
-		decl_tags[nr_decl_tags++] = id;
+		tags[nr_tags++] = id;
 	}
 
-	return nr_decl_tags;
+	if (nr_tags == 0) {
+		*decl_tags = NULL;
+		free(tags);
+		return 0;
+	}
+
+	tmp = realloc(tags, nr_tags * sizeof(s32));
+	if (!tmp) {
+		free(tags);
+		return -ENOMEM;
+	}
+
+	*decl_tags = tmp;
+
+	return nr_tags;
 }
 
 static s64 build_btf2btf_context(struct object *obj, struct btf2btf_context *ctx)
 {
 	s64 nr_decl_tags;
 
-	nr_decl_tags = btf__collect_decl_tags(obj->btf, ctx->decl_tags, ARRAY_SIZE(ctx->decl_tags));
-	if (nr_decl_tags < 0)
+	nr_decl_tags = collect_decl_tags(obj->btf, &ctx->decl_tags);
+	if (nr_decl_tags < 0) {
+		pr_err("ERROR: resolve_btfids: failed to collect decl tags from BTF\n");
 		return nr_decl_tags;
+	}
 
 	ctx->btf = obj->btf;
 	ctx->nr_decl_tags = nr_decl_tags;
@@ -1292,7 +1306,7 @@ static s64 build_btf2btf_context(struct object *obj, struct btf2btf_context *ctx
 static s64 finalize_btf(struct object *obj)
 {
 	struct btf2btf_context ctx = {};
-	s32 kfuncs[MAX_KFUNCS];
+	s32 kfuncs[256];
 	s64 err, nr_kfuncs;
 
 	err = build_btf2btf_context(obj, &ctx);
@@ -1308,6 +1322,8 @@ static s64 finalize_btf(struct object *obj)
 		if (err < 0)
 			return err;
 	}
+
+	free(ctx.decl_tags);
 
 	return 0;
 }
