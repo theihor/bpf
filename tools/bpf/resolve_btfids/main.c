@@ -1043,7 +1043,7 @@ out:
 	return err;
 }
 
-static const struct btf_type *btf__unqualified_type_by_id(const struct btf *btf, s32 type_id)
+static const struct btf_type *btf_type_skip_qualifiers(const struct btf *btf, s32 type_id)
 {
 	const struct btf_type *t = btf__type_by_id(btf, type_id);
 
@@ -1053,8 +1053,13 @@ static const struct btf_type *btf__unqualified_type_by_id(const struct btf *btf,
 	return t;
 }
 
+static const struct btf_decl_tag *btf_type_decl_tag(const struct btf_type *t)
+{
+	return (const struct btf_decl_tag *)(t + 1);
+}
+
 /* Implicit BPF kfunc arguments can only be of particular types */
-static bool btf__is_kf_implicit_arg(const struct btf *btf, const struct btf_param *p)
+static bool is_kf_implicit_arg(const struct btf *btf, const struct btf_param *p)
 {
 	static const char *const kf_implicit_arg_types[] = {
 		"bpf_prog_aux",
@@ -1062,11 +1067,11 @@ static bool btf__is_kf_implicit_arg(const struct btf *btf, const struct btf_para
 	const struct btf_type *t;
 	const char *name;
 
-	t = btf__unqualified_type_by_id(btf, p->type);
+	t = btf_type_skip_qualifiers(btf, p->type);
 	if (!btf_is_ptr(t))
 		return false;
 
-	t = btf__unqualified_type_by_id(btf, t->type);
+	t = btf_type_skip_qualifiers(btf, t->type);
 	if (!btf_is_struct(t))
 		return false;
 
@@ -1105,7 +1110,7 @@ static s64 process_kfunc_with_implicit_args(struct btf2btf_context *ctx, s32 kfu
 {
 	struct btf_param new_params[MAX_BPF_FUNC_REG_ARGS];
 	const char *kfunc_name, *param_name, *tag_name;
-	s32 proto_id, new_proto_id, new_func_id;
+	s32 idx, new_proto_id, new_func_id, proto_id;
 	int err, len, name_len, nr_params;
 	const struct btf_param *params;
 	enum btf_func_linkage linkage;
@@ -1158,7 +1163,13 @@ static s64 process_kfunc_with_implicit_args(struct btf2btf_context *ctx, s32 kfu
 		if (strcmp(tag_name, "bpf_kfunc") == 0)
 			continue;
 
-		err = btf__add_decl_tag(btf, tag_name, new_func_id, -1);
+		idx = btf_type_decl_tag(t)->component_idx;
+
+		if (btf_kflag(t))
+			err = btf__add_decl_attr(btf, tag_name, new_func_id, idx);
+		else
+			err = btf__add_decl_tag(btf, tag_name, new_func_id, idx);
+
 		if (err < 0) {
 			pr_err("ERROR: resolve_btfids: failed to add decl tag %s for %s\n",
 			       tag_name, tmp_name);
@@ -1179,7 +1190,7 @@ add_new_proto:
 	params = btf_params(t);
 	nr_params = 0;
 	for (int i = 0; i < btf_vlen(t); i++) {
-		if (btf__is_kf_implicit_arg(btf, &params[i]))
+		if (is_kf_implicit_arg(btf, &params[i]))
 			break;
 		new_params[nr_params++] = params[i];
 	}
