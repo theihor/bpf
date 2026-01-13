@@ -154,7 +154,6 @@ struct object {
 
 #define KF_IMPLICIT_ARGS (1 << 16)
 #define KF_IMPL_SUFFIX "_impl"
-#define MAX_BPF_FUNC_REG_ARGS 5
 
 struct btf2btf_context {
 	struct btf *btf;
@@ -1108,7 +1107,6 @@ static bool is_kf_implicit_arg(const struct btf *btf, const struct btf_param *p)
  */
 static s64 process_kfunc_with_implicit_args(struct btf2btf_context *ctx, s32 kfunc_id)
 {
-	struct btf_param new_params[MAX_BPF_FUNC_REG_ARGS];
 	const char *kfunc_name, *param_name, *tag_name;
 	s32 idx, new_proto_id, new_func_id, proto_id;
 	int err, len, name_len, nr_params;
@@ -1185,16 +1183,7 @@ add_new_proto:
 	tmp_name[name_len] = '\0';
 	kfunc_name = tmp_name;
 
-	/* Load non-implicit args from the original prototype */
 	t = (struct btf_type *)btf__type_by_id(btf, proto_id);
-	params = btf_params(t);
-	nr_params = 0;
-	for (int i = 0; i < btf_vlen(t); i++) {
-		if (is_kf_implicit_arg(btf, &params[i]))
-			break;
-		new_params[nr_params++] = params[i];
-	}
-
 	new_proto_id = btf__add_func_proto(btf, t->type);
 	if (new_proto_id < 0) {
 		pr_err("ERROR: resolve_btfids: failed to add func proto for %s\n", kfunc_name);
@@ -1202,14 +1191,20 @@ add_new_proto:
 	}
 
 	/* Add non-implicit args to the new prototype */
+	t = (struct btf_type *)btf__type_by_id(btf, proto_id);
+	nr_params = btf_vlen(t);
 	for (int i = 0; i < nr_params; i++) {
-		param_name = btf__name_by_offset(btf, new_params[i].name_off);
-		err = btf__add_func_param(btf, param_name, new_params[i].type);
+		params = btf_params(t);
+		if (is_kf_implicit_arg(btf, &params[i]))
+			break;
+		param_name = btf__name_by_offset(btf, params[i].name_off);
+		err = btf__add_func_param(btf, param_name, params[i].type);
 		if (err < 0) {
 			pr_err("ERROR: resolve_btfids: failed to add param %s for %s\n",
 			       param_name, kfunc_name);
 			return err;
 		}
+		t = (struct btf_type *)btf__type_by_id(btf, proto_id);
 	}
 
 	/* Finally change the prototype of the original kfunc to the new one */
