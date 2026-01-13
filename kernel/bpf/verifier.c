@@ -3295,10 +3295,6 @@ static const struct btf_type *find_kfunc_impl_proto(struct bpf_verifier_env *env
 	}
 
 	func = btf_type_by_id(btf, impl_id);
-	if (!func || !btf_type_is_func(func)) {
-		verbose(env, "%s (btf_id %d) is not a function\n", impl_name, impl_id);
-		return NULL;
-	}
 
 	return btf_type_by_id(btf, func->type);
 }
@@ -3345,7 +3341,7 @@ static int fetch_kfunc_meta(struct bpf_verifier_env *env,
 	 * An actual prototype of a kfunc with KF_IMPLICIT_ARGS flag
 	 * can be found through the counterpart _impl kfunc.
 	 */
-	if (unlikely(kfunc_flags && KF_IMPLICIT_ARGS & *kfunc_flags))
+	if (kfunc_flags && (*kfunc_flags & KF_IMPLICIT_ARGS))
 		func_proto = find_kfunc_impl_proto(env, btf, func_name);
 	else
 		func_proto = btf_type_by_id(btf, func->type);
@@ -14382,8 +14378,8 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 		 * from an earlier (irrelevant) point in the program, which may lead to an error
 		 * in opt_subreg_zext_lo32_rnd_hi32().
 		 */
-		if (unlikely(KF_IMPLICIT_ARGS & meta.kfunc_flags
-				&& is_kfunc_arg_implicit(desc_btf, &args[i])))
+		if ((meta.kfunc_flags & KF_IMPLICIT_ARGS)
+				&& is_kfunc_arg_implicit(desc_btf, &args[i]))
 			regs[regno].subreg_def = DEF_NOT_SUBREG;
 
 		t = btf_type_skip_modifiers(desc_btf, args[i].type, NULL);
