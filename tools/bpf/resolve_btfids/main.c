@@ -1043,48 +1043,6 @@ out:
 	return err;
 }
 
-static s64 collect_kfunc_ids_by_flags(struct object *obj,
-				      u32 flags,
-				      s32 kfunc_ids[],
-				      const u32 kfunc_ids_sz)
-{
-	Elf_Data *data = obj->efile.idlist;
-	struct rb_node *next;
-	s64 nr_kfuncs = 0;
-	int i;
-
-	next = rb_first(&obj->sets);
-	while (next) {
-		struct btf_id_set8 *set8 = NULL;
-		unsigned long addr, off;
-		struct btf_id *id;
-
-		id = rb_entry(next, struct btf_id, rb_node);
-
-		if (id->kind != BTF_ID_KIND_SET8)
-			goto skip;
-
-		addr = id->addr[0];
-		off = addr - obj->efile.idlist_addr;
-		set8 = data->d_buf + off;
-
-		for (i = 0; i < set8->cnt; i++) {
-			if (set8->pairs[i].flags & flags) {
-				if (nr_kfuncs >= kfunc_ids_sz) {
-					pr_err("ERROR: resolve_btfids: too many kfuncs with flags %u - limit %d\n",
-					       flags, kfunc_ids_sz);
-					return -E2BIG;
-				}
-				kfunc_ids[nr_kfuncs++] = set8->pairs[i].id;
-			}
-		}
-skip:
-		next = rb_next(next);
-	}
-
-	return nr_kfuncs;
-}
-
 static const struct btf_type *btf__unqualified_type_by_id(const struct btf *btf, s32 type_id)
 {
 	const struct btf_type *t = btf__type_by_id(btf, type_id);
@@ -1303,29 +1261,86 @@ static s64 build_btf2btf_context(struct object *obj, struct btf2btf_context *ctx
 	return 0;
 }
 
+static s64 collect_kfunc_ids_by_flags(struct object *obj, s32 **kfunc_ids, u32 flags)
+{
+	Elf_Data *data = obj->efile.idlist;
+	struct rb_node *next;
+	s32 *kfuncs, *tmp;
+	s64 nr_kfuncs = 0;
+
+	kfuncs = malloc(obj->nr_funcs * sizeof(s32));
+	if (!kfuncs)
+		return -ENOMEM;
+
+	next = rb_first(&obj->sets);
+	while (next) {
+		struct btf_id_set8 *set8 = NULL;
+		unsigned long addr, off;
+		struct btf_id *id;
+
+		id = rb_entry(next, struct btf_id, rb_node);
+
+		if (id->kind != BTF_ID_KIND_SET8)
+			goto skip;
+
+		addr = id->addr[0];
+		off = addr - obj->efile.idlist_addr;
+		set8 = data->d_buf + off;
+
+		for (u32 i = 0; i < set8->cnt; i++) {
+			if (!(flags & set8->pairs[i].flags))
+				continue;
+			kfuncs[nr_kfuncs++] = set8->pairs[i].id;
+		}
+skip:
+		next = rb_next(next);
+	}
+
+	if (nr_kfuncs == 0) {
+		*kfunc_ids = NULL;
+		free(kfuncs);
+		return 0;
+	}
+
+	tmp = realloc(kfuncs, nr_kfuncs * sizeof(s32));
+	if (!tmp) {
+		free(kfuncs);
+		return -ENOMEM;
+	}
+
+	*kfunc_ids = tmp;
+
+	return nr_kfuncs;
+}
+
 static s64 finalize_btf(struct object *obj)
 {
 	struct btf2btf_context ctx = {};
-	s32 kfuncs[256];
+	s32 *kfuncs = NULL;
 	s64 err, nr_kfuncs;
 
 	err = build_btf2btf_context(obj, &ctx);
 	if (err < 0)
-		return err;
+		goto out;
 
-	nr_kfuncs = collect_kfunc_ids_by_flags(obj, KF_IMPLICIT_ARGS, kfuncs, ARRAY_SIZE(kfuncs));
-	if (nr_kfuncs < 0)
-		return nr_kfuncs;
+	nr_kfuncs = collect_kfunc_ids_by_flags(obj, &kfuncs, KF_IMPLICIT_ARGS);
+	if (nr_kfuncs < 0) {
+		err = nr_kfuncs;
+		goto out;
+	}
 
 	for (u32 i = 0; i < nr_kfuncs; i++) {
 		err = process_kfunc_with_implicit_args(&ctx, kfuncs[i]);
 		if (err < 0)
-			return err;
+			goto out;
 	}
 
+	err = 0;
+out:
 	free(ctx.decl_tags);
+	free(kfuncs);
 
-	return 0;
+	return err;
 }
 
 static const char * const resolve_btfids_usage[] = {
