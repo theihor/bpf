@@ -1033,6 +1033,151 @@ out:
 	return err;
 }
 
+
+struct kfunc {
+	const char *name; /* pointer to ELF */
+	u32 btf_id;
+	u32 flags;
+};
+
+struct btf2btf_context {
+	struct btf *btf;
+	u32 *decl_tags;
+	u32 nr_decl_tags;
+	struct kfunc *kfuncs;
+	u32 nr_kfuncs;
+};
+
+static s64 collect_decl_tags(const struct btf *btf, u32 **decl_tags)
+{
+	const u32 type_cnt = btf__type_cnt(btf);
+	const struct btf_type *t;
+	u32 *tags, *tmp;
+	s64 nr_tags = 0;
+
+	tags = malloc(type_cnt * sizeof(s32));
+	if (!tags)
+		return -ENOMEM;
+
+	for (u32 id = 1; id < type_cnt; id++) {
+		t = btf__type_by_id(btf, id);
+		if (!btf_is_decl_tag(t))
+			continue;
+		tags[nr_tags++] = id;
+	}
+
+	if (nr_tags == 0) {
+		*decl_tags = NULL;
+		free(tags);
+		return 0;
+	}
+
+	tmp = realloc(tags, nr_tags * sizeof(s32));
+	if (!tmp) {
+		free(tags);
+		return -ENOMEM;
+	}
+
+	*decl_tags = tmp;
+
+	return nr_tags;
+}
+
+static const struct btf_decl_tag *btf_type_decl_tag(const struct btf_type *t)
+{
+	return (const struct btf_decl_tag *)(t + 1);
+}
+
+
+static s64 collect_kfuncs(struct object *obj, struct btf2btf_context *ctx)
+{
+	struct btf *btf = ctx->btf;
+	struct kfunc *kfunc, *kfuncs, *tmp;
+	const struct btf_type *t;
+	const char *tag_name, *func_name;
+	s64 nr_kfuncs = 0;
+	u32 tag_id, func_id;
+
+	Elf_Data *data = obj->efile.idlist;
+	u32 *elf_data_ptr = data->d_buf;
+
+	if (ctx->nr_decl_tags == 0)
+		return 0;
+
+	kfuncs = malloc(ctx->nr_decl_tags * sizeof(*kfuncs));
+	if (!kfuncs)
+		return -ENOMEM;
+
+	for (u32 i = 0; i < ctx->nr_decl_tags; i++) {
+		tag_id = ctx->decl_tags[i];
+		t = btf__type_by_id(btf, tag_id);
+		if (btf_kflag(t) || btf_type_decl_tag(t)->component_idx != -1)
+			continue;
+		tag_name = btf__name_by_offset(btf, t->name_off);
+		if (strcmp(tag_name, "bpf_kfunc") != 0)
+			continue;
+
+		func_id = t->type;
+		t = btf__type_by_id(btf, t->type);
+		if (!btf_is_func(t))
+			continue;
+
+		func_name = btf__name_by_offset(btf, t->name_off);
+		if (!func_name)
+			continue;
+
+		struct btf_id *id = btf_id__find(&obj->funcs, func_name);
+		if (!id || id->kind != BTF_ID_KIND_SYM)
+			continue;
+
+		u64 addr = id->addr[0];
+		u64 idx = addr - obj->efile.idlist_addr;
+		idx = idx / sizeof(u32) + 1;
+		u32 flags = elf_data_ptr[idx];
+
+		kfunc = &kfuncs[nr_kfuncs++];
+		kfunc->name = id->name;
+		kfunc->btf_id = func_id;
+		kfunc->flags = flags;
+	}
+
+	if (nr_kfuncs == 0) {
+		ctx->kfuncs = NULL;
+		ctx->nr_kfuncs = 0;
+		free(kfuncs);
+		return 0;
+	}
+
+	tmp = realloc(kfuncs, nr_kfuncs * sizeof(*kfuncs));
+	if (!tmp) {
+		free(kfuncs);
+		return -ENOMEM;
+	}
+
+	ctx->kfuncs = tmp;
+	ctx->nr_kfuncs = nr_kfuncs;
+
+	return 0;
+}
+
+static s64 build_btf2btf_context(struct object *obj, struct btf2btf_context *ctx)
+{
+	s64 nr_decl_tags;
+
+	nr_decl_tags = collect_decl_tags(obj->btf, &ctx->decl_tags);
+	if (nr_decl_tags < 0) {
+		pr_err("ERROR: resolve_btfids: failed to collect decl tags from BTF\n");
+		return nr_decl_tags;
+	}
+
+	ctx->btf = obj->btf;
+	ctx->nr_decl_tags = nr_decl_tags;
+
+	collect_kfuncs(obj, ctx);
+
+	return 0;
+}
+
 static const char * const resolve_btfids_usage[] = {
 	"resolve_btfids [<options>] <ELF object>",
 	"resolve_btfids --patch_btfids <.BTF_ids file> <ELF object>",
@@ -1109,6 +1254,11 @@ int main(int argc, const char **argv)
 		goto out;
 
 	if (symbols_patch(&obj))
+		goto out;
+
+	struct btf2btf_context ctx = {};
+	err = build_btf2btf_context(&obj, &ctx);
+	if (err)
 		goto out;
 
 	err = make_out_path(out_path, sizeof(out_path), obj.path, BTF_IDS_SECTION);

@@ -126,7 +126,7 @@ cleanup()
 		rm -f "${ELF_FILE}.BTF_ids"
 	fi
 }
-trap cleanup EXIT
+# trap cleanup EXIT
 
 BTFGEN_MODE="vmlinux"
 if [ -n "${BTF_BASE}" ]; then

@@ -14,7 +14,7 @@ __bpf_kfunc int bpf_test_modorder_retx(void)
 __bpf_kfunc_end_defs();
 
 BTF_KFUNCS_START(bpf_test_modorder_kfunc_x_ids)
-BTF_ID_FLAGS(func, bpf_test_modorder_retx);
+BTF_ID_FLAGS(func, bpf_test_modorder_retx, KF_SLEEPABLE);
 BTF_KFUNCS_END(bpf_test_modorder_kfunc_x_ids)
 
 static const struct btf_kfunc_id_set bpf_test_modorder_x_set = {
