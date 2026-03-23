@@ -98,6 +98,22 @@ __BTF_ID_LIST(name, globl)
 	BTF_ID(prefix, typename)
 
 /*
+ * BTF_ID_LIST_NAMED/BTF_ID_NAMED - see linux/include/linux/btf_ids.h
+ * for full documentation. Tools-side equivalent uses 1-arg __BTF_ID.
+ */
+#define BTF_ID_LIST_NAMED(name)				\
+	__BTF_ID_LIST(name, local)			\
+	extern u32 name[];
+
+#define BTF_ID_NAMED(list, prefix, name)		\
+	__BTF_ID(__BTF_ID__##prefix##__##name##__##list) \
+	extern u32 __btf_id_##list##__##prefix##__##name \
+		asm("__BTF_ID__" #prefix "__" #name "__" #list);
+
+#define btf_id_named(list, prefix, name) \
+	(__btf_id_##list##__##prefix##__##name)
+
+/*
  * The BTF_ID_UNUSED macro defines 4 zero bytes.
  * It's used when we want to define 'unused' entry
  * in BTF_ID_LIST, like:
@@ -163,6 +179,11 @@ extern struct btf_id_set name;
 #define BTF_ID_LIST_GLOBAL(name, n) u32 __maybe_unused name[n];
 #define BTF_ID_LIST_SINGLE(name, prefix, typename) static u32 __maybe_unused name[1];
 #define BTF_ID_LIST_GLOBAL_SINGLE(name, prefix, typename) u32 __maybe_unused name[1];
+
+#define BTF_ID_LIST_NAMED(name) static u32 __maybe_unused name[64];
+#define BTF_ID_NAMED(list, prefix, name)
+#define btf_id_named(list, prefix, name) (0)
+
 #define BTF_SET_START(name) static struct btf_id_set __maybe_unused name = { 0 };
 #define BTF_SET_START_GLOBAL(name) static struct btf_id_set __maybe_unused name = { 0 };
 #define BTF_SET_END(name)

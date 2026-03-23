@@ -280,12 +280,13 @@ static int get_id(const char *prefix_end, char *buf, size_t buf_sz)
 {
 	/*
 	 * __BTF_ID__func__vfs_truncate__0
+	 * __BTF_ID__func__vfs_truncate__special_kfunc_list
 	 * prefix_end =  ^
 	 * pos        =    ^
 	 */
 	int len = strlen(prefix_end);
 	int pos = sizeof("__") - 1;
-	char *p;
+	char *p, *suffix = NULL;
 
 	if (pos >= len)
 		return -1;
@@ -296,15 +297,23 @@ static int get_id(const char *prefix_end, char *buf, size_t buf_sz)
 	strcpy(buf, prefix_end + pos);
 	/*
 	 * __BTF_ID__func__vfs_truncate__0
+	 * __BTF_ID__func__vfs_truncate__special_kfunc_list
 	 * buf =           ^
 	 *
-	 * cut the unique id part
+	 * cut the suffix used to disambiguate repeated BTF_ID() entries.
+	 * Historical users relied on a numeric unique suffix emitted by
+	 * __COUNTER__/__LINE__; list-scoped users may instead append a
+	 * human-readable suffix like "__special_kfunc_list".
 	 */
-	p = strrchr(buf, '_');
-	p--;
-	if (*p != '_')
+	for (p = buf; ; p += 2) {
+		p = strstr(p, "__");
+		if (!p)
+			break;
+		suffix = p;
+	}
+	if (!suffix)
 		return -1;
-	*p = '\0';
+	*suffix = '\0';
 
 	return 0;
 }

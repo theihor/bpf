@@ -53,6 +53,15 @@ BTF_ID(struct,  S)
 BTF_ID(union,   U)
 BTF_ID(func,    func)
 
+BTF_ID_LIST_NAMED(test_list_named)
+BTF_ID_UNUSED
+BTF_ID_NAMED(test_list_named, typedef, S)
+BTF_ID_NAMED(test_list_named, typedef, T)
+BTF_ID_NAMED(test_list_named, typedef, U)
+BTF_ID_NAMED(test_list_named, struct, S)
+BTF_ID_NAMED(test_list_named, union, U)
+BTF_ID_NAMED(test_list_named, func, func)
+
 BTF_SET_START(test_set)
 BTF_ID(typedef, S)
 BTF_ID(typedef, T)
@@ -119,7 +128,11 @@ static int resolve_symbols(void)
 
 void test_resolve_btfids(void)
 {
-	__u32 *test_list, *test_lists[] = { test_list_local, test_list_global };
+	__u32 *test_list, *test_lists[] = {
+		test_list_local,
+		test_list_global,
+		test_list_named,
+	};
 	unsigned int i, j;
 	int ret = 0;
 
@@ -141,6 +154,20 @@ void test_resolve_btfids(void)
 				return;
 		}
 	}
+
+	ret = CHECK(btf_id_named(test_list_named, typedef, S) != test_symbols[1].id,
+		    "named_typedef_id",
+		    "wrong direct ID for typedef S (%d != %d)\n",
+		    btf_id_named(test_list_named, typedef, S), test_symbols[1].id);
+	if (ret)
+		return;
+
+	ret = CHECK(btf_id_named(test_list_named, func, func) != test_symbols[6].id,
+		    "named_func_id",
+		    "wrong direct ID for func (%d != %d)\n",
+		    btf_id_named(test_list_named, func, func), test_symbols[6].id);
+	if (ret)
+		return;
 
 	/* Check BTF_SET_START(test_set) IDs */
 	for (i = 0; i < test_set.cnt; i++) {

@@ -12551,209 +12551,123 @@ enum kfunc_ptr_arg_type {
 	KF_ARG_PTR_TO_TASK_WORK,
 };
 
-enum special_kfunc_type {
-	KF_bpf_obj_new_impl,
-	KF_bpf_obj_drop_impl,
-	KF_bpf_refcount_acquire_impl,
-	KF_bpf_list_push_front_impl,
-	KF_bpf_list_push_back_impl,
-	KF_bpf_list_pop_front,
-	KF_bpf_list_pop_back,
-	KF_bpf_list_front,
-	KF_bpf_list_back,
-	KF_bpf_cast_to_kern_ctx,
-	KF_bpf_rdonly_cast,
-	KF_bpf_rcu_read_lock,
-	KF_bpf_rcu_read_unlock,
-	KF_bpf_rbtree_remove,
-	KF_bpf_rbtree_add_impl,
-	KF_bpf_rbtree_first,
-	KF_bpf_rbtree_root,
-	KF_bpf_rbtree_left,
-	KF_bpf_rbtree_right,
-	KF_bpf_dynptr_from_skb,
-	KF_bpf_dynptr_from_xdp,
-	KF_bpf_dynptr_from_skb_meta,
-	KF_bpf_xdp_pull_data,
-	KF_bpf_dynptr_slice,
-	KF_bpf_dynptr_slice_rdwr,
-	KF_bpf_dynptr_clone,
-	KF_bpf_percpu_obj_new_impl,
-	KF_bpf_percpu_obj_drop_impl,
-	KF_bpf_throw,
-	KF_bpf_wq_set_callback,
-	KF_bpf_preempt_disable,
-	KF_bpf_preempt_enable,
-	KF_bpf_iter_css_task_new,
-	KF_bpf_session_cookie,
-	KF_bpf_get_kmem_cache,
-	KF_bpf_local_irq_save,
-	KF_bpf_local_irq_restore,
-	KF_bpf_iter_num_new,
-	KF_bpf_iter_num_next,
-	KF_bpf_iter_num_destroy,
-	KF_bpf_set_dentry_xattr,
-	KF_bpf_remove_dentry_xattr,
-	KF_bpf_res_spin_lock,
-	KF_bpf_res_spin_unlock,
-	KF_bpf_res_spin_lock_irqsave,
-	KF_bpf_res_spin_unlock_irqrestore,
-	KF_bpf_dynptr_from_file,
-	KF_bpf_dynptr_file_discard,
-	KF___bpf_trap,
-	KF_bpf_task_work_schedule_signal,
-	KF_bpf_task_work_schedule_resume,
-	KF_bpf_arena_alloc_pages,
-	KF_bpf_arena_free_pages,
-	KF_bpf_arena_reserve_pages,
-	KF_bpf_session_is_return,
-	KF_bpf_stream_vprintk,
-	KF_bpf_stream_print_stack,
-	KF_bpf_obj_new,
-	KF_bpf_percpu_obj_new,
-	KF_bpf_obj_drop,
-	KF_bpf_percpu_obj_drop,
-	KF_bpf_refcount_acquire,
-	KF_bpf_list_push_front,
-	KF_bpf_list_push_back,
-	KF_bpf_rbtree_add,
-};
+BTF_ID_LIST_NAMED(special_kfunc_list)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_obj_new_impl)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_obj_drop_impl)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_refcount_acquire_impl)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_list_push_front_impl)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_list_push_back_impl)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_list_pop_front)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_list_pop_back)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_list_front)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_list_back)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_cast_to_kern_ctx)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_rdonly_cast)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_rcu_read_lock)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_rcu_read_unlock)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_rbtree_remove)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_rbtree_add_impl)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_rbtree_first)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_rbtree_root)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_rbtree_left)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_rbtree_right)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_dynptr_from_skb)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_dynptr_from_xdp)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_dynptr_from_skb_meta)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_xdp_pull_data)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_dynptr_slice)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_dynptr_slice_rdwr)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_dynptr_clone)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_percpu_obj_new_impl)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_percpu_obj_drop_impl)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_throw)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_wq_set_callback)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_preempt_disable)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_preempt_enable)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_iter_css_task_new)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_session_cookie)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_get_kmem_cache)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_local_irq_save)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_local_irq_restore)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_iter_num_new)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_iter_num_next)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_iter_num_destroy)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_set_dentry_xattr)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_remove_dentry_xattr)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_res_spin_lock)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_res_spin_unlock)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_res_spin_lock_irqsave)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_res_spin_unlock_irqrestore)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_dynptr_from_file)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_dynptr_file_discard)
+BTF_ID_NAMED(special_kfunc_list, func, __bpf_trap)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_task_work_schedule_signal)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_task_work_schedule_resume)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_arena_alloc_pages)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_arena_free_pages)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_arena_reserve_pages)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_session_is_return)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_stream_vprintk)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_stream_print_stack)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_obj_new)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_percpu_obj_new)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_obj_drop)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_percpu_obj_drop)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_refcount_acquire)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_list_push_front)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_list_push_back)
+BTF_ID_NAMED(special_kfunc_list, func, bpf_rbtree_add)
 
-BTF_ID_LIST(special_kfunc_list)
-BTF_ID(func, bpf_obj_new_impl)
-BTF_ID(func, bpf_obj_drop_impl)
-BTF_ID(func, bpf_refcount_acquire_impl)
-BTF_ID(func, bpf_list_push_front_impl)
-BTF_ID(func, bpf_list_push_back_impl)
-BTF_ID(func, bpf_list_pop_front)
-BTF_ID(func, bpf_list_pop_back)
-BTF_ID(func, bpf_list_front)
-BTF_ID(func, bpf_list_back)
-BTF_ID(func, bpf_cast_to_kern_ctx)
-BTF_ID(func, bpf_rdonly_cast)
-BTF_ID(func, bpf_rcu_read_lock)
-BTF_ID(func, bpf_rcu_read_unlock)
-BTF_ID(func, bpf_rbtree_remove)
-BTF_ID(func, bpf_rbtree_add_impl)
-BTF_ID(func, bpf_rbtree_first)
-BTF_ID(func, bpf_rbtree_root)
-BTF_ID(func, bpf_rbtree_left)
-BTF_ID(func, bpf_rbtree_right)
-#ifdef CONFIG_NET
-BTF_ID(func, bpf_dynptr_from_skb)
-BTF_ID(func, bpf_dynptr_from_xdp)
-BTF_ID(func, bpf_dynptr_from_skb_meta)
-BTF_ID(func, bpf_xdp_pull_data)
-#else
-BTF_ID_UNUSED
-BTF_ID_UNUSED
-BTF_ID_UNUSED
-BTF_ID_UNUSED
-#endif
-BTF_ID(func, bpf_dynptr_slice)
-BTF_ID(func, bpf_dynptr_slice_rdwr)
-BTF_ID(func, bpf_dynptr_clone)
-BTF_ID(func, bpf_percpu_obj_new_impl)
-BTF_ID(func, bpf_percpu_obj_drop_impl)
-BTF_ID(func, bpf_throw)
-BTF_ID(func, bpf_wq_set_callback)
-BTF_ID(func, bpf_preempt_disable)
-BTF_ID(func, bpf_preempt_enable)
-#ifdef CONFIG_CGROUPS
-BTF_ID(func, bpf_iter_css_task_new)
-#else
-BTF_ID_UNUSED
-#endif
-#ifdef CONFIG_BPF_EVENTS
-BTF_ID(func, bpf_session_cookie)
-#else
-BTF_ID_UNUSED
-#endif
-BTF_ID(func, bpf_get_kmem_cache)
-BTF_ID(func, bpf_local_irq_save)
-BTF_ID(func, bpf_local_irq_restore)
-BTF_ID(func, bpf_iter_num_new)
-BTF_ID(func, bpf_iter_num_next)
-BTF_ID(func, bpf_iter_num_destroy)
-#ifdef CONFIG_BPF_LSM
-BTF_ID(func, bpf_set_dentry_xattr)
-BTF_ID(func, bpf_remove_dentry_xattr)
-#else
-BTF_ID_UNUSED
-BTF_ID_UNUSED
-#endif
-BTF_ID(func, bpf_res_spin_lock)
-BTF_ID(func, bpf_res_spin_unlock)
-BTF_ID(func, bpf_res_spin_lock_irqsave)
-BTF_ID(func, bpf_res_spin_unlock_irqrestore)
-BTF_ID(func, bpf_dynptr_from_file)
-BTF_ID(func, bpf_dynptr_file_discard)
-BTF_ID(func, __bpf_trap)
-BTF_ID(func, bpf_task_work_schedule_signal)
-BTF_ID(func, bpf_task_work_schedule_resume)
-BTF_ID(func, bpf_arena_alloc_pages)
-BTF_ID(func, bpf_arena_free_pages)
-BTF_ID(func, bpf_arena_reserve_pages)
-BTF_ID(func, bpf_session_is_return)
-BTF_ID(func, bpf_stream_vprintk)
-BTF_ID(func, bpf_stream_print_stack)
-BTF_ID(func, bpf_obj_new)
-BTF_ID(func, bpf_percpu_obj_new)
-BTF_ID(func, bpf_obj_drop)
-BTF_ID(func, bpf_percpu_obj_drop)
-BTF_ID(func, bpf_refcount_acquire)
-BTF_ID(func, bpf_list_push_front)
-BTF_ID(func, bpf_list_push_back)
-BTF_ID(func, bpf_rbtree_add)
+#define special_kfunc_id(name) btf_id_named(special_kfunc_list, func, name)
 
 static bool is_bpf_obj_new_kfunc(u32 func_id)
 {
-	return func_id == special_kfunc_list[KF_bpf_obj_new] ||
-	       func_id == special_kfunc_list[KF_bpf_obj_new_impl];
+	return func_id == special_kfunc_id(bpf_obj_new) ||
+	       func_id == special_kfunc_id(bpf_obj_new_impl);
 }
 
 static bool is_bpf_percpu_obj_new_kfunc(u32 func_id)
 {
-	return func_id == special_kfunc_list[KF_bpf_percpu_obj_new] ||
-	       func_id == special_kfunc_list[KF_bpf_percpu_obj_new_impl];
+	return func_id == special_kfunc_id(bpf_percpu_obj_new) ||
+	       func_id == special_kfunc_id(bpf_percpu_obj_new_impl);
 }
 
 static bool is_bpf_obj_drop_kfunc(u32 func_id)
 {
-	return func_id == special_kfunc_list[KF_bpf_obj_drop] ||
-	       func_id == special_kfunc_list[KF_bpf_obj_drop_impl];
+	return func_id == special_kfunc_id(bpf_obj_drop) ||
+	       func_id == special_kfunc_id(bpf_obj_drop_impl);
 }
 
 static bool is_bpf_percpu_obj_drop_kfunc(u32 func_id)
 {
-	return func_id == special_kfunc_list[KF_bpf_percpu_obj_drop] ||
-	       func_id == special_kfunc_list[KF_bpf_percpu_obj_drop_impl];
+	return func_id == special_kfunc_id(bpf_percpu_obj_drop) ||
+	       func_id == special_kfunc_id(bpf_percpu_obj_drop_impl);
 }
 
 static bool is_bpf_refcount_acquire_kfunc(u32 func_id)
 {
-	return func_id == special_kfunc_list[KF_bpf_refcount_acquire] ||
-	       func_id == special_kfunc_list[KF_bpf_refcount_acquire_impl];
+	return func_id == special_kfunc_id(bpf_refcount_acquire) ||
+	       func_id == special_kfunc_id(bpf_refcount_acquire_impl);
 }
 
 static bool is_bpf_list_push_kfunc(u32 func_id)
 {
-	return func_id == special_kfunc_list[KF_bpf_list_push_front] ||
-	       func_id == special_kfunc_list[KF_bpf_list_push_front_impl] ||
-	       func_id == special_kfunc_list[KF_bpf_list_push_back] ||
-	       func_id == special_kfunc_list[KF_bpf_list_push_back_impl];
+	return func_id == special_kfunc_id(bpf_list_push_front) ||
+	       func_id == special_kfunc_id(bpf_list_push_front_impl) ||
+	       func_id == special_kfunc_id(bpf_list_push_back) ||
+	       func_id == special_kfunc_id(bpf_list_push_back_impl);
 }
 
 static bool is_bpf_rbtree_add_kfunc(u32 func_id)
 {
-	return func_id == special_kfunc_list[KF_bpf_rbtree_add] ||
-	       func_id == special_kfunc_list[KF_bpf_rbtree_add_impl];
+	return func_id == special_kfunc_id(bpf_rbtree_add) ||
+	       func_id == special_kfunc_id(bpf_rbtree_add_impl);
 }
 
 static bool is_task_work_add_kfunc(u32 func_id)
 {
-	return func_id == special_kfunc_list[KF_bpf_task_work_schedule_signal] ||
-	       func_id == special_kfunc_list[KF_bpf_task_work_schedule_resume];
+	return func_id == special_kfunc_id(bpf_task_work_schedule_signal) ||
+	       func_id == special_kfunc_id(bpf_task_work_schedule_resume);
 }
 
 static bool is_kfunc_ret_null(struct bpf_kfunc_call_arg_meta *meta)
@@ -12766,27 +12680,27 @@ static bool is_kfunc_ret_null(struct bpf_kfunc_call_arg_meta *meta)
 
 static bool is_kfunc_bpf_rcu_read_lock(struct bpf_kfunc_call_arg_meta *meta)
 {
-	return meta->func_id == special_kfunc_list[KF_bpf_rcu_read_lock];
+	return meta->func_id == special_kfunc_id(bpf_rcu_read_lock);
 }
 
 static bool is_kfunc_bpf_rcu_read_unlock(struct bpf_kfunc_call_arg_meta *meta)
 {
-	return meta->func_id == special_kfunc_list[KF_bpf_rcu_read_unlock];
+	return meta->func_id == special_kfunc_id(bpf_rcu_read_unlock);
 }
 
 static bool is_kfunc_bpf_preempt_disable(struct bpf_kfunc_call_arg_meta *meta)
 {
-	return meta->func_id == special_kfunc_list[KF_bpf_preempt_disable];
+	return meta->func_id == special_kfunc_id(bpf_preempt_disable);
 }
 
 static bool is_kfunc_bpf_preempt_enable(struct bpf_kfunc_call_arg_meta *meta)
 {
-	return meta->func_id == special_kfunc_list[KF_bpf_preempt_enable];
+	return meta->func_id == special_kfunc_id(bpf_preempt_enable);
 }
 
 static bool is_kfunc_pkt_changing(struct bpf_kfunc_call_arg_meta *meta)
 {
-	return meta->func_id == special_kfunc_list[KF_bpf_xdp_pull_data];
+	return meta->func_id == special_kfunc_id(bpf_xdp_pull_data);
 }
 
 static enum kfunc_ptr_arg_type
@@ -12801,9 +12715,9 @@ get_kfunc_ptr_arg_type(struct bpf_verifier_env *env,
 	struct bpf_reg_state *reg = &regs[regno];
 	bool arg_mem_size = false;
 
-	if (meta->func_id == special_kfunc_list[KF_bpf_cast_to_kern_ctx] ||
-	    meta->func_id == special_kfunc_list[KF_bpf_session_is_return] ||
-	    meta->func_id == special_kfunc_list[KF_bpf_session_cookie])
+	if (meta->func_id == special_kfunc_id(bpf_cast_to_kern_ctx) ||
+	    meta->func_id == special_kfunc_id(bpf_session_is_return) ||
+	    meta->func_id == special_kfunc_id(bpf_session_cookie))
 		return KF_ARG_PTR_TO_CTX;
 
 	if (argno + 1 < nargs &&
@@ -12972,15 +12886,15 @@ static int process_irq_flag(struct bpf_verifier_env *env, int regno,
 	int err, kfunc_class = IRQ_NATIVE_KFUNC;
 	bool irq_save;
 
-	if (meta->func_id == special_kfunc_list[KF_bpf_local_irq_save] ||
-	    meta->func_id == special_kfunc_list[KF_bpf_res_spin_lock_irqsave]) {
+	if (meta->func_id == special_kfunc_id(bpf_local_irq_save) ||
+	    meta->func_id == special_kfunc_id(bpf_res_spin_lock_irqsave)) {
 		irq_save = true;
-		if (meta->func_id == special_kfunc_list[KF_bpf_res_spin_lock_irqsave])
+		if (meta->func_id == special_kfunc_id(bpf_res_spin_lock_irqsave))
 			kfunc_class = IRQ_LOCK_KFUNC;
-	} else if (meta->func_id == special_kfunc_list[KF_bpf_local_irq_restore] ||
-		   meta->func_id == special_kfunc_list[KF_bpf_res_spin_unlock_irqrestore]) {
+	} else if (meta->func_id == special_kfunc_id(bpf_local_irq_restore) ||
+		   meta->func_id == special_kfunc_id(bpf_res_spin_unlock_irqrestore)) {
 		irq_save = false;
-		if (meta->func_id == special_kfunc_list[KF_bpf_res_spin_unlock_irqrestore])
+		if (meta->func_id == special_kfunc_id(bpf_res_spin_unlock_irqrestore))
 			kfunc_class = IRQ_LOCK_KFUNC;
 	} else {
 		verifier_bug(env, "unknown irq flags kfunc");
@@ -13148,27 +13062,27 @@ static int check_reg_allocation_locked(struct bpf_verifier_env *env, struct bpf_
 static bool is_bpf_list_api_kfunc(u32 btf_id)
 {
 	return is_bpf_list_push_kfunc(btf_id) ||
-	       btf_id == special_kfunc_list[KF_bpf_list_pop_front] ||
-	       btf_id == special_kfunc_list[KF_bpf_list_pop_back] ||
-	       btf_id == special_kfunc_list[KF_bpf_list_front] ||
-	       btf_id == special_kfunc_list[KF_bpf_list_back];
+	       btf_id == special_kfunc_id(bpf_list_pop_front) ||
+	       btf_id == special_kfunc_id(bpf_list_pop_back) ||
+	       btf_id == special_kfunc_id(bpf_list_front) ||
+	       btf_id == special_kfunc_id(bpf_list_back);
 }
 
 static bool is_bpf_rbtree_api_kfunc(u32 btf_id)
 {
 	return is_bpf_rbtree_add_kfunc(btf_id) ||
-	       btf_id == special_kfunc_list[KF_bpf_rbtree_remove] ||
-	       btf_id == special_kfunc_list[KF_bpf_rbtree_first] ||
-	       btf_id == special_kfunc_list[KF_bpf_rbtree_root] ||
-	       btf_id == special_kfunc_list[KF_bpf_rbtree_left] ||
-	       btf_id == special_kfunc_list[KF_bpf_rbtree_right];
+	       btf_id == special_kfunc_id(bpf_rbtree_remove) ||
+	       btf_id == special_kfunc_id(bpf_rbtree_first) ||
+	       btf_id == special_kfunc_id(bpf_rbtree_root) ||
+	       btf_id == special_kfunc_id(bpf_rbtree_left) ||
+	       btf_id == special_kfunc_id(bpf_rbtree_right);
 }
 
 static bool is_bpf_iter_num_api_kfunc(u32 btf_id)
 {
-	return btf_id == special_kfunc_list[KF_bpf_iter_num_new] ||
-	       btf_id == special_kfunc_list[KF_bpf_iter_num_next] ||
-	       btf_id == special_kfunc_list[KF_bpf_iter_num_destroy];
+	return btf_id == special_kfunc_id(bpf_iter_num_new) ||
+	       btf_id == special_kfunc_id(bpf_iter_num_next) ||
+	       btf_id == special_kfunc_id(bpf_iter_num_destroy);
 }
 
 static bool is_bpf_graph_api_kfunc(u32 btf_id)
@@ -13180,23 +13094,23 @@ static bool is_bpf_graph_api_kfunc(u32 btf_id)
 
 static bool is_bpf_res_spin_lock_kfunc(u32 btf_id)
 {
-	return btf_id == special_kfunc_list[KF_bpf_res_spin_lock] ||
-	       btf_id == special_kfunc_list[KF_bpf_res_spin_unlock] ||
-	       btf_id == special_kfunc_list[KF_bpf_res_spin_lock_irqsave] ||
-	       btf_id == special_kfunc_list[KF_bpf_res_spin_unlock_irqrestore];
+	return btf_id == special_kfunc_id(bpf_res_spin_lock) ||
+	       btf_id == special_kfunc_id(bpf_res_spin_unlock) ||
+	       btf_id == special_kfunc_id(bpf_res_spin_lock_irqsave) ||
+	       btf_id == special_kfunc_id(bpf_res_spin_unlock_irqrestore);
 }
 
 static bool is_bpf_arena_kfunc(u32 btf_id)
 {
-	return btf_id == special_kfunc_list[KF_bpf_arena_alloc_pages] ||
-	       btf_id == special_kfunc_list[KF_bpf_arena_free_pages] ||
-	       btf_id == special_kfunc_list[KF_bpf_arena_reserve_pages];
+	return btf_id == special_kfunc_id(bpf_arena_alloc_pages) ||
+	       btf_id == special_kfunc_id(bpf_arena_free_pages) ||
+	       btf_id == special_kfunc_id(bpf_arena_reserve_pages);
 }
 
 static bool is_bpf_stream_kfunc(u32 btf_id)
 {
-	return btf_id == special_kfunc_list[KF_bpf_stream_vprintk] ||
-	       btf_id == special_kfunc_list[KF_bpf_stream_print_stack];
+	return btf_id == special_kfunc_id(bpf_stream_vprintk) ||
+	       btf_id == special_kfunc_id(bpf_stream_print_stack);
 }
 
 static bool kfunc_spin_allowed(u32 btf_id)
@@ -13220,12 +13134,12 @@ static bool is_async_callback_calling_kfunc(u32 btf_id)
 static bool is_bpf_throw_kfunc(struct bpf_insn *insn)
 {
 	return bpf_pseudo_kfunc_call(insn) && insn->off == 0 &&
-	       insn->imm == special_kfunc_list[KF_bpf_throw];
+	       insn->imm == special_kfunc_id(bpf_throw);
 }
 
 static bool is_bpf_wq_set_callback_kfunc(u32 btf_id)
 {
-	return btf_id == special_kfunc_list[KF_bpf_wq_set_callback];
+	return btf_id == special_kfunc_id(bpf_wq_set_callback);
 }
 
 static bool is_callback_calling_kfunc(u32 btf_id)
@@ -13276,9 +13190,9 @@ static bool check_kfunc_is_graph_node_api(struct bpf_verifier_env *env,
 		break;
 	case BPF_RB_NODE:
 		ret = (is_bpf_rbtree_add_kfunc(kfunc_btf_id) ||
-		       kfunc_btf_id == special_kfunc_list[KF_bpf_rbtree_remove] ||
-		       kfunc_btf_id == special_kfunc_list[KF_bpf_rbtree_left] ||
-		       kfunc_btf_id == special_kfunc_list[KF_bpf_rbtree_right]);
+		       kfunc_btf_id == special_kfunc_id(bpf_rbtree_remove) ||
+		       kfunc_btf_id == special_kfunc_id(bpf_rbtree_left) ||
+		       kfunc_btf_id == special_kfunc_id(bpf_rbtree_right));
 		break;
 	default:
 		verbose(env, "verifier internal error: unexpected graph node argument type %s\n",
@@ -13674,7 +13588,7 @@ static int check_kfunc_args(struct bpf_verifier_env *env, struct bpf_kfunc_call_
 				return -EINVAL;
 			}
 
-			if (meta->func_id == special_kfunc_list[KF_bpf_cast_to_kern_ctx]) {
+			if (meta->func_id == special_kfunc_id(bpf_cast_to_kern_ctx)) {
 				ret = get_kern_ctx_btf_id(&env->log, resolve_prog_type(env->prog));
 				if (ret < 0)
 					return -EINVAL;
@@ -13716,18 +13630,18 @@ static int check_kfunc_args(struct bpf_verifier_env *env, struct bpf_kfunc_call_
 			if (is_kfunc_arg_uninit(btf, &args[i]))
 				dynptr_arg_type |= MEM_UNINIT;
 
-			if (meta->func_id == special_kfunc_list[KF_bpf_dynptr_from_skb]) {
+			if (meta->func_id == special_kfunc_id(bpf_dynptr_from_skb)) {
 				dynptr_arg_type |= DYNPTR_TYPE_SKB;
-			} else if (meta->func_id == special_kfunc_list[KF_bpf_dynptr_from_xdp]) {
+			} else if (meta->func_id == special_kfunc_id(bpf_dynptr_from_xdp)) {
 				dynptr_arg_type |= DYNPTR_TYPE_XDP;
-			} else if (meta->func_id == special_kfunc_list[KF_bpf_dynptr_from_skb_meta]) {
+			} else if (meta->func_id == special_kfunc_id(bpf_dynptr_from_skb_meta)) {
 				dynptr_arg_type |= DYNPTR_TYPE_SKB_META;
-			} else if (meta->func_id == special_kfunc_list[KF_bpf_dynptr_from_file]) {
+			} else if (meta->func_id == special_kfunc_id(bpf_dynptr_from_file)) {
 				dynptr_arg_type |= DYNPTR_TYPE_FILE;
-			} else if (meta->func_id == special_kfunc_list[KF_bpf_dynptr_file_discard]) {
+			} else if (meta->func_id == special_kfunc_id(bpf_dynptr_file_discard)) {
 				dynptr_arg_type |= DYNPTR_TYPE_FILE;
 				meta->release_regno = regno;
-			} else if (meta->func_id == special_kfunc_list[KF_bpf_dynptr_clone] &&
+			} else if (meta->func_id == special_kfunc_id(bpf_dynptr_clone) &&
 				   (dynptr_arg_type & MEM_UNINIT)) {
 				enum bpf_dynptr_type parent_type = meta->initialized_dynptr.type;
 
@@ -13763,7 +13677,7 @@ static int check_kfunc_args(struct bpf_verifier_env *env, struct bpf_kfunc_call_
 			break;
 		}
 		case KF_ARG_PTR_TO_ITER:
-			if (meta->func_id == special_kfunc_list[KF_bpf_iter_css_task_new]) {
+			if (meta->func_id == special_kfunc_id(bpf_iter_css_task_new)) {
 				if (!check_css_task_iter_allowlist(env)) {
 					verbose(env, "css_task_iter is only allowed in bpf_lsm, bpf_iter and sleepable progs\n");
 					return -EINVAL;
@@ -13988,11 +13902,11 @@ static int check_kfunc_args(struct bpf_verifier_env *env, struct bpf_kfunc_call_
 
 			if (!is_bpf_res_spin_lock_kfunc(meta->func_id))
 				return -EFAULT;
-			if (meta->func_id == special_kfunc_list[KF_bpf_res_spin_lock] ||
-			    meta->func_id == special_kfunc_list[KF_bpf_res_spin_lock_irqsave])
+			if (meta->func_id == special_kfunc_id(bpf_res_spin_lock) ||
+			    meta->func_id == special_kfunc_id(bpf_res_spin_lock_irqsave))
 				flags |= PROCESS_SPIN_LOCK;
-			if (meta->func_id == special_kfunc_list[KF_bpf_res_spin_lock_irqsave] ||
-			    meta->func_id == special_kfunc_list[KF_bpf_res_spin_unlock_irqrestore])
+			if (meta->func_id == special_kfunc_id(bpf_res_spin_lock_irqsave) ||
+			    meta->func_id == special_kfunc_id(bpf_res_spin_unlock_irqrestore))
 				flags |= PROCESS_LOCK_IRQ;
 			ret = process_spin_lock(env, regno, flags);
 			if (ret < 0)
@@ -14148,12 +14062,12 @@ static int check_special_kfunc(struct bpf_verifier_env *env, struct bpf_kfunc_ca
 		struct btf_field *field = meta->arg_rbtree_root.field;
 
 		mark_reg_graph_node(regs, BPF_REG_0, &field->graph_root);
-	} else if (meta->func_id == special_kfunc_list[KF_bpf_cast_to_kern_ctx]) {
+	} else if (meta->func_id == special_kfunc_id(bpf_cast_to_kern_ctx)) {
 		mark_reg_known_zero(env, regs, BPF_REG_0);
 		regs[BPF_REG_0].type = PTR_TO_BTF_ID | PTR_TRUSTED;
 		regs[BPF_REG_0].btf = desc_btf;
 		regs[BPF_REG_0].btf_id = meta->ret_btf_id;
-	} else if (meta->func_id == special_kfunc_list[KF_bpf_rdonly_cast]) {
+	} else if (meta->func_id == special_kfunc_id(bpf_rdonly_cast)) {
 		ret_t = btf_type_by_id(desc_btf, meta->arg_constant.value);
 		if (!ret_t) {
 			verbose(env, "Unknown type ID %lld passed to kfunc bpf_rdonly_cast\n",
@@ -14173,8 +14087,8 @@ static int check_special_kfunc(struct bpf_verifier_env *env, struct bpf_kfunc_ca
 				"kfunc bpf_rdonly_cast type ID argument must be of a struct or void\n");
 			return -EINVAL;
 		}
-	} else if (meta->func_id == special_kfunc_list[KF_bpf_dynptr_slice] ||
-		   meta->func_id == special_kfunc_list[KF_bpf_dynptr_slice_rdwr]) {
+	} else if (meta->func_id == special_kfunc_id(bpf_dynptr_slice) ||
+		   meta->func_id == special_kfunc_id(bpf_dynptr_slice_rdwr)) {
 		enum bpf_type_flag type_flag = get_dynptr_type_flag(meta->initialized_dynptr.type);
 
 		mark_reg_known_zero(env, regs, BPF_REG_0);
@@ -14189,7 +14103,7 @@ static int check_special_kfunc(struct bpf_verifier_env *env, struct bpf_kfunc_ca
 		/* PTR_MAYBE_NULL will be added when is_kfunc_ret_null is checked */
 		regs[BPF_REG_0].type = PTR_TO_MEM | type_flag;
 
-		if (meta->func_id == special_kfunc_list[KF_bpf_dynptr_slice]) {
+		if (meta->func_id == special_kfunc_id(bpf_dynptr_slice)) {
 			regs[BPF_REG_0].type |= MEM_RDONLY;
 		} else {
 			/* this will set env->seen_direct_write to true */
@@ -14248,8 +14162,8 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 	insn_aux->is_iter_next = is_iter_next_kfunc(&meta);
 
 	if (!insn->off &&
-	    (insn->imm == special_kfunc_list[KF_bpf_res_spin_lock] ||
-	     insn->imm == special_kfunc_list[KF_bpf_res_spin_lock_irqsave])) {
+	    (insn->imm == special_kfunc_id(bpf_res_spin_lock) ||
+	     insn->imm == special_kfunc_id(bpf_res_spin_lock_irqsave))) {
 		struct bpf_verifier_state *branch;
 		struct bpf_reg_state *regs;
 
@@ -14272,7 +14186,7 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 			return err;
 		}
 		__mark_btf_func_reg_size(env, regs, BPF_REG_0, sizeof(u32));
-	} else if (!insn->off && insn->imm == special_kfunc_list[KF___bpf_trap]) {
+	} else if (!insn->off && insn->imm == special_kfunc_id(__bpf_trap)) {
 		verbose(env, "unexpected __bpf_trap() due to uninitialized variable?\n");
 		return -EFAULT;
 	}
@@ -14307,7 +14221,7 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 		}
 	}
 
-	if (meta.func_id == special_kfunc_list[KF_bpf_session_cookie]) {
+	if (meta.func_id == special_kfunc_id(bpf_session_cookie)) {
 		meta.r0_size = sizeof(u64);
 		meta.r0_rdonly = false;
 	}
@@ -14420,7 +14334,7 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 		}
 	}
 
-	if (meta.func_id == special_kfunc_list[KF_bpf_throw]) {
+	if (meta.func_id == special_kfunc_id(bpf_throw)) {
 		if (!bpf_jit_supports_exceptions()) {
 			verbose(env, "JIT does not support calling kfunc %s#%d\n",
 				func_name, meta.func_id);
@@ -14460,8 +14374,8 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 
 	if (btf_type_is_scalar(t)) {
 		mark_reg_unknown(env, regs, BPF_REG_0);
-		if (meta.btf == btf_vmlinux && (meta.func_id == special_kfunc_list[KF_bpf_res_spin_lock] ||
-		    meta.func_id == special_kfunc_list[KF_bpf_res_spin_lock_irqsave]))
+		if (meta.btf == btf_vmlinux && (meta.func_id == special_kfunc_id(bpf_res_spin_lock) ||
+		    meta.func_id == special_kfunc_id(bpf_res_spin_lock_irqsave)))
 			__mark_reg_const_zero(env, &regs[BPF_REG_0]);
 		mark_btf_func_reg_size(env, BPF_REG_0, t->size);
 	} else if (btf_type_is_ptr(t)) {
@@ -14509,7 +14423,7 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 		} else {
 			enum bpf_reg_type type = PTR_TO_BTF_ID;
 
-			if (meta.func_id == special_kfunc_list[KF_bpf_get_kmem_cache])
+			if (meta.func_id == special_kfunc_id(bpf_get_kmem_cache))
 				type |= PTR_UNTRUSTED;
 			else if (is_kfunc_rcu_protected(&meta) ||
 				 (is_iter_next_kfunc(&meta) &&
@@ -14594,7 +14508,7 @@ static int check_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 			return err;
 	}
 
-	if (meta.func_id == special_kfunc_list[KF_bpf_session_cookie])
+	if (meta.func_id == special_kfunc_id(bpf_session_cookie))
 		env->prog->call_session_cookie = true;
 
 	return 0;
@@ -23308,7 +23222,7 @@ static int specialize_kfunc(struct bpf_verifier_env *env, struct bpf_kfunc_desc 
 		if (xdp_kfunc)
 			addr = (unsigned long)xdp_kfunc;
 		/* fallback to default kfunc when not supported by netdev */
-	} else if (func_id == special_kfunc_list[KF_bpf_dynptr_from_skb]) {
+	} else if (func_id == special_kfunc_id(bpf_dynptr_from_skb)) {
 		seen_direct_write = env->seen_direct_write;
 		is_rdonly = !may_access_direct_pkt_data(env, NULL, BPF_WRITE);
 
@@ -23319,19 +23233,19 @@ static int specialize_kfunc(struct bpf_verifier_env *env, struct bpf_kfunc_desc 
 		 * may_access_direct_pkt_data mutates it
 		 */
 		env->seen_direct_write = seen_direct_write;
-	} else if (func_id == special_kfunc_list[KF_bpf_set_dentry_xattr]) {
+	} else if (func_id == special_kfunc_id(bpf_set_dentry_xattr)) {
 		if (bpf_lsm_has_d_inode_locked(prog))
 			addr = (unsigned long)bpf_set_dentry_xattr_locked;
-	} else if (func_id == special_kfunc_list[KF_bpf_remove_dentry_xattr]) {
+	} else if (func_id == special_kfunc_id(bpf_remove_dentry_xattr)) {
 		if (bpf_lsm_has_d_inode_locked(prog))
 			addr = (unsigned long)bpf_remove_dentry_xattr_locked;
-	} else if (func_id == special_kfunc_list[KF_bpf_dynptr_from_file]) {
+	} else if (func_id == special_kfunc_id(bpf_dynptr_from_file)) {
 		if (!env->insn_aux_data[insn_idx].non_sleepable)
 			addr = (unsigned long)bpf_dynptr_from_file_sleepable;
-	} else if (func_id == special_kfunc_list[KF_bpf_arena_alloc_pages]) {
+	} else if (func_id == special_kfunc_id(bpf_arena_alloc_pages)) {
 		if (env->insn_aux_data[insn_idx].non_sleepable)
 			addr = (unsigned long)bpf_arena_alloc_pages_non_sleepable;
-	} else if (func_id == special_kfunc_list[KF_bpf_arena_free_pages]) {
+	} else if (func_id == special_kfunc_id(bpf_arena_free_pages)) {
 		if (env->insn_aux_data[insn_idx].non_sleepable)
 			addr = (unsigned long)bpf_arena_free_pages_non_sleepable;
 	}
@@ -23445,11 +23359,11 @@ static int fixup_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 
 		__fixup_collection_insert_kfunc(&env->insn_aux_data[insn_idx], struct_meta_reg,
 						node_offset_reg, insn, insn_buf, cnt);
-	} else if (desc->func_id == special_kfunc_list[KF_bpf_cast_to_kern_ctx] ||
-		   desc->func_id == special_kfunc_list[KF_bpf_rdonly_cast]) {
+	} else if (desc->func_id == special_kfunc_id(bpf_cast_to_kern_ctx) ||
+		   desc->func_id == special_kfunc_id(bpf_rdonly_cast)) {
 		insn_buf[0] = BPF_MOV64_REG(BPF_REG_0, BPF_REG_1);
 		*cnt = 1;
-	} else if (desc->func_id == special_kfunc_list[KF_bpf_session_is_return] &&
+	} else if (desc->func_id == special_kfunc_id(bpf_session_is_return) &&
 		   env->prog->expected_attach_type == BPF_TRACE_FSESSION) {
 		/*
 		 * inline the bpf_session_is_return() for fsession:
@@ -23462,7 +23376,7 @@ static int fixup_kfunc_call(struct bpf_verifier_env *env, struct bpf_insn *insn,
 		insn_buf[1] = BPF_ALU64_IMM(BPF_RSH, BPF_REG_0, BPF_TRAMP_IS_RETURN_SHIFT);
 		insn_buf[2] = BPF_ALU64_IMM(BPF_AND, BPF_REG_0, 1);
 		*cnt = 3;
-	} else if (desc->func_id == special_kfunc_list[KF_bpf_session_cookie] &&
+	} else if (desc->func_id == special_kfunc_id(bpf_session_cookie) &&
 		   env->prog->expected_attach_type == BPF_TRACE_FSESSION) {
 		/*
 		 * inline bpf_session_cookie() for fsession:

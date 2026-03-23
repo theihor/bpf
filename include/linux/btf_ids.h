@@ -24,7 +24,6 @@ struct btf_id_set8 {
 
 #ifdef CONFIG_DEBUG_INFO_BTF
 
-#include <linux/compiler.h> /* for __PASTE */
 #include <linux/compiler_attributes.h> /* for __maybe_unused */
 #include <linux/stringify.h>
 
@@ -109,6 +108,37 @@ __BTF_ID_LIST(name, globl)
 #define BTF_ID_LIST_GLOBAL_SINGLE(name, prefix, typename) \
 	BTF_ID_LIST_GLOBAL(name, 1)			  \
 	BTF_ID(prefix, typename)
+
+/*
+ * The BTF_ID_LIST_NAMED/BTF_ID_NAMED macros define an unsorted list of
+ * BTF IDs whose entry symbols use the list name as suffix instead of
+ * __COUNTER__/__LINE__, producing stable symbols that can be read
+ * directly without array indexing or a manually maintained enum.
+ *
+ * Each BTF_ID_NAMED entry emits both the asm symbol and an extern
+ * declaration, so btf_id_named() works immediately.
+ *
+ * Entries whose kconfig is off may be left in the list unconditionally;
+ * resolve_btfids will leave them as 0 if the function is absent from BTF.
+ *
+ * Usage:
+ *   BTF_ID_LIST_NAMED(my_list)
+ *   BTF_ID_NAMED(my_list, func, foo)
+ *   BTF_ID_NAMED(my_list, struct, bar)
+ *
+ *   u32 id = btf_id_named(my_list, func, foo);
+ */
+#define BTF_ID_LIST_NAMED(name)				\
+	__BTF_ID_LIST(name, local)			\
+	extern u32 name[];
+
+#define BTF_ID_NAMED(list, prefix, name)		\
+	__BTF_ID(__BTF_ID__##prefix##__##name##__##list, "") \
+	extern u32 __btf_id_##list##__##prefix##__##name \
+		asm("__BTF_ID__" #prefix "__" #name "__" #list);
+
+#define btf_id_named(list, prefix, name) \
+	(__btf_id_##list##__##prefix##__##name)
 
 /*
  * The BTF_ID_UNUSED macro defines 4 zero bytes.
@@ -224,6 +254,11 @@ BTF_SET8_END(name)
 #define BTF_ID_LIST_GLOBAL(name, n) u32 __maybe_unused name[n];
 #define BTF_ID_LIST_SINGLE(name, prefix, typename) static u32 __maybe_unused name[1];
 #define BTF_ID_LIST_GLOBAL_SINGLE(name, prefix, typename) u32 __maybe_unused name[1];
+
+#define BTF_ID_LIST_NAMED(name) static u32 __maybe_unused name[64];
+#define BTF_ID_NAMED(list, prefix, name)
+#define btf_id_named(list, prefix, name) (0)
+
 #define BTF_SET_START(name) static struct btf_id_set __maybe_unused name = { 0 };
 #define BTF_SET_START_GLOBAL(name) static struct btf_id_set __maybe_unused name = { 0 };
 #define BTF_SET_END(name)
