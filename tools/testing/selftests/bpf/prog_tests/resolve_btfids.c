@@ -145,6 +145,60 @@ static int resolve_symbols(void)
 	return 0;
 }
 
+static void verify_bpf_kfunc_decl_tags(void)
+{
+	bool kfunc_tagged[ARRAY_SIZE(kfunc_symbols)] = {};
+	const struct btf_type *type, *tagged_type;
+	unsigned int i, nr_kfunc_tags = 0;
+	struct btf *btf;
+	const char *str;
+	__u32 nr;
+
+	btf = btf__parse_raw("resolve_btfids.test.o.BTF");
+	if (!ASSERT_OK_PTR(btf, "parse_btf_for_decl_tags"))
+		return;
+
+	nr = btf__type_cnt(btf);
+
+	for (__u32 id = 1; id < nr; id++) {
+		type = btf__type_by_id(btf, id);
+		if (!type || !btf_is_decl_tag(type))
+			continue;
+
+		str = btf__name_by_offset(btf, type->name_off);
+		if (!str || strcmp(str, "bpf_kfunc") != 0)
+			continue;
+
+		tagged_type = btf__type_by_id(btf, type->type);
+		if (!ASSERT_OK_PTR(tagged_type, "decl_tag_target_type"))
+			goto out;
+
+		if (!ASSERT_TRUE(btf_is_func(tagged_type), "decl_tag_targets_func"))
+			goto out;
+
+		str = btf__name_by_offset(btf, tagged_type->name_off);
+		if (!ASSERT_OK_PTR(str, "func_name"))
+			goto out;
+
+		for (i = 0; i < ARRAY_SIZE(kfunc_symbols); i++) {
+			if (strcmp(str, kfunc_symbols[i].name) != 0)
+				continue;
+
+			kfunc_tagged[i] = true;
+			nr_kfunc_tags++;
+			break;
+		}
+	}
+
+	ASSERT_EQ(nr_kfunc_tags, ARRAY_SIZE(kfunc_symbols), "nr_bpf_kfunc_tags");
+
+	for (i = 0; i < ARRAY_SIZE(kfunc_symbols); i++)
+		ASSERT_TRUE(kfunc_tagged[i], kfunc_symbols[i].name);
+
+out:
+	btf__free(btf);
+}
+
 void test_resolve_btfids(void)
 {
 	__u32 *test_list, *test_lists[] = { test_list_local, test_list_global };
@@ -224,4 +278,6 @@ void test_resolve_btfids(void)
 				return;
 		}
 	}
+
+	verify_bpf_kfunc_decl_tags();
 }
