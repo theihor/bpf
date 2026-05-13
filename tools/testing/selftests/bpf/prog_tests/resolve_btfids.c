@@ -10,6 +10,10 @@
 #include <linux/btf_ids.h>
 #include "test_progs.h"
 
+#ifndef KF_FASTCALL
+#define KF_FASTCALL (1 << 12)
+#endif
+
 static int duration;
 
 struct symbol {
@@ -37,6 +41,7 @@ struct kfunc_symbol {
 static struct kfunc_symbol kfunc_symbols[] = {
 	{ "kfunc_a", -1, 0 },
 	{ "kfunc_b", -1, 0 },
+	{ "kfunc_c", -1, KF_FASTCALL },
 };
 
 /* Align the .BTF_ids section to 4 bytes */
@@ -74,6 +79,7 @@ BTF_ID(func,    func)
 BTF_SET_END(test_set)
 
 BTF_KFUNCS_START(test_kfunc_set)
+BTF_ID_FLAGS(func, kfunc_c, KF_FASTCALL)
 BTF_ID_FLAGS(func, kfunc_a)
 BTF_ID_FLAGS(func, kfunc_b)
 BTF_KFUNCS_END(test_kfunc_set)
@@ -145,11 +151,13 @@ static int resolve_symbols(void)
 	return 0;
 }
 
-static void verify_bpf_kfunc_decl_tags(void)
+static void verify_decl_tags(void)
 {
 	bool kfunc_tagged[ARRAY_SIZE(kfunc_symbols)] = {};
+	bool fastcall_tagged[ARRAY_SIZE(kfunc_symbols)] = {};
 	const struct btf_type *type, *tagged_type;
 	unsigned int i, nr_kfunc_tags = 0;
+	unsigned int nr_fastcall_tags = 0;
 	struct btf *btf;
 	const char *str;
 	__u32 nr;
@@ -166,7 +174,11 @@ static void verify_bpf_kfunc_decl_tags(void)
 			continue;
 
 		str = btf__name_by_offset(btf, type->name_off);
-		if (!str || strcmp(str, "bpf_kfunc") != 0)
+		if (!str)
+			continue;
+
+		if (strcmp(str, "bpf_kfunc") != 0 &&
+		    strcmp(str, "bpf_fastcall") != 0)
 			continue;
 
 		tagged_type = btf__type_by_id(btf, type->type);
@@ -176,16 +188,22 @@ static void verify_bpf_kfunc_decl_tags(void)
 		if (!ASSERT_TRUE(btf_is_func(tagged_type), "decl_tag_targets_func"))
 			goto out;
 
-		str = btf__name_by_offset(btf, tagged_type->name_off);
-		if (!ASSERT_OK_PTR(str, "func_name"))
+		const char *func_name = btf__name_by_offset(btf, tagged_type->name_off);
+
+		if (!ASSERT_OK_PTR(func_name, "func_name"))
 			goto out;
 
 		for (i = 0; i < ARRAY_SIZE(kfunc_symbols); i++) {
-			if (strcmp(str, kfunc_symbols[i].name) != 0)
+			if (strcmp(func_name, kfunc_symbols[i].name) != 0)
 				continue;
 
-			kfunc_tagged[i] = true;
-			nr_kfunc_tags++;
+			if (strcmp(str, "bpf_kfunc") == 0) {
+				kfunc_tagged[i] = true;
+				nr_kfunc_tags++;
+			} else if (strcmp(str, "bpf_fastcall") == 0) {
+				fastcall_tagged[i] = true;
+				nr_fastcall_tags++;
+			}
 			break;
 		}
 	}
@@ -194,6 +212,13 @@ static void verify_bpf_kfunc_decl_tags(void)
 
 	for (i = 0; i < ARRAY_SIZE(kfunc_symbols); i++)
 		ASSERT_TRUE(kfunc_tagged[i], kfunc_symbols[i].name);
+
+	for (i = 0; i < ARRAY_SIZE(kfunc_symbols); i++) {
+		bool expect_fastcall = !!(kfunc_symbols[i].flags & KF_FASTCALL);
+
+		ASSERT_EQ(fastcall_tagged[i], expect_fastcall,
+			  kfunc_symbols[i].name);
+	}
 
 out:
 	btf__free(btf);
@@ -279,5 +304,5 @@ void test_resolve_btfids(void)
 		}
 	}
 
-	verify_bpf_kfunc_decl_tags();
+	verify_decl_tags();
 }
