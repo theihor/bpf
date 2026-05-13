@@ -152,6 +152,7 @@ struct object {
 	int nr_typedefs;
 };
 
+#define KF_FASTCALL      (1 << 12)
 #define KF_IMPLICIT_ARGS (1 << 16)
 #define KF_IMPL_SUFFIX "_impl"
 
@@ -1212,7 +1213,7 @@ static int btf2btf(struct object *obj)
 	if (err)
 		goto out;
 
-	/* Add bpf_kfunc decl_tags */
+	/* Add bpf_kfunc and bpf_fastcall decl_tags */
 	for (u32 i = 0; i < ctx.nr_kfuncs; i++) {
 		struct kfunc *kfunc = &ctx.kfuncs[i];
 
@@ -1221,6 +1222,15 @@ static int btf2btf(struct object *obj)
 			pr_err("FAILED to add bpf_kfunc decl_tag for %s: %d\n",
 			       kfunc->name, err);
 			goto out;
+		}
+
+		if (kfunc->flags & KF_FASTCALL) {
+			err = btf__add_decl_tag(ctx.btf, "bpf_fastcall", kfunc->btf_id, -1);
+			if (err < 0) {
+				pr_err("FAILED to add bpf_fastcall decl_tag for %s: %d\n",
+				       kfunc->name, err);
+				goto out;
+			}
 		}
 	}
 
