@@ -63,3 +63,8 @@ int kfunc_c(struct root_struct *root)
 {
 	return 0;
 }
+
+void *kfunc_arena(void *arg1, void *arg2)
+{
+	return 0;
+}

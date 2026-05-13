@@ -14,6 +14,14 @@
 #define KF_FASTCALL (1 << 12)
 #endif
 
+#ifndef KF_ARENA_RET
+#define KF_ARENA_RET  (1 << 13)
+#endif
+
+#ifndef KF_ARENA_ARG1
+#define KF_ARENA_ARG1 (1 << 14)
+#endif
+
 static int duration;
 
 struct symbol {
@@ -42,6 +50,7 @@ static struct kfunc_symbol kfunc_symbols[] = {
 	{ "kfunc_a", -1, 0 },
 	{ "kfunc_b", -1, 0 },
 	{ "kfunc_c", -1, KF_FASTCALL },
+	{ "kfunc_arena", -1, KF_ARENA_RET | KF_ARENA_ARG1 },
 };
 
 /* Align the .BTF_ids section to 4 bytes */
@@ -82,6 +91,7 @@ BTF_KFUNCS_START(test_kfunc_set)
 BTF_ID_FLAGS(func, kfunc_c, KF_FASTCALL)
 BTF_ID_FLAGS(func, kfunc_a)
 BTF_ID_FLAGS(func, kfunc_b)
+BTF_ID_FLAGS(func, kfunc_arena, KF_ARENA_RET | KF_ARENA_ARG1)
 BTF_KFUNCS_END(test_kfunc_set)
 
 static int
@@ -149,6 +159,88 @@ static int resolve_symbols(void)
 
 	btf__free(btf);
 	return 0;
+}
+
+static void verify_arena_type_tags(void)
+{
+	const struct btf_type *func, *proto, *ptr, *type_tag;
+	const struct btf_param *params;
+	struct btf *btf;
+	const char *str;
+	__u32 nr;
+	int func_id = -1;
+
+	btf = btf__parse_raw("resolve_btfids.test.o.BTF");
+	if (!ASSERT_OK_PTR(btf, "parse_btf_for_arena_tags"))
+		return;
+
+	nr = btf__type_cnt(btf);
+
+	/* Find kfunc_arena FUNC */
+	for (__u32 id = 1; id < nr; id++) {
+		const struct btf_type *t = btf__type_by_id(btf, id);
+
+		if (!t || !btf_is_func(t))
+			continue;
+		str = btf__name_by_offset(btf, t->name_off);
+		if (str && strcmp(str, "kfunc_arena") == 0) {
+			func_id = id;
+			break;
+		}
+	}
+
+	if (!ASSERT_GE(func_id, 0, "find_kfunc_arena"))
+		goto out;
+
+	func = btf__type_by_id(btf, func_id);
+	proto = btf__type_by_id(btf, func->type);
+	if (!ASSERT_OK_PTR(proto, "arena_func_proto"))
+		goto out;
+	if (!ASSERT_TRUE(btf_is_func_proto(proto), "is_func_proto"))
+		goto out;
+
+	/* Verify return pointer is wrapped with TYPE_TAG("address_space(1)") */
+	ptr = btf__type_by_id(btf, proto->type);
+	if (!ASSERT_OK_PTR(ptr, "arena_ret_ptr"))
+		goto out;
+	ASSERT_TRUE(btf_is_ptr(ptr), "ret_is_ptr");
+	type_tag = btf__type_by_id(btf, ptr->type);
+	if (!ASSERT_OK_PTR(type_tag, "arena_ret_type_tag"))
+		goto out;
+	ASSERT_TRUE(btf_is_type_tag(type_tag), "ret_is_type_tag");
+	ASSERT_TRUE(btf_kflag(type_tag), "ret_type_tag_is_attr");
+	str = btf__name_by_offset(btf, type_tag->name_off);
+	ASSERT_STREQ(str, "address_space(1)", "ret_type_tag_value");
+
+	/* Verify param[0] pointer is wrapped with TYPE_TAG("address_space(1)") */
+	params = btf_params(proto);
+	if (!ASSERT_EQ(btf_vlen(proto), 2, "arena_nr_params"))
+		goto out;
+
+	ptr = btf__type_by_id(btf, params[0].type);
+	if (!ASSERT_OK_PTR(ptr, "arena_arg1_ptr"))
+		goto out;
+	ASSERT_TRUE(btf_is_ptr(ptr), "arg1_is_ptr");
+	type_tag = btf__type_by_id(btf, ptr->type);
+	if (!ASSERT_OK_PTR(type_tag, "arena_arg1_type_tag"))
+		goto out;
+	ASSERT_TRUE(btf_is_type_tag(type_tag), "arg1_is_type_tag");
+	ASSERT_TRUE(btf_kflag(type_tag), "arg1_type_tag_is_attr");
+	str = btf__name_by_offset(btf, type_tag->name_off);
+	ASSERT_STREQ(str, "address_space(1)", "arg1_type_tag_value");
+
+	/* Verify param[1] is NOT wrapped (no KF_ARENA_ARG2) */
+	type_tag = btf__type_by_id(btf, params[1].type);
+	if (!ASSERT_OK_PTR(type_tag, "arena_arg2_type"))
+		goto out;
+	ASSERT_TRUE(btf_is_ptr(type_tag), "arg2_is_ptr");
+	type_tag = btf__type_by_id(btf, type_tag->type);
+	if (!ASSERT_OK_PTR(type_tag, "arena_arg2_pointee"))
+		goto out;
+	ASSERT_FALSE(btf_is_type_tag(type_tag), "arg2_not_type_tag");
+
+out:
+	btf__free(btf);
 }
 
 static void verify_decl_tags(void)
@@ -305,4 +397,5 @@ void test_resolve_btfids(void)
 	}
 
 	verify_decl_tags();
+	verify_arena_type_tags();
 }
