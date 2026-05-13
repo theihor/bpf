@@ -153,6 +153,10 @@ struct object {
 };
 
 #define KF_FASTCALL      (1 << 12)
+#define KF_ARENA_RET     (1 << 13)
+#define KF_ARENA_ARG1    (1 << 14)
+#define KF_ARENA_ARG2    (1 << 15)
+#define MAX_FUNC_PARAMS  16
 #define KF_IMPLICIT_ARGS (1 << 16)
 #define KF_IMPL_SUFFIX "_impl"
 
@@ -1204,6 +1208,100 @@ add_new_proto:
 	return 0;
 }
 
+static int add_bpf_arena_type_attr(struct btf *btf, int ptr_type_id, const char *kfunc_name)
+{
+	const struct btf_type *ptr;
+	int attr_type_id;
+
+	ptr = btf__type_by_id(btf, ptr_type_id);
+	if (!ptr || !btf_is_ptr(ptr)) {
+		pr_err("kfunc %s arena annotation target is not a pointer\n", kfunc_name);
+		return -EINVAL;
+	}
+
+	attr_type_id = btf__add_type_attr(btf, "address_space(1)", ptr->type);
+	if (attr_type_id < 0)
+		return attr_type_id;
+
+	return btf__add_ptr(btf, attr_type_id);
+}
+
+static int process_kfunc_arena_type_tags(struct btf2btf_context *ctx, struct kfunc *kfunc)
+{
+	struct btf *btf = ctx->btf;
+	const struct btf_type *func, *proto;
+	struct btf_param *params;
+	u32 arena_flags = kfunc->flags & (KF_ARENA_RET | KF_ARENA_ARG1 | KF_ARENA_ARG2);
+	s32 new_proto_id, arena_type_id, ret_type;
+	s32 param_types[MAX_FUNC_PARAMS];
+	u32 param_name_offs[MAX_FUNC_PARAMS];
+	u16 nr_params;
+	int err;
+
+	if (!arena_flags)
+		return 0;
+
+	func = btf__type_by_id(btf, kfunc->btf_id);
+	proto = btf__type_by_id(btf, func->type);
+	params = btf_params(proto);
+	nr_params = btf_vlen(proto);
+
+	if (nr_params > MAX_FUNC_PARAMS) {
+		pr_err("kfunc %s has too many params: %d\n", kfunc->name, nr_params);
+		return -E2BIG;
+	}
+
+	/*
+	 * Pre-compute all param types: add type_attrs for arena params first,
+	 * before creating the new FUNC_PROTO. btf__add_func_param requires
+	 * the last BTF type to be FUNC_PROTO, so we must not interleave
+	 * BTF type additions with btf__add_func_param calls.
+	 */
+	for (int j = 0; j < nr_params; j++) {
+		param_types[j] = params[j].type;
+		param_name_offs[j] = params[j].name_off;
+
+		if ((j == 0 && (arena_flags & KF_ARENA_ARG1)) ||
+		    (j == 1 && (arena_flags & KF_ARENA_ARG2))) {
+			arena_type_id = add_bpf_arena_type_attr(btf, param_types[j], kfunc->name);
+			if (arena_type_id < 0)
+				return arena_type_id;
+			param_types[j] = arena_type_id;
+			func = btf__type_by_id(btf, kfunc->btf_id);
+			proto = btf__type_by_id(btf, func->type);
+			params = btf_params(proto);
+		}
+	}
+
+	ret_type = proto->type;
+	if (arena_flags & KF_ARENA_RET) {
+		arena_type_id = add_bpf_arena_type_attr(btf, ret_type, kfunc->name);
+		if (arena_type_id < 0)
+			return arena_type_id;
+		ret_type = arena_type_id;
+	}
+
+	new_proto_id = btf__add_func_proto(btf, ret_type);
+	if (new_proto_id < 0)
+		return new_proto_id;
+
+	for (int j = 0; j < nr_params; j++) {
+		const char *param_name = btf__name_by_offset(btf, param_name_offs[j]);
+
+		err = btf__add_func_param(btf, param_name ? : "", param_types[j]);
+		if (err < 0)
+			return err;
+	}
+
+	/* Point FUNC to new FUNC_PROTO */
+	struct btf_type *mutable_func = (struct btf_type *)btf__type_by_id(btf, kfunc->btf_id);
+	mutable_func->type = new_proto_id;
+
+	pr_debug("resolve_btfids: added arena type_tags for kfunc %s\n", kfunc->name);
+
+	return 0;
+}
+
 static int btf2btf(struct object *obj)
 {
 	struct btf2btf_context ctx = {};
@@ -1243,6 +1341,21 @@ static int btf2btf(struct object *obj)
 		err = process_kfunc_with_implicit_args(&ctx, kfunc);
 		if (err)
 			goto out;
+	}
+
+	/* Add arena type_tags */
+	for (u32 i = 0; i < ctx.nr_kfuncs; i++) {
+		struct kfunc *kfunc = &ctx.kfuncs[i];
+
+		if (!(kfunc->flags & (KF_ARENA_RET | KF_ARENA_ARG1 | KF_ARENA_ARG2)))
+			continue;
+
+		err = process_kfunc_arena_type_tags(&ctx, kfunc);
+		if (err) {
+			pr_err("FAILED to add arena type_tags for %s: %d\n",
+			       kfunc->name, err);
+			goto out;
+		}
 	}
 
 	err = 0;

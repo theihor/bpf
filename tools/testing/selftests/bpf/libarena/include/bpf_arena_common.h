@@ -44,10 +44,17 @@
 #define cast_user(ptr) bpf_addr_space_cast(ptr, 1, 0)
 #endif
 
+/*
+ * When vmlinux.h is included without BPF_NO_KFUNC_PROTOTYPES,
+ * it provides these declarations with btf_type_tag annotations.
+ * Skip the manual declarations to avoid conflicting types.
+ */
+#if !defined(__VMLINUX_H__) || defined(BPF_NO_KFUNC_PROTOTYPES)
 void __arena* bpf_arena_alloc_pages(void *map, void __arena *addr, __u32 page_cnt,
 				    int node_id, __u64 flags) __ksym __weak;
 int bpf_arena_reserve_pages(void *map, void __arena *addr, __u32 page_cnt) __ksym __weak;
 void bpf_arena_free_pages(void *map, void __arena *ptr, __u32 page_cnt) __ksym __weak;
+#endif
 
 #define arena_base(map) ((void __arena *)((struct bpf_arena *)(map))->user_vm_start)
 
