@@ -715,13 +715,15 @@ static void mark_dynptr_stack_regs(struct bpf_verifier_env *env,
 
 /*
  * A callback dynptr argument is valid only until the frame is popped, so
- * setup_func_entry() assigns its id along with the frame reference.
+ * anchor it to a frame-owned reference right away.
  */
-static void mark_dynptr_cb_reg(struct bpf_func_state *callee, u32 regno,
-			       enum bpf_dynptr_type type)
+static int mark_dynptr_cb_reg(struct bpf_verifier_env *env,
+			      struct bpf_verifier_state *state,
+			      struct bpf_func_state *callee, u32 regno,
+			      enum bpf_dynptr_type type, int insn_idx)
 {
 	__mark_dynptr_reg(&callee->regs[regno], type, true, 0, 0);
-	mark_frame_scoped_arg(callee, regno);
+	return mark_frame_scoped_arg(env, state, callee, regno, insn_idx);
 }
 
 static int destroy_if_dynptr_stack_slot(struct bpf_verifier_env *env,
@@ -1543,13 +1545,31 @@ static int acquire_frame_reference(struct bpf_verifier_env *env, struct bpf_veri
 }
 
 /*
- * Declare that @regno in @callee holds a value that stops being valid once the
- * frame is popped. setup_func_entry() turns each declaration into a frame-owned
- * reference.
+ * Anchor @regno in @callee to a reference owned by the callee frame, so the
+ * value and everything derived from it is invalidated when the frame is
+ * popped. The owning @state is passed explicitly: on the async path the callee
+ * belongs to a fresh state, not env->cur_state.
  */
-void mark_frame_scoped_arg(struct bpf_func_state *callee, u32 regno)
+int mark_frame_scoped_arg(struct bpf_verifier_env *env,
+			  struct bpf_verifier_state *state,
+			  struct bpf_func_state *callee, u32 regno,
+			  int insn_idx)
 {
-	callee->frame_scoped_args |= BIT(regno);
+	int id;
+
+	id = acquire_frame_reference(env, state, insn_idx, callee->frameno);
+	if (id < 0)
+		return id;
+	/*
+	 * The value is its own lifetime anchor: there is no associated
+	 * object to borrow from, only the frame. parent_id = id here
+	 * covers both possible derived references:
+	 *  - through the id (e.g. dynptr slice)
+	 *  - through parent_id (e.g. dynptr clone)
+	 */
+	callee->regs[regno].id = id;
+	callee->regs[regno].parent_id = id;
+	return 0;
 }
 
 static int acquire_lock_state(struct bpf_verifier_env *env, int insn_idx, enum ref_state_type type,
@@ -10831,11 +10851,13 @@ static void invalidate_outgoing_stack_args(struct bpf_verifier_env *env,
 }
 
 typedef int (*set_callee_state_fn)(struct bpf_verifier_env *env,
+				   struct bpf_verifier_state *state,
 				   struct bpf_func_state *caller,
 				   struct bpf_func_state *callee,
 				   int insn_idx);
 
 static int set_callee_state(struct bpf_verifier_env *env,
+			    struct bpf_verifier_state *state,
 			    struct bpf_func_state *caller,
 			    struct bpf_func_state *callee, int insn_idx);
 
@@ -10844,8 +10866,7 @@ static int setup_func_entry(struct bpf_verifier_env *env, int subprog, int calls
 			    struct bpf_verifier_state *state)
 {
 	struct bpf_func_state *caller, *callee;
-	u16 scoped_args;
-	int err, regno;
+	int err;
 
 	if (state->curframe + 1 >= MAX_CALL_FRAMES) {
 		verbose(env, "the call stack of %d frames is too deep\n",
@@ -10873,33 +10894,9 @@ static int setup_func_entry(struct bpf_verifier_env *env, int subprog, int calls
 			callsite,
 			state->curframe + 1 /* frameno within this callchain */,
 			subprog /* subprog number within this prog */);
-	err = set_callee_state_cb(env, caller, callee, callsite);
+	err = set_callee_state_cb(env, state, caller, callee, callsite);
 	if (err)
 		goto err_out;
-
-	scoped_args = callee->frame_scoped_args;
-	callee->frame_scoped_args = 0;
-	for (regno = 0; regno < MAX_BPF_REG; regno++) {
-		int id;
-
-		if (!(scoped_args & BIT(regno)))
-			continue;
-
-		id = acquire_frame_reference(env, state, callsite, callee->frameno);
-		if (id < 0) {
-			err = id;
-			goto err_out;
-		}
-		/*
-		 * The value is its own lifetime anchor: there is no associated
-		 * object to borrow from, only the frame. parent_id = id here
-		 * covers both possible derived references:
-		 *  - through the id (e.g. dynptr slice)
-		 *  - through parent_id (e.g. dynptr clone)
-		 */
-		callee->regs[regno].id = id;
-		callee->regs[regno].parent_id = id;
-	}
 
 	/* only increment it after check_reg_arg() finished */
 	state->curframe++;
@@ -11059,14 +11056,14 @@ static int push_callback_call(struct bpf_verifier_env *env, struct bpf_insn *ins
 		callee = async_cb->frame[0];
 		callee->async_entry_cnt = state->frame[0]->async_entry_cnt + 1;
 
-		/* Convert bpf_timer_set_callback() args into timer callback args */
-		err = set_callee_state_cb(env, caller, callee, insn_idx);
+		/* Convert bpf_timer_set_callback() args into timer callback args.
+		 * The async state is passed explicitly, so a frame-scoped
+		 * argument declared here would be anchored to the async frame
+		 * it belongs to.
+		 */
+		err = set_callee_state_cb(env, async_cb, caller, callee, insn_idx);
 		if (err)
 			return err;
-
-		if (verifier_bug_if(callee->frame_scoped_args, env,
-				    "frame-scoped argument declared for async callback"))
-			return -EFAULT;
 
 		return 0;
 	}
@@ -11315,8 +11312,10 @@ static int check_func_callx(struct bpf_verifier_env *env, struct bpf_insn *insn,
 }
 
 int map_set_for_each_callback_args(struct bpf_verifier_env *env,
+				   struct bpf_verifier_state *state,
 				   struct bpf_func_state *caller,
-				   struct bpf_func_state *callee)
+				   struct bpf_func_state *callee,
+				   int insn_idx)
 {
 	/* bpf_for_each_map_elem(struct bpf_map *map, void *callback_fn,
 	 *      void *callback_ctx, u64 flags);
@@ -11345,6 +11344,7 @@ int map_set_for_each_callback_args(struct bpf_verifier_env *env,
 }
 
 static int set_callee_state(struct bpf_verifier_env *env,
+			    struct bpf_verifier_state *state,
 			    struct bpf_func_state *caller,
 			    struct bpf_func_state *callee, int insn_idx)
 {
@@ -11359,6 +11359,7 @@ static int set_callee_state(struct bpf_verifier_env *env,
 }
 
 static int set_map_elem_callback_state(struct bpf_verifier_env *env,
+				       struct bpf_verifier_state *state,
 				       struct bpf_func_state *caller,
 				       struct bpf_func_state *callee,
 				       int insn_idx)
@@ -11375,7 +11376,7 @@ static int set_map_elem_callback_state(struct bpf_verifier_env *env,
 		return -ENOTSUPP;
 	}
 
-	err = map->ops->map_set_for_each_callback_args(env, caller, callee);
+	err = map->ops->map_set_for_each_callback_args(env, state, caller, callee, insn_idx);
 	if (err)
 		return err;
 
@@ -11385,6 +11386,7 @@ static int set_map_elem_callback_state(struct bpf_verifier_env *env,
 }
 
 static int set_loop_callback_state(struct bpf_verifier_env *env,
+				   struct bpf_verifier_state *state,
 				   struct bpf_func_state *caller,
 				   struct bpf_func_state *callee,
 				   int insn_idx)
@@ -11407,6 +11409,7 @@ static int set_loop_callback_state(struct bpf_verifier_env *env,
 }
 
 static int set_timer_callback_state(struct bpf_verifier_env *env,
+				    struct bpf_verifier_state *state,
 				    struct bpf_func_state *caller,
 				    struct bpf_func_state *callee,
 				    int insn_idx)
@@ -11442,6 +11445,7 @@ static int set_timer_callback_state(struct bpf_verifier_env *env,
 }
 
 static int set_find_vma_callback_state(struct bpf_verifier_env *env,
+				       struct bpf_verifier_state *state,
 				       struct bpf_func_state *caller,
 				       struct bpf_func_state *callee,
 				       int insn_idx)
@@ -11470,16 +11474,22 @@ static int set_find_vma_callback_state(struct bpf_verifier_env *env,
 }
 
 static int set_user_ringbuf_callback_state(struct bpf_verifier_env *env,
+					   struct bpf_verifier_state *state,
 					   struct bpf_func_state *caller,
 					   struct bpf_func_state *callee,
 					   int insn_idx)
 {
+	int err;
+
 	/* bpf_user_ringbuf_drain(struct bpf_map *map, void *callback_fn, void
 	 *			  callback_ctx, u64 flags);
 	 * callback_fn(const struct bpf_dynptr_t* dynptr, void *callback_ctx);
 	 */
 	bpf_mark_reg_not_init(env, &callee->regs[BPF_REG_0]);
-	mark_dynptr_cb_reg(callee, BPF_REG_1, BPF_DYNPTR_TYPE_LOCAL);
+	err = mark_dynptr_cb_reg(env, state, callee, BPF_REG_1,
+				 BPF_DYNPTR_TYPE_LOCAL, insn_idx);
+	if (err)
+		return err;
 	callee->regs[BPF_REG_2] = caller->regs[BPF_REG_3];
 
 	/* unused */
@@ -11493,6 +11503,7 @@ static int set_user_ringbuf_callback_state(struct bpf_verifier_env *env,
 }
 
 static int set_rbtree_add_callback_state(struct bpf_verifier_env *env,
+					 struct bpf_verifier_state *state,
 					 struct bpf_func_state *caller,
 					 struct bpf_func_state *callee,
 					 int insn_idx)
@@ -11526,6 +11537,7 @@ static int set_rbtree_add_callback_state(struct bpf_verifier_env *env,
 }
 
 static int set_task_work_schedule_callback_state(struct bpf_verifier_env *env,
+						 struct bpf_verifier_state *state,
 						 struct bpf_func_state *caller,
 						 struct bpf_func_state *callee,
 						 int insn_idx)
@@ -11561,6 +11573,7 @@ static int set_task_work_schedule_callback_state(struct bpf_verifier_env *env,
 }
 
 static int set_rcu_callback_state(struct bpf_verifier_env *env,
+				  struct bpf_verifier_state *state,
 				  struct bpf_func_state *caller,
 				  struct bpf_func_state *callee,
 				  int insn_idx)

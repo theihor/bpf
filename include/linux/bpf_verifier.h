@@ -352,11 +352,6 @@ struct bpf_func_state {
 	u32 callback_depth;
 	/* Instructions processed in this frame and callees on the current path. */
 	u32 insns_subtotal;
-	/*
-	 * Set for arguments valid until the frame is popped.
-	 * Consumed by setup_func_entry().
-	 */
-	u16 frame_scoped_args;
 
 	/* The following fields should be last. See copy_func_state() */
 	/* The state of the stack. Each element of the array describes BPF_REG_SIZE

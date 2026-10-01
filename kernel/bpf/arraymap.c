@@ -856,17 +856,18 @@ static u64 array_map_mem_usage(const struct bpf_map *map)
 }
 
 static int array_map_set_for_each_callback_args(struct bpf_verifier_env *env,
+						struct bpf_verifier_state *state,
 						struct bpf_func_state *caller,
-						struct bpf_func_state *callee)
+						struct bpf_func_state *callee,
+						int insn_idx)
 {
 	int err;
 
-	err = map_set_for_each_callback_args(env, caller, callee);
+	err = map_set_for_each_callback_args(env, state, caller, callee, insn_idx);
 	if (err)
 		return err;
 
-	mark_frame_scoped_arg(callee, BPF_REG_2);
-	return 0;
+	return mark_frame_scoped_arg(env, state, callee, BPF_REG_2, insn_idx);
 }
 
 BTF_ID_LIST_SINGLE(array_map_btf_ids, struct, bpf_array)
