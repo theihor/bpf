@@ -865,8 +865,7 @@ static int array_map_set_for_each_callback_args(struct bpf_verifier_env *env,
 	if (err)
 		return err;
 
-	mark_frame_scoped_arg(callee, BPF_REG_2);
-	return 0;
+	return mark_frame_scoped_arg(env, callee, BPF_REG_2);
 }
 
 BTF_ID_LIST_SINGLE(array_map_btf_ids, struct, bpf_array)
