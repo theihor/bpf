@@ -14,6 +14,8 @@ menuconfig BPF_PRELOAD
 if BPF_PRELOAD
 config BPF_PRELOAD_UMD
 	tristate "bpf_preload kernel module"
+	# built in, it would read the external vmlinux BTF at boot
+	depends on m || !DEBUG_INFO_BTF_EXTERNAL
 	default m
 	help
 	  This builds bpf_preload kernel module with embedded BPF programs for

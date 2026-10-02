@@ -30,6 +30,10 @@
 #include <linux/sysfs.h>
 #include <linux/overflow.h>
 #include <linux/bitops.h>
+#include <linux/kernel_read_file.h>
+#include <linux/initrd.h>
+#include <linux/utsname.h>
+#include <crypto/sha2.h>
 
 #include <net/netfilter/nf_bpf_link.h>
 
@@ -6865,6 +6869,65 @@ errout:
 
 static void btf_publish_vmlinux(struct btf *btf);
 
+#ifdef CONFIG_DEBUG_INFO_BTF_EXTERNAL
+/* The vmlinux BTF this kernel was built with, see scripts/gen-btf.sh */
+struct btf_link {
+	u32 size;
+	u8 sha256[SHA256_DIGEST_SIZE];
+};
+extern const struct btf_link __start_BTF_link[], __stop_BTF_link[];
+
+u32 btf_vmlinux_size(void)
+{
+	return __stop_BTF_link - __start_BTF_link ? __start_BTF_link->size : 0;
+}
+
+/*
+ * Read /lib/modules/$(uname -r)/vmlinux.btf (installed by modules_install)
+ * from init's root with kernel credentials, so that the result does not
+ * depend on who asks, and check it against the image.
+ */
+static void *btf_vmlinux_read(u32 *size)
+{
+	u8 sha[SHA256_DIGEST_SIZE];
+	void *buf = NULL;
+	char *path;
+	ssize_t n;
+
+	*size = btf_vmlinux_size();
+	path = kasprintf(GFP_KERNEL, "/lib/modules/%s/vmlinux.btf", init_utsname()->release);
+	if (!*size || !path) {
+		kfree(path);
+		return ERR_PTR(-ENOMEM);
+	}
+	wait_for_initramfs();
+	scoped_with_kernel_creds()
+		n = kernel_read_file_from_path_initns(path, 0, &buf, *size, NULL, READING_FIRMWARE);
+	if (n == *size) {
+		sha256(buf, n, sha);
+		if (!memcmp(sha, __start_BTF_link->sha256, sizeof(sha)))
+			goto out;
+	}
+	pr_warn_ratelimited("cannot use %s: %zd\n", path, n < 0 ? n : -EBADMSG);
+	vfree(buf);
+	buf = ERR_PTR(n < 0 ? n : -EBADMSG);
+out:
+	kfree(path);
+	return buf;
+}
+#else
+static void *btf_vmlinux_read(u32 *size)
+{
+	*size = __stop_BTF - __start_BTF;
+	return __start_BTF;
+}
+#endif
+
+const void *btf_raw_data(const struct btf *btf)
+{
+	return btf->data;
+}
+
 /*
  * Parse the vmlinux BTF, under btf_vmlinux_lock, and apply what waited for
  * it.  Returns 0 once btf_vmlinux is set, to the BTF or for good to an error,
@@ -6874,15 +6937,21 @@ int btf_parse_vmlinux(void)
 {
 	struct btf_verifier_env *env;
 	struct btf *btf;
+	void *data;
+	u32 size;
 	int err;
 
-	env = kzalloc_obj(*env, GFP_KERNEL | __GFP_NOWARN);
-	if (!env)
-		return -ENOMEM;
+	data = btf_vmlinux_read(&size);
+	if (IS_ERR(data))
+		return PTR_ERR(data);
 
-	env->log.level = BPF_LOG_KERNEL;
-	btf = btf_parse_base(env, "vmlinux", __start_BTF, __stop_BTF - __start_BTF);
-	btf_verifier_env_free(env);
+	env = kzalloc_obj(*env, GFP_KERNEL | __GFP_NOWARN);
+	btf = env ? NULL : ERR_PTR(-ENOMEM);
+	if (env) {
+		env->log.level = BPF_LOG_KERNEL;
+		btf = btf_parse_base(env, "vmlinux", data, size);
+		btf_verifier_env_free(env);
+	}
 	if (!IS_ERR(btf)) {
 		err = btf_alloc_id(btf);
 		if (err) {
@@ -6890,6 +6959,8 @@ int btf_parse_vmlinux(void)
 			btf = ERR_PTR(err);
 		}
 	}
+	if (IS_ERR(btf) && IS_ENABLED(CONFIG_DEBUG_INFO_BTF_EXTERNAL))
+		vfree(data);
 	if (btf == ERR_PTR(-ENOMEM))
 		return -ENOMEM;
 	if (!IS_ERR(btf))

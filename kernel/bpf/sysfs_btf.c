@@ -10,6 +10,7 @@
 #include <linux/mm.h>
 #include <linux/io.h>
 #include <linux/btf.h>
+#include <linux/bpf.h>
 
 /* See scripts/link-vmlinux.sh, gen_btf() func for details */
 extern char __start_BTF[];
@@ -43,6 +44,18 @@ static int btf_sysfs_vmlinux_mmap(struct file *filp, struct kobject *kobj,
 	return remap_pfn_range(vma, vma->vm_start, pfn, vm_size, vma->vm_page_prot);
 }
 
+/* CONFIG_DEBUG_INFO_BTF_EXTERNAL: the first read reads the BTF in */
+static ssize_t btf_sysfs_vmlinux_read(struct file *file, struct kobject *kobj,
+				      const struct bin_attribute *attr, char *buf,
+				      loff_t off, size_t len)
+{
+	struct btf *btf = bpf_get_btf_vmlinux();
+
+	if (IS_ERR_OR_NULL(btf))
+		return -ENODEV;
+	return memory_read_from_buffer(buf, len, &off, btf_raw_data(btf), attr->size);
+}
+
 static struct bin_attribute bin_attr_btf_vmlinux __ro_after_init = {
 	.attr = { .name = "vmlinux", .mode = 0444, },
 	.read = sysfs_bin_attr_simple_read,
@@ -55,6 +68,12 @@ static int __init btf_vmlinux_init(void)
 {
 	bin_attr_btf_vmlinux.private = __start_BTF;
 	bin_attr_btf_vmlinux.size = __stop_BTF - __start_BTF;
+	if (IS_ENABLED(CONFIG_DEBUG_INFO_BTF_EXTERNAL)) {
+		bin_attr_btf_vmlinux.size = btf_vmlinux_size();
+		bin_attr_btf_vmlinux.read = btf_sysfs_vmlinux_read;
+		/* no file reads under mmap_lock */
+		bin_attr_btf_vmlinux.mmap = NULL;
+	}
 
 	if (bin_attr_btf_vmlinux.size == 0)
 		return 0;
