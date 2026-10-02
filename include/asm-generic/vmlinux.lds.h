@@ -553,7 +553,7 @@
 									\
 	RO_EXCEPTION_TABLE						\
 	NOTES								\
-	BTF								\
+	BTF_SECTIONS							\
 									\
 	. = ALIGN((align));						\
 	__end_rodata = .;
@@ -675,18 +675,32 @@
 /*
  * .BTF
  */
-#ifdef CONFIG_DEBUG_INFO_BTF
-#define BTF								\
-	. = ALIGN(PAGE_SIZE);						\
+#ifdef CONFIG_DEBUG_INFO_BTF_EXTERNAL
+/* .BTF is not loaded but stays in vmlinux, see ELF_DETAILS; .BTF_link checks it */
+#define BTF_DATA							\
+	.BTF_link : AT(ADDR(.BTF_link) - LOAD_OFFSET) {			\
+		BOUNDED_SECTION_BY(.BTF_link, _BTF_link)		\
+		__start_BTF = .; __stop_BTF = .;			\
+	}
+#define BTF_NOLOAD	.BTF 0 : { *(.BTF) }
+#else
+#define BTF_DATA							\
 	.BTF : AT(ADDR(.BTF) - LOAD_OFFSET) {				\
 		BOUNDED_SECTION_BY(.BTF, _BTF)				\
-	}								\
+	}
+#define BTF_NOLOAD
+#endif
+
+#ifdef CONFIG_DEBUG_INFO_BTF
+#define BTF_SECTIONS							\
+	. = ALIGN(PAGE_SIZE);						\
+	BTF_DATA							\
 	. = ALIGN(PAGE_SIZE);						\
 	.BTF_ids : AT(ADDR(.BTF_ids) - LOAD_OFFSET) {			\
 		*(.BTF_ids)						\
 	}
 #else
-#define BTF
+#define BTF_SECTIONS
 #endif
 
 /*
@@ -852,6 +866,7 @@
 		.symtab 0 : { *(.symtab) }				\
 		.strtab 0 : { *(.strtab) }				\
 		.shstrtab 0 : { *(.shstrtab) }				\
+		BTF_NOLOAD						\
 		KLP_SYMID
 
 #define MODINFO								\

@@ -34,8 +34,9 @@ quiet_cmd_install_modorder = INSTALL $@
 install-y += $(addprefix $(MODLIB)/, modules.builtin modules.builtin.modinfo)
 
 install-$(CONFIG_BUILTIN_MODULE_RANGES) += $(MODLIB)/modules.builtin.ranges
+install-$(CONFIG_DEBUG_INFO_BTF_EXTERNAL) += $(MODLIB)/vmlinux.btf
 
-$(addprefix $(MODLIB)/, modules.builtin modules.builtin.modinfo modules.builtin.ranges): $(MODLIB)/%: % FORCE
+$(addprefix $(MODLIB)/, modules.builtin modules.builtin.modinfo modules.builtin.ranges vmlinux.btf): $(MODLIB)/%: % FORCE
 	$(call cmd,install)
 
 endif

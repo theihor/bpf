@@ -87,10 +87,22 @@ gen_btf_o()
 	# SHF_ALLOC because .BTF will be part of the vmlinux image. --strip-all
 	# deletes all symbols including __start_BTF and __stop_BTF, which will
 	# be redefined in the linker script.
-	echo "" | ${CC} ${CLANG_FLAGS} ${KBUILD_CPPFLAGS} ${KBUILD_CFLAGS} -fno-lto -c -x c -o ${btf_data} -
-	${OBJCOPY} --add-section .BTF=${ELF_FILE}.BTF \
-		--set-section-flags .BTF=alloc,readonly ${btf_data}
-	${OBJCOPY} --only-section=.BTF --strip-all ${btf_data}
+	if is_enabled CONFIG_DEBUG_INFO_BTF_EXTERNAL; then
+		# The image only gets the size and SHA-256 of vmlinux.btf (.BTF_link);
+		# .BTF stays in vmlinux as a non-alloc section for tools.
+		cp ${ELF_FILE}.BTF vmlinux.btf
+		echo "static const struct { unsigned int size; unsigned char sha256[32]; }" \
+		     "link __attribute__((section(\".BTF_link\"), used)) =" \
+		     "{ $(wc -c < vmlinux.btf), { $(sha256sum vmlinux.btf | cut -c1-64 | sed 's/../0x&,/g') } };" |
+			${CC} ${CLANG_FLAGS} ${KBUILD_CPPFLAGS} ${KBUILD_CFLAGS} -fno-lto -c -x c -o ${btf_data} -
+		${OBJCOPY} --add-section .BTF=${ELF_FILE}.BTF ${btf_data}
+		${OBJCOPY} --only-section=.BTF --only-section=.BTF_link --strip-all ${btf_data}
+	else
+		echo "" | ${CC} ${CLANG_FLAGS} ${KBUILD_CPPFLAGS} ${KBUILD_CFLAGS} -fno-lto -c -x c -o ${btf_data} -
+		${OBJCOPY} --add-section .BTF=${ELF_FILE}.BTF \
+			--set-section-flags .BTF=alloc,readonly ${btf_data}
+		${OBJCOPY} --only-section=.BTF --strip-all ${btf_data}
+	fi
 
 	# Change e_type to ET_REL so that it can be used to link final vmlinux.
 	# GNU ld 2.35+ and lld do not allow an ET_EXEC input.

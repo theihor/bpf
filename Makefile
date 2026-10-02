@@ -1768,7 +1768,7 @@ endif # CONFIG_MODULES
 # Directories & files removed with 'make clean'
 CLEAN_FILES += vmlinux.symvers modules-only.symvers \
 	       modules.builtin modules.builtin.modinfo modules.nsdeps \
-	       modules.builtin.ranges vmlinux.o.map vmlinux.unstripped \
+	       modules.builtin.ranges vmlinux.o.map vmlinux.unstripped vmlinux.btf \
 	       vmlinux.thinlto-index builtin.order \
 	       compile_commands.json rust/test \
 	       rust-project.json .vmlinux.objs .vmlinux.export.c \
