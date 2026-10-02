@@ -18,6 +18,7 @@
 #include <linux/fs.h>
 
 #include "trace.h"
+#include "trace_output.h"
 
 static void tracing_start_function_trace(struct trace_array *tr);
 static void tracing_stop_function_trace(struct trace_array *tr);
@@ -119,6 +120,7 @@ static ftrace_func_t select_trace_function(u32 flags_val)
 	case TRACE_FUNC_NO_OPTS:
 		return function_trace_call;
 	case TRACE_FUNC_OPT_ARGS:
+		trace_func_args_prepare();
 		return function_args_trace_call;
 	case TRACE_FUNC_OPT_STACK:
 		return function_stack_trace_call;

@@ -473,10 +473,12 @@ static int graph_trace_init(struct trace_array *tr)
 {
 	int ret;
 
-	if (tracer_flags_is_set(tr, TRACE_GRAPH_ARGS))
+	if (tracer_flags_is_set(tr, TRACE_GRAPH_ARGS)) {
+		trace_func_args_prepare();
 		tr->gops->entryfunc = trace_graph_entry_args;
-	else
+	} else {
 		tr->gops->entryfunc = trace_graph_entry;
+	}
 
 	if (tracing_thresh)
 		tr->gops->retfunc = trace_graph_thresh_return;
@@ -506,10 +508,12 @@ static int ftrace_graph_trace_args(struct trace_array *tr, int set)
 {
 	trace_func_graph_ent_t entry;
 
-	if (set)
+	if (set) {
+		trace_func_args_prepare();
 		entry = trace_graph_entry_args;
-	else
+	} else {
 		entry = trace_graph_entry;
+	}
 
 	/* See if there's any changes */
 	if (tr->gops->entryfunc == entry)

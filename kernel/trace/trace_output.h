@@ -55,11 +55,13 @@ extern struct rw_semaphore trace_event_sem;
 #ifdef CONFIG_FUNCTION_TRACE_ARGS
 void print_function_args(struct trace_seq *s, unsigned long *args,
 			 unsigned long func);
+void trace_func_args_prepare(void);
 #else
 static inline void print_function_args(struct trace_seq *s, unsigned long *args,
 				       unsigned long func) {
 	trace_seq_puts(s, "()");
 }
+static inline void trace_func_args_prepare(void) { }
 #endif
 #endif
 

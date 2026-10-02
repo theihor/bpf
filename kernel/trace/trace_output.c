@@ -718,6 +718,27 @@ int trace_print_lat_context(struct trace_iterator *iter)
 }
 
 #ifdef CONFIG_FUNCTION_TRACE_ARGS
+static bool func_args_btf_deferred;
+
+/* printing can be atomic (ftrace_dump()): get the BTF before tracing */
+void trace_func_args_prepare(void)
+{
+	/* ftrace=function can set this up from start_kernel(), too early */
+	if (system_state < SYSTEM_SCHEDULING) {
+		func_args_btf_deferred = true;
+		return;
+	}
+	bpf_get_btf_vmlinux();
+}
+
+static int __init func_args_btf_init(void)
+{
+	if (func_args_btf_deferred)
+		bpf_get_btf_vmlinux();
+	return 0;
+}
+core_initcall(func_args_btf_init);
+
 void print_function_args(struct trace_seq *s, unsigned long *args,
 			 unsigned long func)
 {
@@ -739,6 +760,9 @@ void print_function_args(struct trace_seq *s, unsigned long *args,
 	if (lookup_symbol_name(func, name))
 		goto out;
 
+	/* see trace_func_args_prepare() */
+	if (IS_ERR_OR_NULL(bpf_peek_btf_vmlinux()))
+		goto out;
 	/* TODO: Pass module name here too */
 	t = btf_find_func_proto(name, &btf);
 	if (IS_ERR_OR_NULL(t))
