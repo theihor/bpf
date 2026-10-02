@@ -6863,33 +6863,39 @@ errout:
 	return ERR_PTR(err);
 }
 
-struct btf *btf_parse_vmlinux(void)
+static void btf_publish_vmlinux(struct btf *btf);
+
+/*
+ * Parse the vmlinux BTF, under btf_vmlinux_lock, and apply what waited for
+ * it.  Returns 0 once btf_vmlinux is set, to the BTF or for good to an error,
+ * or a transient error.
+ */
+int btf_parse_vmlinux(void)
 {
-	struct btf_verifier_env *env = NULL;
-	struct bpf_verifier_log *log;
+	struct btf_verifier_env *env;
 	struct btf *btf;
 	int err;
 
 	env = kzalloc_obj(*env, GFP_KERNEL | __GFP_NOWARN);
 	if (!env)
-		return ERR_PTR(-ENOMEM);
+		return -ENOMEM;
 
-	log = &env->log;
-	log->level = BPF_LOG_KERNEL;
+	env->log.level = BPF_LOG_KERNEL;
 	btf = btf_parse_base(env, "vmlinux", __start_BTF, __stop_BTF - __start_BTF);
-	if (IS_ERR(btf))
-		goto err_out;
-
-	/* btf_parse_vmlinux() runs under btf_vmlinux_lock */
-	bpf_ctx_convert.t = btf_type_by_id(btf, bpf_ctx_convert_btf_id[0]);
-	err = btf_alloc_id(btf);
-	if (err) {
-		btf_free(btf);
-		btf = ERR_PTR(err);
-	}
-err_out:
 	btf_verifier_env_free(env);
-	return btf;
+	if (!IS_ERR(btf)) {
+		err = btf_alloc_id(btf);
+		if (err) {
+			btf_free(btf);
+			btf = ERR_PTR(err);
+		}
+	}
+	if (btf == ERR_PTR(-ENOMEM))
+		return -ENOMEM;
+	if (!IS_ERR(btf))
+		bpf_ctx_convert.t = btf_type_by_id(btf, bpf_ctx_convert_btf_id[0]);
+	btf_publish_vmlinux(btf);
+	return 0;
 }
 
 /* If .BTF_ids section was created with distilled base BTF, both base and
@@ -8987,6 +8993,21 @@ enum {
 	BTF_MODULE_F_LIVE = (1 << 0),
 };
 
+/*
+ * kfunc, dtor kfunc and struct_ops registrations for a BTF that is not parsed
+ * yet: the vmlinux BTF is parsed on first use, not at boot, and module BTF
+ * only after it.  They are applied once it is, see btf_publish_vmlinux().
+ */
+enum { BTF_REG_KFUNC, BTF_REG_DTOR, BTF_REG_STRUCT_OPS };
+
+struct btf_deferred_reg {
+	struct list_head list;
+	struct module *owner;
+	const void *data;
+	u32 arg;		/* kfunc hook or dtor count */
+	int kind;
+};
+
 #ifdef CONFIG_DEBUG_INFO_BTF_MODULES
 struct btf_module {
 	struct list_head list;
@@ -9166,7 +9187,8 @@ struct btf *btf_get_module_btf(const struct module *module)
 	struct btf *btf = NULL;
 
 	if (!module) {
-		btf = bpf_get_btf_vmlinux();
+		/* registrations: never parse here, see btf_defer_reg() */
+		btf = READ_ONCE(btf_vmlinux);
 		if (!IS_ERR_OR_NULL(btf))
 			btf_get(btf);
 		return btf;
@@ -9197,6 +9219,100 @@ static int check_btf_kconfigs(const struct module *module, const char *feature)
 	if (module && IS_ENABLED(CONFIG_DEBUG_INFO_BTF_MODULES))
 		pr_warn("missing module BTF, cannot register %s\n", feature);
 	return 0;
+}
+
+
+static DEFINE_MUTEX(btf_vmlinux_regs_mutex);
+static LIST_HEAD(btf_vmlinux_regs);
+
+/* Returns 1 if queued, 0 if the caller registers it now, or -ENOMEM. */
+static int btf_defer_reg(struct module *owner, int kind, const void *data, u32 arg)
+{
+	struct list_head *head = NULL;
+	struct btf_deferred_reg *reg;
+
+	if (!IS_ENABLED(CONFIG_DEBUG_INFO_BTF))
+		return 0;
+
+	guard(mutex)(&btf_vmlinux_regs_mutex);
+	if (!owner && !READ_ONCE(btf_vmlinux))
+		head = &btf_vmlinux_regs;
+	if (!head)
+		return 0;
+
+	reg = kzalloc_obj(*reg);
+	if (!reg)
+		return -ENOMEM;
+	if (kind == BTF_REG_DTOR) {
+		/* callers build these arrays on the stack */
+		data = kmemdup_array(data, arg, sizeof(struct btf_id_dtor_kfunc), GFP_KERNEL);
+		if (!data) {
+			kfree(reg);
+			return -ENOMEM;
+		}
+	}
+	reg->owner = owner;
+	reg->kind = kind;
+	reg->data = data;
+	reg->arg = arg;
+	list_add_tail(&reg->list, head);
+	return 1;
+}
+
+static void btf_free_reg(struct btf_deferred_reg *reg)
+{
+	if (reg->kind == BTF_REG_DTOR)
+		kfree(reg->data);
+	kfree(reg);
+}
+
+static int __register_btf_kfunc_id_set(enum btf_kfunc_hook hook,
+				       const struct btf_kfunc_id_set *kset);
+
+/* Its BTF is parsed now, so this does not queue it again; frees @reg. */
+static void btf_apply_reg(struct btf_deferred_reg *reg)
+{
+	int err = -EINVAL;
+
+	switch (reg->kind) {
+	case BTF_REG_KFUNC:
+		err = __register_btf_kfunc_id_set(reg->arg, reg->data);
+		break;
+	case BTF_REG_DTOR:
+		err = register_btf_id_dtor_kfuncs(reg->data, reg->arg, reg->owner);
+		break;
+#ifdef CONFIG_BPF_JIT
+	case BTF_REG_STRUCT_OPS:
+		err = __register_bpf_struct_ops((struct bpf_struct_ops *)reg->data);
+		break;
+#endif
+	}
+	if (err)
+		pr_warn("deferred BTF registration %d for [%s] failed: %d\n", reg->kind,
+			reg->owner ? reg->owner->name : "vmlinux", err);
+	btf_free_reg(reg);
+}
+
+/*
+ * The vmlinux BTF has just been parsed (or failed to for good), under
+ * btf_vmlinux_lock: apply the registrations that waited for it, before
+ * bpf_get_btf_vmlinux() lets anybody else see it.
+ */
+static void btf_publish_vmlinux(struct btf *btf)
+{
+	struct btf_deferred_reg *reg;
+
+	WRITE_ONCE(btf_vmlinux, btf);
+	for (;;) {
+		mutex_lock(&btf_vmlinux_regs_mutex);
+		reg = list_first_entry_or_null(&btf_vmlinux_regs, struct btf_deferred_reg, list);
+		if (reg)
+			list_del(&reg->list);
+		mutex_unlock(&btf_vmlinux_regs_mutex);
+		if (!reg)
+			break;
+		btf_apply_reg(reg);
+	}
 }
 
 BPF_CALL_4(bpf_btf_find_by_name_kind, char *, name, int, name_sz, u32, kind, int, flags)
@@ -9692,6 +9808,10 @@ static int __register_btf_kfunc_id_set(enum btf_kfunc_hook hook,
 	struct btf *btf;
 	int ret, i;
 
+	ret = btf_defer_reg(kset->owner, BTF_REG_KFUNC, kset, hook);
+	if (ret)
+		return min(ret, 0);
+
 	btf = btf_get_module_btf(kset->owner);
 	if (!btf)
 		return check_btf_kconfigs(kset->owner, "kfunc");
@@ -9807,6 +9927,10 @@ int register_btf_id_dtor_kfuncs(const struct btf_id_dtor_kfunc *dtors, u32 add_c
 	struct btf *btf;
 	u32 tab_cnt, i;
 	int ret;
+
+	ret = btf_defer_reg(owner, BTF_REG_DTOR, dtors, add_cnt);
+	if (ret)
+		return min(ret, 0);
 
 	btf = btf_get_module_btf(owner);
 	if (!btf)
@@ -10513,6 +10637,10 @@ int __register_bpf_struct_ops(struct bpf_struct_ops *st_ops)
 	struct bpf_verifier_log *log;
 	struct btf *btf;
 	int err = 0;
+
+	err = btf_defer_reg(st_ops->owner, BTF_REG_STRUCT_OPS, st_ops, 0);
+	if (err)
+		return min(err, 0);
 
 	btf = btf_get_module_btf(st_ops->owner);
 	if (!btf)
