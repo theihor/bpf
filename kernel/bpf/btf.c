@@ -6935,7 +6935,8 @@ __u32 btf_relocate_id(const struct btf *btf, __u32 id)
 
 #ifdef CONFIG_DEBUG_INFO_BTF_MODULES
 
-static struct btf *btf_parse_module(const char *module_name, const void *data,
+/* @data is a copy owned by the returned BTF; the caller frees it on error */
+static struct btf *btf_parse_module(const char *module_name, void *data,
 				    unsigned int data_size, void *base_data,
 				    unsigned int base_data_size)
 {
@@ -6981,11 +6982,7 @@ static struct btf *btf_parse_module(const char *module_name, const void *data,
 	btf->named_start_id = 0;
 	strscpy(btf->name, module_name);
 
-	btf->data = kvmemdup(data, data_size, GFP_KERNEL | __GFP_NOWARN);
-	if (!btf->data) {
-		err = -ENOMEM;
-		goto errout;
-	}
+	btf->data = data;
 	btf->data_size = data_size;
 
 	err = btf_parse_hdr(env);
@@ -7024,7 +7021,6 @@ errout:
 	if (!IS_ERR(base_btf) && base_btf != vmlinux_btf)
 		btf_free(base_btf);
 	if (btf) {
-		kvfree(btf->data);
 		kvfree(btf->types);
 		kfree(btf);
 	}
@@ -9035,6 +9031,7 @@ static int btf_module_notify(struct notifier_block *nb, unsigned long op,
 	struct btf_module *btf_mod, *tmp;
 	struct module *mod = module;
 	struct btf *btf;
+	void *data;
 	int err = 0;
 
 	if (mod->btf_data_size == 0 ||
@@ -9049,9 +9046,12 @@ static int btf_module_notify(struct notifier_block *nb, unsigned long op,
 			err = -ENOMEM;
 			goto out;
 		}
-		btf = btf_parse_module(mod->name, mod->btf_data, mod->btf_data_size,
+		data = kvmemdup(mod->btf_data, mod->btf_data_size, GFP_KERNEL | __GFP_NOWARN);
+		btf = !data ? ERR_PTR(-ENOMEM) :
+		      btf_parse_module(mod->name, data, mod->btf_data_size,
 				       mod->btf_base_data, mod->btf_base_data_size);
 		if (IS_ERR(btf)) {
+			kvfree(data);
 			kfree(btf_mod);
 			if (!IS_ENABLED(CONFIG_MODULE_ALLOW_BTF_MISMATCH)) {
 				pr_warn("failed to validate module [%s] BTF: %ld\n",
