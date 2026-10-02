@@ -734,7 +734,8 @@ void print_function_args(struct trace_seq *s, unsigned long *args,
 
 	trace_seq_printf(s, "(");
 
-	if (!args)
+	/* may run with IRQs off: only use the vmlinux BTF if already parsed */
+	if (!args || !bpf_peek_btf_vmlinux())
 		goto out;
 	if (lookup_symbol_name(func, name))
 		goto out;

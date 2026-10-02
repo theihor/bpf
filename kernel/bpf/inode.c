@@ -658,7 +658,7 @@ struct bpffs_btf_enums {
 	const struct btf_type *attach_t;
 };
 
-static int find_bpffs_btf_enums(struct bpffs_btf_enums *info)
+static int find_bpffs_btf_enums(struct bpffs_btf_enums *info, bool parse)
 {
 	struct {
 		const struct btf_type **type;
@@ -674,7 +674,7 @@ static int find_bpffs_btf_enums(struct bpffs_btf_enums *info)
 
 	memset(info, 0, sizeof(*info));
 
-	btf = bpf_get_btf_vmlinux();
+	btf = parse ? bpf_get_btf_vmlinux() : bpf_peek_btf_vmlinux();
 	if (IS_ERR(btf))
 		return PTR_ERR(btf);
 	if (!btf)
@@ -796,7 +796,7 @@ static int bpf_show_options(struct seq_file *m, struct dentry *root)
 		struct bpffs_btf_enums info;
 
 		/* ignore errors, fallback to hex */
-		(void)find_bpffs_btf_enums(&info);
+		(void)find_bpffs_btf_enums(&info, false);
 
 		mask = (1ULL << __MAX_BPF_CMD) - 1;
 		seq_print_delegate_opts(m, "delegate_cmds",
@@ -1060,7 +1060,7 @@ static int bpf_parse_param(struct fs_context *fc, struct fs_parameter *param)
 		int val;
 
 		/* ignore errors, fallback to hex */
-		(void)find_bpffs_btf_enums(&info);
+		(void)find_bpffs_btf_enums(&info, true);
 
 		switch (opt) {
 		case OPT_DELEGATE_CMDS:

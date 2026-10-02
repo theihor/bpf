@@ -6435,6 +6435,8 @@ static int __sys_bpf(enum bpf_cmd cmd, bpfptr_t uattr, unsigned int size,
 					  &map_idr, &map_idr_lock);
 		break;
 	case BPF_BTF_GET_NEXT_ID:
+		if (capable(CAP_SYS_ADMIN))
+			bpf_get_btf_vmlinux(); /* kernel BTF ids appear once parsed */
 		err = bpf_obj_get_next_id(&attr, uattr.user,
 					  &btf_idr, &btf_idr_lock);
 		break;

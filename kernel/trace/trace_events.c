@@ -2245,6 +2245,7 @@ event_btf_ids_read(struct file *filp, char __user *ubuf, size_t cnt, loff_t *ppo
 	char buf[128];
 	int len;
 
+	bpf_get_btf_vmlinux();
 	/* Module unload could free call->class and ids[] mid-read. */
 	scoped_guard(mutex, &event_mutex) {
 		file = event_file_file(filp);

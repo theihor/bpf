@@ -1086,6 +1086,8 @@ static struct bpf_map *bpf_struct_ops_map_alloc(union bpf_attr *attr)
 	struct btf *btf;
 	int ret;
 
+	/* module struct_ops too register once the vmlinux BTF is parsed */
+	bpf_get_btf_vmlinux();
 	if (attr->map_flags & BPF_F_VTYPE_BTF_OBJ_FD) {
 		/* The map holds btf for its whole life time. */
 		btf = btf_get_by_fd(attr->value_type_btf_obj_fd);
