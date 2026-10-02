@@ -10,7 +10,7 @@ void test_ksyms(void)
 	const char *btf_path = "/sys/kernel/btf/vmlinux";
 	struct test_ksyms *skel;
 	struct test_ksyms__data *data;
-	__u64 link_fops_addr, per_cpu_start_addr;
+	__u64 link_fops_addr, per_cpu_start_addr, btf_start_addr;
 	struct stat st;
 	__u64 btf_size;
 	int err;
@@ -26,6 +26,13 @@ void test_ksyms(void)
 		return;
 	if (!ASSERT_NEQ(err, -ENOENT, "__per_cpu_start: ksym_find"))
 		return;
+
+	/* no uncompressed BTF in the image with CONFIG_DEBUG_INFO_BTF_LAZY */
+	if (kallsyms_find("__start_BTF", &btf_start_addr) == -ENOENT) {
+		printf("%s:SKIP:no __start_BTF symbol\n", __func__);
+		test__skip();
+		return;
+	}
 
 	if (!ASSERT_OK(stat(btf_path, &st), "stat_btf"))
 		return;

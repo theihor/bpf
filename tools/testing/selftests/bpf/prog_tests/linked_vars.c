@@ -7,8 +7,16 @@
 
 void test_linked_vars(void)
 {
+	unsigned long long btf_start_addr;
 	int err;
 	struct linked_vars *skel;
+
+	/* linked_vars2.c uses __start_BTF, see prog_tests/ksyms.c */
+	if (kallsyms_find("__start_BTF", &btf_start_addr) == -ENOENT) {
+		printf("%s:SKIP:no __start_BTF symbol\n", __func__);
+		test__skip();
+		return;
+	}
 
 	skel = linked_vars__open();
 	if (!ASSERT_OK_PTR(skel, "skel_open"))
