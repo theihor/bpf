@@ -88,9 +88,19 @@ gen_btf_o()
 	# deletes all symbols including __start_BTF and __stop_BTF, which will
 	# be redefined in the linker script.
 	echo "" | ${CC} ${CLANG_FLAGS} ${KBUILD_CPPFLAGS} ${KBUILD_CFLAGS} -fno-lto -c -x c -o ${btf_data} -
-	${OBJCOPY} --add-section .BTF=${ELF_FILE}.BTF \
-		--set-section-flags .BTF=alloc,readonly ${btf_data}
-	${OBJCOPY} --only-section=.BTF --strip-all ${btf_data}
+	if is_enabled CONFIG_DEBUG_INFO_BTF_LAZY; then
+		# The image gets compressed BTF as init data, .BTF stays in
+		# the ELF file for tools.
+		${ZSTD} -q -f -19 ${ELF_FILE}.BTF -o ${ELF_FILE}.BTF.zst
+		${OBJCOPY} --add-section .BTF=${ELF_FILE}.BTF \
+			--set-section-flags .BTF=readonly \
+			--add-section .init.BTF.zst=${ELF_FILE}.BTF.zst \
+			--set-section-flags .init.BTF.zst=alloc,readonly ${btf_data}
+	else
+		${OBJCOPY} --add-section .BTF=${ELF_FILE}.BTF \
+			--set-section-flags .BTF=alloc,readonly ${btf_data}
+	fi
+	${OBJCOPY} --only-section=.BTF --only-section=.init.BTF.zst --strip-all ${btf_data}
 
 	# Change e_type to ET_REL so that it can be used to link final vmlinux.
 	# GNU ld 2.35+ and lld do not allow an ET_EXEC input.
@@ -120,7 +130,7 @@ embed_btf_data()
 cleanup()
 {
 	rm -f "${ELF_FILE}.BTF.1"
-	rm -f "${ELF_FILE}.BTF"
+	rm -f "${ELF_FILE}.BTF" "${ELF_FILE}.BTF.zst"
 	if [ "${BTFGEN_MODE}" = "module" ]; then
 		rm -f "${ELF_FILE}.BTF.base"
 		rm -f "${ELF_FILE}.BTF_ids"

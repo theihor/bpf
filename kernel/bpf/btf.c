@@ -6490,8 +6490,6 @@ errout_free:
 	return ERR_PTR(err);
 }
 
-extern char __start_BTF[];
-extern char __stop_BTF[];
 extern struct btf *btf_vmlinux;
 
 #define BPF_MAP_TYPE(_id, _ops)
@@ -6866,7 +6864,13 @@ struct btf *btf_parse_vmlinux(void)
 	struct btf_verifier_env *env = NULL;
 	struct bpf_verifier_log *log;
 	struct btf *btf;
+	void *data;
+	u32 size;
 	int err;
+
+	data = btf_vmlinux_data(&size);
+	if (!data)
+		return ERR_PTR(-ENOMEM);
 
 	env = kzalloc_obj(*env, GFP_KERNEL | __GFP_NOWARN);
 	if (!env)
@@ -6874,7 +6878,7 @@ struct btf *btf_parse_vmlinux(void)
 
 	log = &env->log;
 	log->level = BPF_LOG_KERNEL;
-	btf = btf_parse_base(env, "vmlinux", __start_BTF, __stop_BTF - __start_BTF);
+	btf = btf_parse_base(env, "vmlinux", data, size);
 	if (IS_ERR(btf))
 		goto err_out;
 

@@ -408,6 +408,18 @@ config DEBUG_INFO_BTF
 	  Turning this on requires pahole v1.22 or later, which will convert
 	  DWARF type info into equivalent deduplicated BTF type info.
 
+config DEBUG_INFO_BTF_LAZY
+	bool "Compress vmlinux BTF and parse it on first use"
+	depends on DEBUG_INFO_BTF
+	select ZSTD_DECOMPRESS
+	help
+	  Keep the vmlinux BTF in the kernel image zstd-compressed (about a
+	  quarter of its size) and decompress and parse it the first time
+	  something needs it instead of at boot. Systems that never use BTF
+	  save the difference, 5-7 MB with distribution configs; the first
+	  user pays a one-time ~25 ms. Nothing else changes. The vmlinux ELF
+	  file keeps the uncompressed BTF as a non-loaded section for tools.
+
 config PAHOLE_HAS_BTF_TAG
 	def_bool PAHOLE_VERSION >= 123
 	depends on CC_IS_CLANG
