@@ -790,6 +790,76 @@ typeof(name(0)) name(unsigned long long *ctx)					\
 static __always_inline typeof(name(0))						\
 ____##name(unsigned long long *ctx ___bpf_ctx_decl(args))
 
+#define ___bpf_arg_field0()
+#define ___bpf_arg_field1(t, x)			t x __attribute__((aligned(8)));
+#define ___bpf_arg_field2(t, x, args...)	___bpf_arg_field1(t, x) ___bpf_arg_field1(args)
+#define ___bpf_arg_field3(t, x, args...)	___bpf_arg_field1(t, x) ___bpf_arg_field2(args)
+#define ___bpf_arg_field4(t, x, args...)	___bpf_arg_field1(t, x) ___bpf_arg_field3(args)
+#define ___bpf_arg_field5(t, x, args...)	___bpf_arg_field1(t, x) ___bpf_arg_field4(args)
+#define ___bpf_arg_field6(t, x, args...)	___bpf_arg_field1(t, x) ___bpf_arg_field5(args)
+#define ___bpf_arg_field7(t, x, args...)	___bpf_arg_field1(t, x) ___bpf_arg_field6(args)
+#define ___bpf_arg_field8(t, x, args...)	___bpf_arg_field1(t, x) ___bpf_arg_field7(args)
+#define ___bpf_arg_field9(t, x, args...)	___bpf_arg_field1(t, x) ___bpf_arg_field8(args)
+#define ___bpf_arg_field10(t, x, args...)	___bpf_arg_field1(t, x) ___bpf_arg_field9(args)
+#define ___bpf_arg_field11(t, x, args...)	___bpf_arg_field1(t, x) ___bpf_arg_field10(args)
+#define ___bpf_arg_field12(t, x, args...)	___bpf_arg_field1(t, x) ___bpf_arg_field11(args)
+#define ___bpf_arg_fields(args...) ___bpf_apply(___bpf_arg_field, ___bpf_narg2(args))(args)
+
+#define ___bpf_arg_load0()
+#define ___bpf_arg_load1(t, x)			, *(volatile unsigned long long *)&___args->x
+#define ___bpf_arg_load2(t, x, args...)		___bpf_arg_load1(t, x) ___bpf_arg_load1(args)
+#define ___bpf_arg_load3(t, x, args...)		___bpf_arg_load1(t, x) ___bpf_arg_load2(args)
+#define ___bpf_arg_load4(t, x, args...)		___bpf_arg_load1(t, x) ___bpf_arg_load3(args)
+#define ___bpf_arg_load5(t, x, args...)		___bpf_arg_load1(t, x) ___bpf_arg_load4(args)
+#define ___bpf_arg_load6(t, x, args...)		___bpf_arg_load1(t, x) ___bpf_arg_load5(args)
+#define ___bpf_arg_load7(t, x, args...)		___bpf_arg_load1(t, x) ___bpf_arg_load6(args)
+#define ___bpf_arg_load8(t, x, args...)		___bpf_arg_load1(t, x) ___bpf_arg_load7(args)
+#define ___bpf_arg_load9(t, x, args...)		___bpf_arg_load1(t, x) ___bpf_arg_load8(args)
+#define ___bpf_arg_load10(t, x, args...)	___bpf_arg_load1(t, x) ___bpf_arg_load9(args)
+#define ___bpf_arg_load11(t, x, args...)	___bpf_arg_load1(t, x) ___bpf_arg_load10(args)
+#define ___bpf_arg_load12(t, x, args...)	___bpf_arg_load1(t, x) ___bpf_arg_load11(args)
+#define ___bpf_arg_loads(args...) ___bpf_apply(___bpf_arg_load, ___bpf_narg2(args))(args)
+
+/*
+ * BPF_PROG_ARGS is like BPF_PROG2, but binds arguments by name instead of
+ * by position: libbpf resolves each declared argument against the
+ * parameter of the same name of the program's attach target in the running
+ * kernel (with "__nullable" suffix stripped; "ret" is the return value for
+ * fexit, fsession, fmod_ret and lsm programs). The program keeps working if
+ * the kernel adds, removes or reorders other arguments, and fails to load if
+ * a declared argument doesn't exist or has a different type.
+ *
+ *   SEC("lsm/inode_create")
+ *   int BPF_PROG_ARGS(deny_create, struct inode *, dir, struct dentry *, dentry)
+ *   {
+ *        // access dir and dentry directly
+ *        ...
+ *   }
+ *
+ * Arguments are declared as members of 'struct bpf_func_args___<name>',
+ * which programs can also define themselves, e.g., to check for an optional
+ * argument with bpf_core_field_exists(). Like BPF_PROG, BPF_PROG_ARGS reads
+ * each argument as a whole u64 context slot and supports only scalar and
+ * pointer arguments.
+ */
+#define BPF_PROG_ARGS(name, args...)						\
+name(unsigned long long *ctx);							\
+struct bpf_func_args___##name {							\
+	___bpf_arg_fields(args)							\
+} __attribute__((preserve_access_index));					\
+static __always_inline typeof(name(0))						\
+____##name(unsigned long long *ctx ___bpf_ctx_decl(args));			\
+typeof(name(0)) name(unsigned long long *ctx)					\
+{										\
+	struct bpf_func_args___##name *___args = (void *)ctx;			\
+	_Pragma("GCC diagnostic push")						\
+	_Pragma("GCC diagnostic ignored \"-Wint-conversion\"")			\
+	return ____##name(ctx ___bpf_arg_loads(args));				\
+	_Pragma("GCC diagnostic pop")						\
+}										\
+static __always_inline typeof(name(0))						\
+____##name(unsigned long long *ctx ___bpf_ctx_decl(args))
+
 struct pt_regs;
 
 #define ___bpf_kprobe_args0()           ctx
