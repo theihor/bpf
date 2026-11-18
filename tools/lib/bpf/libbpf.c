@@ -8497,6 +8497,41 @@ static int libbpf_setup_prog_flags(struct bpf_program *prog, long cookie)
 	return 0;
 }
 
+/* Find BTF FD and BTF type ID of prog's attach target and cache them in prog */
+static int bpf_program_resolve_attach_btf(struct bpf_program *prog)
+{
+	int btf_obj_fd = 0, btf_type_id = 0, err;
+	const char *attach_name;
+
+	if (prog->attach_btf_id)
+		return 0;
+
+	attach_name = strchr(prog->sec_name, '/');
+	if (!attach_name) {
+		/* if BPF program is annotated with just SEC("fentry")
+		 * (or similar) without declaratively specifying
+		 * target, then it is expected that target will be
+		 * specified with bpf_program__set_attach_target() at
+		 * runtime before BPF object load step. If not, then
+		 * there is nothing to load into the kernel as BPF
+		 * verifier won't be able to validate BPF program
+		 * correctness anyways.
+		 */
+		pr_warn("prog '%s': no BTF-based attach target is specified, use bpf_program__set_attach_target()\n",
+			prog->name);
+		return -EINVAL;
+	}
+	attach_name++; /* skip over / */
+
+	err = libbpf_find_attach_btf_id(prog, attach_name, &btf_obj_fd, &btf_type_id);
+	if (err)
+		return err;
+
+	prog->attach_btf_obj_fd = btf_obj_fd;
+	prog->attach_btf_id = btf_type_id;
+	return 0;
+}
+
 /* this is called as prog->sec_def->prog_prepare_load_fn for libbpf-supported sec_defs */
 static int libbpf_prepare_prog_load(struct bpf_program *prog,
 				    struct bpf_prog_load_opts *opts, long cookie)
@@ -8517,42 +8552,20 @@ static int libbpf_prepare_prog_load(struct bpf_program *prog,
 		opts->expected_attach_type = BPF_TRACE_UPROBE_MULTI;
 	}
 
-	if ((def & SEC_ATTACH_BTF) && !prog->attach_btf_id) {
-		int btf_obj_fd = 0, btf_type_id = 0, err;
-		const char *attach_name;
+	if (def & SEC_ATTACH_BTF) {
+		int err;
 
-		attach_name = strchr(prog->sec_name, '/');
-		if (!attach_name) {
-			/* if BPF program is annotated with just SEC("fentry")
-			 * (or similar) without declaratively specifying
-			 * target, then it is expected that target will be
-			 * specified with bpf_program__set_attach_target() at
-			 * runtime before BPF object load step. If not, then
-			 * there is nothing to load into the kernel as BPF
-			 * verifier won't be able to validate BPF program
-			 * correctness anyways.
-			 */
-			pr_warn("prog '%s': no BTF-based attach target is specified, use bpf_program__set_attach_target()\n",
-				prog->name);
-			return -EINVAL;
-		}
-		attach_name++; /* skip over / */
-
-		err = libbpf_find_attach_btf_id(prog, attach_name, &btf_obj_fd, &btf_type_id);
+		err = bpf_program_resolve_attach_btf(prog);
 		if (err)
 			return err;
 
-		/* cache resolved BTF FD and BTF type ID in the prog */
-		prog->attach_btf_obj_fd = btf_obj_fd;
-		prog->attach_btf_id = btf_type_id;
-
-		/* but by now libbpf common logic is not utilizing
+		/* by now libbpf common logic is not utilizing
 		 * prog->attach_btf_obj_fd/prog->attach_btf_id anymore because
 		 * this callback is called after opts were populated by
 		 * libbpf, so this callback has to update opts explicitly here
 		 */
-		opts->attach_btf_obj_fd = btf_obj_fd;
-		opts->attach_btf_id = btf_type_id;
+		opts->attach_btf_obj_fd = prog->attach_btf_obj_fd;
+		opts->attach_btf_id = prog->attach_btf_id;
 	}
 
 	if (is_tracing_multi(prog->expected_attach_type)) {
